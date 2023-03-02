@@ -31,6 +31,7 @@ public class CodificarCadena {
         } while (mensaje.charAt(mensaje.length()-1) != '.');
         
         codificar_mensaje(mensaje);
+//        System.out.println(">>>>>>>>>>>>>> " + mensaje);
     }
     
     public static void codificar_mensaje(String mensaje){
@@ -39,12 +40,12 @@ public class CodificarCadena {
         mensaje = "";
         
         for(char item : cadena){
-            item = (Character.toLowerCase(item) == 'a') ? '@' : (Character.toLowerCase(item) == 'e') ? '#' : (Character.toLowerCase(item) == 'i') ? '$' : (Character.toLowerCase(item) == 'o') ? '%' : (Character.toLowerCase(item) == 'u') ? '*' : item ;
-            System.out.println(" " + item);
-            mensaje += item;   
+            mensaje += (Character.toLowerCase(item) == 'a') ? '@' : (Character.toLowerCase(item) == 'e') ? '#' : (Character.toLowerCase(item) == 'i') ? '$' : (Character.toLowerCase(item) == 'o') ? '%' : (Character.toLowerCase(item) == 'u') ? '*' : item ;
+//            System.out.println(" " + item);
+//            mensaje += item;   
         }
         
-        System.out.println(new String(cadena));
+//        System.out.println(new String(cadena));
         System.out.println(mensaje);
     }
     
