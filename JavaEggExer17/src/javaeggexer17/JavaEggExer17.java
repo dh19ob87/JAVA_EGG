@@ -29,9 +29,13 @@ public class JavaEggExer17 {
         
         number = new int [item];
         
+//        for(int i = 0; i < item; i++){
+//            System.out.println("Por favor ingrese un número");
+//            number[i] = Integer.parseInt(CONSOLE.readLine());
+//        }
+        
         for(int i = 0; i < item; i++){
-            System.out.println("Por favor ingrese un número");
-            number[i] = Integer.parseInt(CONSOLE.readLine());
+            number[i] = (int) ((Math.random() * 100000) - (Math.random() * 100000));
         }
         
         for(int i = 0; i < item; i++){

@@ -26,7 +26,6 @@ public class JavaEggExerExtra45 {
         for (int i = 0; i < n; i++) {
             serie_fibonacci[i] = fibonacci(i);
         }
-        
         System.out.println(Arrays.toString(serie_fibonacci));
         
         int [] serie_dos_fibonacci = new int [20];

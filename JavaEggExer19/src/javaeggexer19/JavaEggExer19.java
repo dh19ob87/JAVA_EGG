@@ -48,19 +48,30 @@ public class JavaEggExer19 {
                         antisimétrica = false;
                         break;
                     }
-                }
-                
-                if(i != 0){
-                    if(j <= (i-1) ){
-                        if(Integer.signum(matriz[j][i]) == 1){
+                }else{
+                    if(j <= (i - 1) && i != 0){
+                        System.out.printf("%d | %d \n", matriz[j][i], matriz[i][j]);
+                        if(matriz[i][j] + matriz[j][i] != 0){
                             antisimétrica = false;
                             break;
                         }
                     }
-                }
+//                    if(i != 0){
+//                        System.out.printf("%d | %d \n", matriz[j][i], matriz[i][j]);
+//                        if(j <= (i-1)){
+////                            System.out.printf("%d | %d \n", matriz[j][i], matriz[i][j]);
+//                            if(matriz[j][i] - matriz[i][j] != 0){
+//    //                            System.out.printf("%d - %d", matriz[j][i], matriz[i][j]);
+//                                antisimétrica = false;
+//                                break;
+//                            }
+//                        }
+//                    }
+//                }
             }
             if(!antisimétrica){
                 break;
+            }
             }
         }
         
