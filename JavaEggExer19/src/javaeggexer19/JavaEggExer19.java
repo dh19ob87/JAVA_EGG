@@ -56,18 +56,6 @@ public class JavaEggExer19 {
                             break;
                         }
                     }
-//                    if(i != 0){
-//                        System.out.printf("%d | %d \n", matriz[j][i], matriz[i][j]);
-//                        if(j <= (i-1)){
-////                            System.out.printf("%d | %d \n", matriz[j][i], matriz[i][j]);
-//                            if(matriz[j][i] - matriz[i][j] != 0){
-//    //                            System.out.printf("%d - %d", matriz[j][i], matriz[i][j]);
-//                                antisimétrica = false;
-//                                break;
-//                            }
-//                        }
-//                    }
-//                }
             }
             if(!antisimétrica){
                 break;
