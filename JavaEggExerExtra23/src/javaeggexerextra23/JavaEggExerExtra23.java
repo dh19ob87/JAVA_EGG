@@ -26,6 +26,6 @@ public class JavaEggExerExtra23 {
         
         minutos = Integer.parseInt(CONSOLE.readLine());
         
-        System.out.printf("%d Minutos -> %d horas -> %f días", minutos, (minutos / 60), (float) (minutos/60)/24);
+        System.out.printf("%d Minutos -> %d horas -> %f días \n", minutos, (minutos / 60), (float) (minutos/60)/24);
     }
 }
