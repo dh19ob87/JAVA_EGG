@@ -24,7 +24,7 @@ public class JavaExtra1 {
         System.out.println("Por favor ingrese los minutos");
         minutos = input.nextDouble();
         dias = (int) (minutos/1440);
-        horas = (int) ((minutos%1440)/60); 
+        horas = (int) ((minutos%1440)/60);
         System.out.println("Días " + dias + " horas " + horas);
     }
 }
