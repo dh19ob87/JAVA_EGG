@@ -21,9 +21,9 @@ public class JavaPooEggExer3 {
         OperacionServicio os = new OperacionServicio();
         Operacion operandos = os.crearOperacion();
         System.out.printf("%f + %f = %f \n", operandos.getNumero1(), operandos.getNumero2(), os.sumar(operandos));
-        System.out.printf("%f + %f = %f \n", operandos.getNumero1(), operandos.getNumero2(), os.restar(operandos));
-        System.out.printf("%f + %f = %f \n", operandos.getNumero1(), operandos.getNumero2(), os.multiplicar(operandos));
-        System.out.printf("%f + %f = %f \n", operandos.getNumero1(), operandos.getNumero2(), os.dividir(operandos));
+        System.out.printf("%f - %f = %f \n", operandos.getNumero1(), operandos.getNumero2(), os.restar(operandos));
+        System.out.printf("%f * %f = %f \n", operandos.getNumero1(), operandos.getNumero2(), os.multiplicar(operandos));
+        System.out.printf("%f / %f = %f \n", operandos.getNumero1(), operandos.getNumero2(), os.dividir(operandos));
     }
     
 }
