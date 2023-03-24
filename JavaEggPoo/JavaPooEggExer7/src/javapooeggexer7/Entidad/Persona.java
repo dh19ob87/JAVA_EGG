@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package javapooeggexer7.Entidad;
-
 /**
  *
  * @author diego
@@ -15,6 +14,7 @@ public class Persona {
     private char sexo;
     private double peso;
     private double altura;
+    private double imc;
     
     public Persona(){}
     
@@ -24,6 +24,7 @@ public class Persona {
         this.nombre = nombre;
         this.peso = peso;
         this.sexo = sexo;
+        this.imc = peso / Math.pow(altura, 2);
     }
     
     public void setNombre (String nombre){
@@ -46,6 +47,10 @@ public class Persona {
         this.altura = altura;
     }
     
+    public void setImc (double imc){
+        this.imc = imc;
+    }
+    
     public String getNombre (){
         return nombre;
     }
@@ -64,6 +69,10 @@ public class Persona {
     
     public double getAltura (){
         return altura;
+    }
+    
+    public double getImc (){
+        return imc;
     }
 
     @Override
