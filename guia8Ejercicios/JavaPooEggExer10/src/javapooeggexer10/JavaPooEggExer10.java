@@ -27,13 +27,7 @@ public class JavaPooEggExer10 {
         Arrays.sort(arrayGrande);
         System.out.println(Arrays.toString(arrayGrande));
         System.out.println("");
-        Arrays.setAll(arrayPequenio, (i) -> {
-            if (i < 10){
-                return arrayGrande[i];
-            }else{
-                return 0.5;
-            }
-        });
+        Arrays.setAll(arrayPequenio, (i) -> (i < 10) ? arrayGrande[i] : 0.5);
         System.out.println(Arrays.toString(arrayPequenio));
     }
     
