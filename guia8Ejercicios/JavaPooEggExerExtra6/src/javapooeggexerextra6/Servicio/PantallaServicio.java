@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package javapooeggexerextra6.Servicio;
+
 import javapooeggexerextra6.Entidad.Pantalla;
 import javapooeggexerextra6.Entidad.Ahorcado;
 
@@ -18,26 +19,28 @@ public class PantallaServicio {
     }
 
     public void printPalabraAhorcado(Pantalla screen, Ahorcado hangman) {
-        
+
         String palabraAImprimir = "";
         for (int i = 0; i < crearPalabra(hangman.getPalabraABuscar()).length(); i++) {
             if (hangman.getLetrasFaltantes().contains(hangman.getPalabraABuscar()[i])) {
                 palabraAImprimir += " * ";
-            }else{
-                palabraAImprimir += " " + hangman.getPalabraABuscar()[i] + " " ;
+            } else {
+                palabraAImprimir += " " + hangman.getPalabraABuscar()[i] + " ";
             }
         }
 
+        screen.setLetrasAdivinadas(palabraAImprimir);
+
         System.out.println(palabraAImprimir);
     }
-    
-    public String crearPalabra (String [] palabra){
+
+    public String crearPalabra(String[] palabra) {
         String resultado = "";
-        
-        for(String elemento : palabra){
+
+        for (String elemento : palabra) {
             resultado += elemento;
         }
-        
+
         return resultado;
     }
 }

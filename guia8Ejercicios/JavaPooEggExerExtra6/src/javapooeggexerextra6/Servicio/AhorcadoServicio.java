@@ -44,30 +44,12 @@ public class AhorcadoServicio {
         palabras.put(20, "Nefelibata");
         int palabraAleatoria = (int) (Math.random() * 21);
         System.out.println("Ingrese la cantidad de intentos que quiere realizar.");
-
-        return new Ahorcado(palabraABuscarArray(palabras.get(palabraAleatoria)), 0, new Scanner(System.in).useDelimiter("\n").nextInt());
-    }
-
-    /**
-     * Carga un array con cada letra de la palabra a buscar
-     *
-     * @param palabra
-     * @return
-     */
-    
-    public String[] palabraABuscarArray(String palabra) {
-        String[] palabraJuego = new String[palabra.length()];
-        for (int i = 0; i < palabraJuego.length; i++) {
-            palabraJuego[i] = String.valueOf(palabra.charAt(i)).toLowerCase();
-        }
-        return palabraJuego;
+        return new Ahorcado(palabras.get(palabraAleatoria).toLowerCase().split(""), 0, new Scanner(System.in).useDelimiter("\n").nextInt());
     }
 
     public void setLetrasFaltantes(Ahorcado hangman) {
         ArrayList<String> letrasFaltantes = new ArrayList<>();
-        for(String elemento : hangman.getPalabraABuscar()){
-            letrasFaltantes.add(elemento);
-        }
+        letrasFaltantes.addAll(Arrays.asList(hangman.getPalabraABuscar()));
         hangman.setLetrasFaltantes(letrasFaltantes);
     }
 
@@ -76,11 +58,12 @@ public class AhorcadoServicio {
     }
 
     public void buscar(Ahorcado hangman, String letra) {
-        if (crearPalabra(hangman.getPalabraABuscar()).contains(letra)) {
+        if (Arrays.toString(hangman.getPalabraABuscar()).contains(letra)) {
             hangman.setLetrasEncontradas(hangman.getLetrasEncontradas() + 1);
             hangman.getLetrasFaltantes().removeIf((caracter) -> (caracter.equals(letra)));
         }
-        System.out.printf("¿La letra, %s, se encuentra en la palabra? %b \n", letra, (crearPalabra(hangman.getPalabraABuscar()).contains(letra)));
+        encontradas(hangman, String.valueOf(letra));
+        System.out.printf("¿La letra, %s, se encuentra en la palabra? %b \n", letra, (Arrays.toString(hangman.getPalabraABuscar()).contains(letra)));
     }
 
     public boolean encontradas(Ahorcado hangman, String letra) {
@@ -96,7 +79,7 @@ public class AhorcadoServicio {
             hangman.setIntentosUsados(hangman.getIntentosUsados() + 1);
         }
 
-        System.out.println("Letras encontradas: " + hangman.getLetrasEncontradas() + " Letras faltantes: " +  (hangman.getPalabraABuscar().length - hangman.getLetrasEncontradas()));
+        System.out.println("Letras encontradas: " + hangman.getLetrasEncontradas() + " Letras faltantes: " + (hangman.getPalabraABuscar().length - hangman.getLetrasEncontradas()));
 
         return encontrado;
     }
@@ -108,33 +91,23 @@ public class AhorcadoServicio {
     public void juego() {
         Ahorcado hangman = crearJuego();
         PantallaServicio ps = new PantallaServicio();
-        Pantalla screen = ps.crearPantalla(crearPalabra(hangman.getPalabraABuscar()));
+        Pantalla screen = ps.crearPantalla(Arrays.toString(hangman.getPalabraABuscar()));
         setLetrasFaltantes(hangman);
-        System.out.println(Arrays.toString(hangman.getPalabraABuscar()));
         do {
+            System.out.println("=========================================================");
             ps.printPalabraAhorcado(screen, hangman);
             longitud(hangman);
             intentos(hangman);
             System.out.println("Por favor ingrese una letra a buscar:");
             buscar(hangman, String.valueOf(new Scanner(System.in).useDelimiter("\n").next().charAt(0)));
-            System.out.println("Por favor ingrese una letra para mostrar si está en la lista de encontradas.");
-            System.out.println("¿Se encuentra la letra indicada?" + encontradas(hangman, String.valueOf(new Scanner(System.in).useDelimiter("\n").next().charAt(0))));
         } while (hangman.getIntentosUsados() < hangman.getCantidadJugadasMaximas() && !hangman.getLetrasFaltantes().isEmpty());
         
-        if(hangman.getLetrasFaltantes().isEmpty()){
+        System.out.println("=========================================================");
+        
+        if (hangman.getLetrasFaltantes().isEmpty()) {
             System.out.println("Juego terminado. Ganaste.");
-        }else if(hangman.getIntentosUsados() -hangman.getCantidadJugadasMaximas() == 0){
-            System.out.println("Intentos agotados. Perdiste.");
+        } else if (hangman.getIntentosUsados() - hangman.getCantidadJugadasMaximas() == 0) {
+            System.out.println("Intentos agotados. Perdiste. La palabra era: " + Arrays.toString(hangman.getPalabraABuscar()));
         }
-    }
-    
-    public String crearPalabra (String [] palabra){
-        String resultado = "";
-        
-        for(String elemento : palabra){
-            resultado += elemento;
-        }
-        
-        return resultado;
     }
 }
