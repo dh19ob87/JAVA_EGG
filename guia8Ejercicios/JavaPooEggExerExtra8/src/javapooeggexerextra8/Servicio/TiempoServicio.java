@@ -5,10 +5,10 @@
  */
 package javapooeggexerextra8.Servicio;
 
-import java.time.LocalTime;
 import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.regex.Pattern;
 import javapooeggexerextra8.Entidad.Tiempo;
 
 /**
@@ -66,6 +66,10 @@ public class TiempoServicio {
                     break;
                 default:
                     System.out.println("Error en la lectura por favor intente de nuevo");
+            }
+            
+            if(Pattern.matches("[1-3]", String.valueOf(mode))){
+                System.out.println("Por favor ingrese la hora en formato 24 horas.\n Recuerde que: Horas [0, 24] | Minutos y segundos: [0, 60]");
             }
         } while (mode != 0);
 
