@@ -19,7 +19,7 @@ public class PantallaServicio {
     }
 
     public void printPalabraAhorcado(Pantalla screen, Ahorcado hangman) {
-
+        
         String palabraAImprimir = "";
         for (int i = 0; i < crearPalabra(hangman.getPalabraABuscar()).length(); i++) {
             if (hangman.getLetrasFaltantes().contains(hangman.getPalabraABuscar()[i])) {
