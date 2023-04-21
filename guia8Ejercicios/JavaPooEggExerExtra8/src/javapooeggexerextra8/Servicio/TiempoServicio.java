@@ -33,7 +33,7 @@ public class TiempoServicio {
                 }else{
                     detener ++;
                     time.setTime(time.getTime().plusSeconds(1));
-                    System.out.println(time.toString());
+                    System.out.println((time.getTime().getSecond() == 0) ? time.toString() + ":00" : time.toString());
                 }
             }
         };
