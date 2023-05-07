@@ -35,6 +35,7 @@ public class CountryService {
             switch (salir) {
                 case 0:
                     System.out.println("Hasta pronto.");
+                    imprimirSetAsc(countries);
                     break;
                 case 1:
                     int terminar = 0;
