@@ -7,9 +7,10 @@ package guia9ejer6.Servicio;
 
 import java.util.Scanner;
 import guia9ejer6.Entidad.Producto;
+import java.util.Comparator;
 import java.util.Locale;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  *
@@ -84,14 +85,30 @@ public class ProductoServicio {
             System.out.printf("Key: %s | Value: %f \n", key, value);
         });
     }
-
+    
+    public void imprimirProductosPorPrecioAsc(Producto stock){
+        stock.getInventario().entrySet().stream().sorted(Map.Entry.comparingByKey()).forEach(System.out::println);
+    }
+    
+    public void imprimirProductosPorPreciosDesc(Producto stock){
+        stock.getInventario().entrySet().stream().sorted(Map.Entry.comparingByKey(Comparator.reverseOrder())).forEach(System.out::println);
+    }
+    
+    public void imprimirProductosPorNombreAsc(Producto stock){
+        stock.getInventario().entrySet().stream().sorted(Map.Entry.comparingByValue()).forEach(System.out::println);
+    }
+    
+    public void imprimirProductosPorNombreDesc(Producto stock){
+        stock.getInventario().entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())).forEach(System.out::println);
+    }
+    
     public void menu(Producto stock) {
         int salir;
         int terminar;
 
         do {
-            System.out.println("Bienvenido \n 1. Agregar productos \n2. Agregar producto \n3. Buscar Producto \n 4. Imprimir Productos \n5. Eliminar producto \n6. Cantidad de productos \n7. Eliminar todo \n8. Modificar nombre producto \n9. Modificar precio Producto \n0. Salir"
-                    + "\nPor favor ingrese una opción:");
+            System.out.println("Bienvenido \n1. Agregar productos \n2. Agregar producto \n3. Buscar Producto \n4. Imprimir Productos \n5. Eliminar producto \n6. Cantidad de productos \n7. Eliminar todo \n8. Modificar nombre producto \n9. Modificar precio Producto \n"
+                    + "10. Imprimir nombre asc \n11. Imprimir nombre desc \n12. Imprimir precio asc \n13. Imprimir precio desc \n0. Salir \nPor favor ingrese una opción:");
             salir = INPUT.nextInt();
 
             switch (salir) {
@@ -128,6 +145,18 @@ public class ProductoServicio {
                     break;
                 case 9:
                     modificarPrecioProducto(stock);
+                    break;
+                case 10:
+                    imprimirProductosPorNombreAsc(stock);
+                    break;
+                case 11:
+                    imprimirProductosPorNombreDesc(stock);
+                    break;
+                case 12:
+                    imprimirProductosPorPrecioAsc(stock);
+                    break;
+                case 13:
+                    imprimirProductosPorPreciosDesc(stock);
                     break;
                 default:
                     System.out.println("Operación no permitida.");

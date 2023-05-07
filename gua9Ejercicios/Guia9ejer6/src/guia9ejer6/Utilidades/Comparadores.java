@@ -12,5 +12,5 @@ import java.util.Comparator;
  * @author diego
  */
 public class Comparadores {
-    
+
 }
