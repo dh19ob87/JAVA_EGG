@@ -10,7 +10,6 @@ import guia9ejer6.Entidad.Producto;
 import java.util.Comparator;
 import java.util.Locale;
 import java.util.Map;
-import java.util.TreeMap;
 
 /**
  *
@@ -87,19 +86,19 @@ public class ProductoServicio {
     }
     
     public void imprimirProductosPorPrecioAsc(Producto stock){
-        stock.getInventario().entrySet().stream().sorted(Map.Entry.comparingByKey()).forEach(System.out::println);
-    }
-    
-    public void imprimirProductosPorPreciosDesc(Producto stock){
-        stock.getInventario().entrySet().stream().sorted(Map.Entry.comparingByKey(Comparator.reverseOrder())).forEach(System.out::println);
-    }
-    
-    public void imprimirProductosPorNombreAsc(Producto stock){
         stock.getInventario().entrySet().stream().sorted(Map.Entry.comparingByValue()).forEach(System.out::println);
     }
     
-    public void imprimirProductosPorNombreDesc(Producto stock){
+    public void imprimirProductosPorPreciosDesc(Producto stock){
         stock.getInventario().entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())).forEach(System.out::println);
+    }
+    
+    public void imprimirProductosPorNombreAsc(Producto stock){
+        stock.getInventario().entrySet().stream().sorted(Map.Entry.comparingByKey()).forEach(System.out::println);
+    }
+    
+    public void imprimirProductosPorNombreDesc(Producto stock){
+        stock.getInventario().entrySet().stream().sorted(Map.Entry.comparingByKey(Comparator.reverseOrder())).forEach(System.out::println);
     }
     
     public void menu(Producto stock) {

@@ -6,8 +6,6 @@
 package guia9ejer5.Entidad;
 
 import java.util.Objects;
-import java.util.Set;
-import java.util.TreeSet;
 /**
  *
  * @author diego
