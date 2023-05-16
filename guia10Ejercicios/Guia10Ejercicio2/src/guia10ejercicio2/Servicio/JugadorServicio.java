@@ -6,8 +6,6 @@ package guia10ejercicio2.Servicio;
 
 import guia10ejercicio2.Entidad.Jugador;
 import guia10ejercicio2.Entidad.Revolver;
-import java.util.Locale;
-import java.util.Scanner;
 /**
  *
  * @author diego
@@ -17,7 +15,7 @@ public class JugadorServicio {
     private static int numeroJugador = 0;
     
     public Jugador crearJugadores(){
-        return new Jugador(numeroJugador++, "Jugador", false);
+        return new Jugador(++numeroJugador, "Jugador", false);
     }
     
     public boolean disparo (Revolver waterGun){
