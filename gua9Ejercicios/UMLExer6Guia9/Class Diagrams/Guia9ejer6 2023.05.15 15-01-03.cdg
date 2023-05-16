@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Guia9ejer6">
+  <ClassDiagramComponents>
+    <Class name="Producto" package="guia9ejer6.Entidad" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="inventario" type="HashMap&lt;String, Double&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombreProducto"/>
+          <Argument type="Double" name="precio"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getInventario" returnType="HashMap&lt;String, Double&gt;" visibility="public"/>
+        <Method name="setInventario" returnType="void" visibility="public">
+          <Argument type="HashMap&lt;String, Double&gt;" name="inventario"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Guia9ejer6" package="guia9ejer6" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ProductoServicio" package="guia9ejer6.Servicio" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="INPUT" type="Scanner" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="crearInventario" returnType="Producto" visibility="public"/>
+        <Method name="agregarProducto" returnType="void" visibility="public">
+          <Argument type="Producto" name="stock"/>
+        </Method>
+        <Method name="buscarProducto" returnType="void" visibility="public">
+          <Argument type="Producto" name="stock"/>
+        </Method>
+        <Method name="buscarProducto" returnType="boolean" visibility="public">
+          <Argument type="Producto" name="stock"/>
+          <Argument type="String" name="producto"/>
+        </Method>
+        <Method name="eliminarProducto" returnType="void" visibility="public">
+          <Argument type="Producto" name="stock"/>
+        </Method>
+        <Method name="modificarNombreProducto" returnType="void" visibility="public">
+          <Argument type="Producto" name="stock"/>
+        </Method>
+        <Method name="modificarPrecioProducto" returnType="void" visibility="public">
+          <Argument type="Producto" name="stock"/>
+        </Method>
+        <Method name="imprimirProductos" returnType="void" visibility="public">
+          <Argument type="Producto" name="stock"/>
+        </Method>
+        <Method name="imprimirProductosPorPrecioAsc" returnType="void" visibility="public">
+          <Argument type="Producto" name="stock"/>
+        </Method>
+        <Method name="imprimirProductosPorPreciosDesc" returnType="void" visibility="public">
+          <Argument type="Producto" name="stock"/>
+        </Method>
+        <Method name="imprimirProductosPorNombreAsc" returnType="void" visibility="public">
+          <Argument type="Producto" name="stock"/>
+        </Method>
+        <Method name="imprimirProductosPorNombreDesc" returnType="void" visibility="public">
+          <Argument type="Producto" name="stock"/>
+        </Method>
+        <Method name="menu" returnType="void" visibility="public">
+          <Argument type="Producto" name="stock"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Comparadores" package="guia9ejer6.Utilidades" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="guia9ejer6.Servicio.ProductoServicio" target="guia9ejer6.Entidad.Producto" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
