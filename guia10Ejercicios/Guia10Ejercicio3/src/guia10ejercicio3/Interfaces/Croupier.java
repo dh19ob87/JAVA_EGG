@@ -17,7 +17,7 @@ public interface Croupier {
     
     default boolean siguienteCarta(Baraja deck){
         deck.getDeckOfDiscartedCards().add(deck.getPilaJuego().pop());
-        System.out.printf("%s \n", (deck.getPilaJuego().empty()) ? "Ya no hay más cartas. Fin del juego" : deck.getDeckOfDiscartedCards().peek().toString());
+        System.out.printf("%s \n", (deck.getPilaJuego().empty()) ? deck.getDeckOfDiscartedCards().peek().toString() + " Ya no hay más cartas. Fin del juego" : deck.getDeckOfDiscartedCards().peek().toString());
         return deck.getPilaJuego().empty();
     }
     

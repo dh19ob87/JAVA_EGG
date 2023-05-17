@@ -65,6 +65,6 @@ public class BarajaServicio implements Croupier {
                 case 6 -> barajar(deck);
                 default -> System.out.println("Operación no permitida.");
             }
-        } while (opcion != 0);
+        } while (opcion != 0 && !deck.getPilaJuego().empty());
     }
 }
