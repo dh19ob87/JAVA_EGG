@@ -5,35 +5,44 @@
 package guia10ejercicio3.Interfaces;
 
 import guia10ejercicio3.Entidad.Baraja;
-import guia10ejercicio3.Entidad.Carta;
+import java.util.Collections;
 /**
  *
  * @author diego
  */
 public interface Croupier {
     default void barajar (Baraja deck){
-        System.out.println("Imprimiendo la baraja");
+        Collections.shuffle(deck.getPilaJuego());
     }
     
-    default Carta siguienteCarta(Baraja deck){
-        System.out.println("Retornando la siguiente carta");
-        return new Carta ();
+    default boolean siguienteCarta(Baraja deck){
+        deck.getDeckOfDiscartedCards().add(deck.getPilaJuego().pop());
+        System.out.printf("%s \n", (deck.getPilaJuego().empty()) ? "Ya no hay más cartas. Fin del juego" : deck.getDeckOfDiscartedCards().peek().toString());
+        return deck.getPilaJuego().empty();
     }
     
     default void cartasDisponibles (Baraja deck){
-        System.out.println("Cantidad de cartas disponibles");
+        System.out.println("Cantidad de cartas disponibles: " + deck.getPilaJuego().size());
     }
     
     default void darCartas(Baraja deck, int cartasAEntregar){
-        System.out.println("Entregando las cartas");
+        if(deck.getPilaJuego().size() < cartasAEntregar){
+            System.out.println("Solo dispone de " + deck.getPilaJuego().size() + " cartas.");
+        }else{
+            while (cartasAEntregar != 0 && !siguienteCarta(deck)) {
+                cartasAEntregar--;
+            }
+        }
     }
     
     default void cartasMonton(Baraja deck){
-        System.out.println("Mostrar cartas del montón ya entregado.");
+        deck.getDeckOfDiscartedCards().forEach(System.out::println);
     }
     
-    default void mostrarBaraja (){
-        System.out.println("Mostrando cartas que hay en la baraja");
+    default void mostrarBaraja (Baraja deck){
+        if(!deck.getPilaJuego().empty()){
+            deck.getPilaJuego().forEach(System.out::println);
+        }
     }
     
     

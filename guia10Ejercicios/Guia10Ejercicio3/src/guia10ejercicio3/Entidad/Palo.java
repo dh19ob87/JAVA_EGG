@@ -4,7 +4,7 @@
  */
 package guia10ejercicio3.Entidad;
 
-import java.util.List;
+import java.util.Stack;
 
 /**
  *
@@ -12,17 +12,17 @@ import java.util.List;
  * @param <T>
  */
 public class Palo <T> {
-    private List <Carta> barajaPalo;
+    private Stack <Carta> barajaPalo;
     private T paloCarta;
     
     public Palo (){}
     
-    public Palo (List<Carta> barajaPalo, T paloCarta){
+    public Palo (Stack<Carta> barajaPalo, T paloCarta){
         this.barajaPalo = barajaPalo;
         this.paloCarta = paloCarta;
     }
     
-    public void setBarajaPalo (List <Carta> barajaPalo){
+    public void setBarajaPalo (Stack <Carta> barajaPalo){
         this.barajaPalo = barajaPalo;
     }
     
@@ -30,7 +30,7 @@ public class Palo <T> {
         this.paloCarta = paloCarta;
     }
     
-    public List <Carta> getBarajaPalo (){
+    public Stack <Carta> getBarajaPalo (){
         return barajaPalo;
     }
     

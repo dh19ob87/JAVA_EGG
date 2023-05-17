@@ -5,11 +5,13 @@
 package guia10ejercicio3.Entidad;
 
 import java.util.Stack;
+
 /**
  *
  * @author diego
  */
-public class Baraja {
+public class Baraja{
+    private Stack <Carta> pilaJuego;
     private Stack <Palo> deckOfCarts;
     private Stack <Carta> deckOfDiscartedCards;
     
@@ -20,12 +22,20 @@ public class Baraja {
         this.deckOfDiscartedCards = deckOfDiscartedCards;
     }
     
+    public void setPilaJuego (Stack<Carta> pilaJuego){
+        this.pilaJuego = pilaJuego;
+    }
+    
     public void setDeckOfCards(Stack <Palo> deckOfCards){
         this.deckOfCarts = deckOfCards;
     }
     
     public void setDeckOfDiscartedCards (Stack <Carta> deckOfDiscartedCards){
         this.deckOfDiscartedCards = deckOfDiscartedCards;
+    }
+    
+    public Stack <Carta> getPilaJuego (){
+        return pilaJuego;
     }
     
     public Stack<Palo> getDeckOfCards (){

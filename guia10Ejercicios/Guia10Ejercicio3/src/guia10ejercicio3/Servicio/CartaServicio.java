@@ -17,7 +17,7 @@ public class CartaServicio {
     private static final Scanner INPUT = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
     
     public Carta crearCarta (Integer valor, PaloClasico palo){
-        return new Carta(valor, palo);
+        return new Carta <Integer, PaloClasico> (valor, palo);
     }
     
     public void imprimirCarta(Carta card){

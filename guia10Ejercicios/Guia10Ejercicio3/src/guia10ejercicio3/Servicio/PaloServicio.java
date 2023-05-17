@@ -4,11 +4,10 @@
  */
 package guia10ejercicio3.Servicio;
 
-import java.util.List;
 import guia10ejercicio3.Entidad.Carta;
 import guia10ejercicio3.Entidad.Palo;
 import guia10ejercicio3.Enumerables.PaloClasico;
-import java.util.ArrayList;
+import java.util.Stack;
 import java.util.Collections;
 /**
  *
@@ -17,10 +16,10 @@ import java.util.Collections;
 public class PaloServicio {
     
     public Palo crearPalo (PaloClasico palo){
-        List <Carta> grupoPalo = new ArrayList<>();
-        for (int i = 0; i < 12; i++) {
-            if(i != 7 && i != 8){
-                grupoPalo.add(new Carta(i+1, palo));
+        Stack <Carta> grupoPalo = new Stack<>();
+        for (int i = 1; i <= 12; i++) {
+            if(i != 8 && i != 9){
+                grupoPalo.add(new Carta(i, palo));
             }
         }
         return new Palo(grupoPalo, palo);

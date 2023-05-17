@@ -8,14 +8,15 @@ package guia10ejercicio3.Entidad;
  *
  * @author diego
  * @param <T>
+ * @param <G>
  */
-public class Carta <T> {
+public class Carta <T, G> {
     private T valor;
-    private T palo;
+    private G palo;
     
     public Carta(){}
     
-    public Carta(T valor, T palo){
+    public Carta(T valor, G palo){
         this.valor = valor;
         this.palo = palo;
     }
@@ -24,7 +25,7 @@ public class Carta <T> {
         this.valor = valor;
     }
     
-    public void setPalo (T palo){
+    public void setPalo (G palo){
         this.palo = palo;
     }
     
@@ -32,7 +33,7 @@ public class Carta <T> {
         return valor;
     }
     
-    public T getPalo (){
+    public G getPalo (){
         return palo;
     }
 

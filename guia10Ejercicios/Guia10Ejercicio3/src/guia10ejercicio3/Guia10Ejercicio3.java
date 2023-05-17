@@ -20,6 +20,7 @@ public class Guia10Ejercicio3 {
         BarajaServicio bs = new BarajaServicio();
         Baraja deck = bs.crearBaraja();
         bs.imprimirBaraja(deck);
+        bs.iniciarJuego(deck);
     }
     
 }
