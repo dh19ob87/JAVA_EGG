@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Guia10Ejercicio2">
+  <ClassDiagramComponents>
+    <Class name="Juego" package="guia10ejercicio2.Entidad" visibility="public" xPosition="22.0" yPosition="44.0">
+      <Fields>
+        <Field name="players" type="ArrayList&lt;Jugador&gt;" visibility="package"/>
+        <Field name="waterGun" type="Revolver" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="ArrayList&lt;Jugador&gt;" name="players"/>
+          <Argument type="Revolver" name="waterGun"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setPlayers" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Jugador&gt;" name="players"/>
+        </Method>
+        <Method name="setRevolver" returnType="void" visibility="public">
+          <Argument type="Revolver" name="waterGun"/>
+        </Method>
+        <Method name="getPlayers" returnType="ArrayList&lt;Jugador&gt;" visibility="public"/>
+        <Method name="getWaterGun" returnType="Revolver" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Jugador" package="guia10ejercicio2.Entidad" visibility="public" xPosition="22.0" yPosition="543.0">
+      <Fields>
+        <Field name="idJugador" type="int" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="mojado" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="idJugador"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="boolean" name="mojado"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setIdJugador" returnType="void" visibility="public">
+          <Argument type="int" name="idJugador"/>
+        </Method>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="setMojado" returnType="void" visibility="public">
+          <Argument type="boolean" name="mojado"/>
+        </Method>
+        <Method name="getIdJugador" returnType="int" visibility="public"/>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="mojado" returnType="boolean" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Revolver" package="guia10ejercicio2.Entidad" visibility="public" xPosition="1113.0" yPosition="600.0">
+      <Fields>
+        <Field name="posicionActual" type="int" visibility="private"/>
+        <Field name="posicionAgua" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="posicionActual"/>
+          <Argument type="int" name="posicionAgua"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setPosicionActual" returnType="void" visibility="public">
+          <Argument type="int" name="posicionActual"/>
+        </Method>
+        <Method name="setPosicionAgua" returnType="void" visibility="public">
+          <Argument type="int" name="posicionAgua"/>
+        </Method>
+        <Method name="getPosicionActual" returnType="int" visibility="public"/>
+        <Method name="getPosicionAgua" returnType="int" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Guia10Ejercicio2" package="guia10ejercicio2" visibility="public" xPosition="907.0" yPosition="134.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="JuegoServicio" package="guia10ejercicio2.Servicio" visibility="public" xPosition="608.0" yPosition="20.0">
+      <Fields>
+        <Field name="INPUT" type="Scanner" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="crearJuego" returnType="Juego" visibility="public"/>
+        <Method name="llenarJuego" returnType="void" visibility="public">
+          <Argument type="Juego" name="game"/>
+        </Method>
+        <Method name="ronda" returnType="void" visibility="public">
+          <Argument type="Juego" name="game"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="JugadorServicio" package="guia10ejercicio2.Servicio" visibility="public" xPosition="886.0" yPosition="310.0">
+      <Fields>
+        <Field name="numeroJugador" type="int" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="crearJugadores" returnType="Jugador" visibility="public"/>
+        <Method name="disparo" returnType="boolean" visibility="public">
+          <Argument type="Revolver" name="waterGun"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="RevolverServicio" package="guia10ejercicio2.Servicio" visibility="public" xPosition="1219.0" yPosition="139.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="crearRevolver" returnType="Revolver" visibility="public"/>
+        <Method name="llenarRevolver" returnType="void" visibility="public">
+          <Argument type="Revolver" name="waterGun"/>
+        </Method>
+        <Method name="mojar" returnType="boolean" visibility="public">
+          <Argument type="Revolver" name="waterGun"/>
+        </Method>
+        <Method name="siguienteChorro" returnType="void" visibility="public">
+          <Argument type="Revolver" name="waterGun"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="guia10ejercicio2.Servicio.JugadorServicio" target="guia10ejercicio2.Entidad.Jugador" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="players" source="guia10ejercicio2.Entidad.Juego" target="guia10ejercicio2.Entidad.Jugador" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Jugador&gt;"/>
+    <UseRelation source="guia10ejercicio2.Entidad.Juego" target="guia10ejercicio2.Entidad.Revolver" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10ejercicio2.Servicio.JuegoServicio" target="guia10ejercicio2.Entidad.Juego" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10ejercicio2.Entidad.Juego" target="guia10ejercicio2.Entidad.Jugador" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="waterGun" source="guia10ejercicio2.Entidad.Juego" target="guia10ejercicio2.Entidad.Revolver" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10ejercicio2.Servicio.RevolverServicio" target="guia10ejercicio2.Entidad.Revolver" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10ejercicio2.Servicio.JugadorServicio" target="guia10ejercicio2.Entidad.Revolver" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

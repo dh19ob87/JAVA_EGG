@@ -13,7 +13,6 @@ import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
-import java.util.Date;
 
 /**
  *
@@ -36,6 +35,9 @@ public class JuegoServicio {
 
         do {
             cantidadJugadores = INPUT.nextInt();
+            if(cantidadJugadores <1 || cantidadJugadores > 6){
+                System.out.println("Mínimo 1 jugador máximo 6");
+            }
         } while (cantidadJugadores < 1 || cantidadJugadores > 6);
 
         ArrayList<Jugador> players = new ArrayList<>();
@@ -56,8 +58,6 @@ public class JuegoServicio {
             @Override
             public void run() {
                 try {
-                    boolean dead = false;
-
                     for (Jugador player : game.getPlayers()) {
                         System.out.println("Tu turno " + player.getNombre());
                         TimeUnit.SECONDS.sleep((long) (seconds + Math.random() * 5 + 1));

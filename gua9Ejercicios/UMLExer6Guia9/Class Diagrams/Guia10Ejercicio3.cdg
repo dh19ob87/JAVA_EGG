@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Guia10Ejercicio3">
+  <ClassDiagramComponents>
+    <Class name="Carta" package="" visibility="public" xPosition="54.0" yPosition="116.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Palo" package="" visibility="public" xPosition="600.0" yPosition="116.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Baraja" package="" visibility="public" xPosition="600.0" yPosition="481.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Enum name="Palo clásico" package="" visibility="public" xPosition="119.0" yPosition="392.0">
+      <Literals/>
+    </Enum>
+    <Enum name="Palo moderno" package="" visibility="public" xPosition="313.0" yPosition="392.0">
+      <Literals/>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="palosCartas" source="Baraja" target="Palo" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="cartasPalo" source="Palo" target="Carta" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

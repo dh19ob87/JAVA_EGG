@@ -1,0 +1,11 @@
+@startuml
+annotation java.lang.Override
+class guia10ejercicio2.Entidad.Juego
+class guia10ejercicio2.Entidad.Jugador
+class guia10ejercicio2.Entidad.Revolver
+class java.util.ArrayList
+guia10ejercicio2.Entidad.Juego ..> java.lang.Override
+guia10ejercicio2.Entidad.Juego ..> java.util.ArrayList
+guia10ejercicio2.Entidad.Jugador ..> java.lang.Override
+guia10ejercicio2.Entidad.Revolver ..> java.lang.Override
+@enduml
