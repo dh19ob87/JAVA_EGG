@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Guia10Extra2">
+  <ClassDiagramComponents>
+    <Class name="Cine" package="" visibility="public" xPosition="68.0" yPosition="106.0">
+      <Fields>
+        <Field name="peliculaReproduciendo" type="Pelicula" visibility="private"/>
+        <Field name="precioEntrada" type="double" visibility="private"/>
+        <Field name="sala" type="Sala" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Pelicula" package="" visibility="public" xPosition="525.0" yPosition="97.0">
+      <Fields>
+        <Field name="titulo" type="String" visibility="private"/>
+        <Field name="duracion" type="Duration" visibility="private"/>
+        <Field name="edadMinima" type="int" visibility="private"/>
+        <Field name="director" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Espectador" package="" visibility="public" xPosition="579.0" yPosition="522.0">
+      <Fields>
+        <Field name="Nombre" type="String" visibility="private"/>
+        <Field name="edad" type="int" visibility="private"/>
+        <Field name="saldoDisponible" type="double" visibility="private"/>
+        <Field name="puesto" type="Asiento" visibility="private"/>
+        <Field name="salaProyeccion" type="Sala" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Asiento" package="" visibility="public" xPosition="92.0" yPosition="663.0">
+      <Fields>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="letra" type="char" visibility="private"/>
+        <Field name="ocupado" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Sala" package="" visibility="public" xPosition="92.0" yPosition="382.0">
+      <Fields>
+        <Field name="MatrizPuestos" type="ArrayList" visibility="private"/>
+        <Field name="idSala" type="int" visibility="private"/>
+        <Field name="nombreSala" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="Tiene" source="Sala" target="Asiento" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="Tiene" source="Espectador" target="Asiento" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="Tiene" source="Cine" target="Pelicula" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="Va a " source="Espectador" target="Sala" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="Tiene" source="Cine" target="Sala" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

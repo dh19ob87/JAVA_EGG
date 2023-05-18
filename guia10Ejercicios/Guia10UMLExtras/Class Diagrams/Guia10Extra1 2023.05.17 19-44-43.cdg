@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Guia10Extra1">
+  <ClassDiagramComponents>
+    <Class name="Perro" package="guia10extra1.Entidad" visibility="public" xPosition="20.0" yPosition="184.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="raza" type="RazasCanes" visibility="private"/>
+        <Field name="edad" type="Integer" visibility="private"/>
+        <Field name="tamano" type="Double" visibility="private"/>
+        <Field name="adoptado" type="boolean" visibility="private"/>
+        <Field name="responsable" type="Persona" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="RazasCanes" name="raza"/>
+          <Argument type="Integer" name="edad"/>
+          <Argument type="Double" name="tamano"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="RazasCanes" name="raza"/>
+          <Argument type="Integer" name="edad"/>
+          <Argument type="Double" name="tamano"/>
+          <Argument type="Persona" name="responsable"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="setRaza" returnType="void" visibility="public">
+          <Argument type="RazasCanes" name="raza"/>
+        </Method>
+        <Method name="setEdad" returnType="void" visibility="public">
+          <Argument type="Integer" name="edad"/>
+        </Method>
+        <Method name="setTamano" returnType="void" visibility="public">
+          <Argument type="Double" name="tamano"/>
+        </Method>
+        <Method name="setResponsable" returnType="void" visibility="public">
+          <Argument type="Persona" name="responsable"/>
+        </Method>
+        <Method name="setAdoptado" returnType="void" visibility="public">
+          <Argument type="Boolean" name="adoptado"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="getRaza" returnType="RazasCanes" visibility="public"/>
+        <Method name="getEdad" returnType="Integer" visibility="public"/>
+        <Method name="getTamano" returnType="Double" visibility="public"/>
+        <Method name="getResponsable" returnType="Persona" visibility="public"/>
+        <Method name="getAdoptado" returnType="Boolean" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Persona" package="guia10extra1.Entidad" visibility="public" xPosition="841.0" yPosition="602.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="edad" type="Integer" visibility="private"/>
+        <Field name="documento" type="Long" visibility="private"/>
+        <Field name="mascota" type="LinkedList&lt;Perro&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="Integer" name="edad"/>
+          <Argument type="Long" name="documento"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="Integer" name="edad"/>
+          <Argument type="Long" name="documento"/>
+          <Argument type="LinkedList&lt;Perro&gt;" name="mascota"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="setApellido" returnType="void" visibility="public">
+          <Argument type="String" name="apellido"/>
+        </Method>
+        <Method name="setEdad" returnType="void" visibility="public">
+          <Argument type="Integer" name="edad"/>
+        </Method>
+        <Method name="setDocumento" returnType="void" visibility="public">
+          <Argument type="Long" name="documento"/>
+        </Method>
+        <Method name="setMascota" returnType="void" visibility="public">
+          <Argument type="LinkedList&lt;Perro&gt;" name="mascota"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="getApellido" returnType="String" visibility="public"/>
+        <Method name="getEdad" returnType="Integer" visibility="public"/>
+        <Method name="getDocumento" returnType="Long" visibility="public"/>
+        <Method name="getMascota" returnType="LinkedList&lt;Perro&gt;" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Guia10Extra1" package="guia10extra1" visibility="public" xPosition="1307.0" yPosition="82.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PerroServicio" package="guia10extra1.Servicio" visibility="public" xPosition="1500.0" yPosition="301.0">
+      <Fields>
+        <Field name="INPUT" type="Scanner" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="perrosEnAdopcion" type="LinkedList&lt;Perro&gt;" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="crearMascota" returnType="Perro" visibility="public"/>
+        <Method name="crearPerrosEnAdopcion" returnType="void" visibility="public"/>
+        <Method name="hayLomitos" returnType="Boolean" visibility="public"/>
+        <Method name="porAdoptar" returnType="Boolean" visibility="public">
+          <Argument type="Iterator&lt;Perro&gt;" name="iter"/>
+          <Argument type="String" name="nombreMascota"/>
+        </Method>
+        <Method name="porAdoptar" returnType="int" visibility="public">
+          <Argument type="Iterator&lt;Perro&gt;" name="iter"/>
+          <Argument type="String" name="nombreMascota"/>
+          <Argument type="int" name="posicion"/>
+        </Method>
+        <Method name="darPerroEnAdopcion" returnType="void" visibility="public">
+          <Argument type="Persona" name="adoptante"/>
+        </Method>
+        <Method name="imprimirLomitosEnAdopcion" returnType="void" visibility="public"/>
+        <Method name="getRaza" returnType="boolean" visibility="public">
+          <Argument type="String" name="raza"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Enum name="RazasCanes" package="guia10extra1.Enumerables" visibility="public" xPosition="960.0" yPosition="20.0">
+      <Literals>
+        <Literal name="BEAGLE"/>
+        <Literal name="COCKER"/>
+        <Literal name="DOBERMAN"/>
+        <Literal name="HUSKY"/>
+        <Literal name="POMERANIA"/>
+        <Literal name="LABRADOR"/>
+        <Literal name="GOLDEN_RETRIEVER"/>
+        <Literal name="AFGANO"/>
+        <Literal name="BULLDOG"/>
+        <Literal name="POODLE"/>
+        <Literal name="CHIHUAHUA"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="guia10extra1.Servicio.PerroServicio" target="guia10extra1.Entidad.Persona" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10extra1.Entidad.Perro" target="guia10extra1.Entidad.Persona" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10extra1.Servicio.PerroServicio" target="guia10extra1.Entidad.Perro" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="raza" source="guia10extra1.Entidad.Perro" target="guia10extra1.Enumerables.RazasCanes" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10extra1.Entidad.Persona" target="guia10extra1.Entidad.Perro" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="perrosEnAdopcion" source="guia10extra1.Servicio.PerroServicio" target="guia10extra1.Entidad.Perro" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="LinkedList&lt;Perro&gt;"/>
+    <UseRelation source="guia10extra1.Entidad.Perro" target="guia10extra1.Enumerables.RazasCanes" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="responsable" source="guia10extra1.Entidad.Perro" target="guia10extra1.Entidad.Persona" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="mascota" source="guia10extra1.Entidad.Persona" target="guia10extra1.Entidad.Perro" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="LinkedList&lt;Perro&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
