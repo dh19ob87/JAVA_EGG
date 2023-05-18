@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Guia10Ejercicio3">
+  <ClassDiagramComponents>
+    <Class name="Baraja" package="guia10ejercicio3.Entidad" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="pilaJuego" type="Stack&lt;Carta&gt;" visibility="private"/>
+        <Field name="deckOfCarts" type="Stack&lt;Palo&gt;" visibility="private"/>
+        <Field name="deckOfDiscartedCards" type="Stack&lt;Carta&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Stack&lt;Palo&gt;" name="deckOfCards"/>
+          <Argument type="Stack&lt;Carta&gt;" name="deckOfDiscartedCards"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setPilaJuego" returnType="void" visibility="public">
+          <Argument type="Stack&lt;Carta&gt;" name="pilaJuego"/>
+        </Method>
+        <Method name="setDeckOfCards" returnType="void" visibility="public">
+          <Argument type="Stack&lt;Palo&gt;" name="deckOfCards"/>
+        </Method>
+        <Method name="setDeckOfDiscartedCards" returnType="void" visibility="public">
+          <Argument type="Stack&lt;Carta&gt;" name="deckOfDiscartedCards"/>
+        </Method>
+        <Method name="getPilaJuego" returnType="Stack&lt;Carta&gt;" visibility="public"/>
+        <Method name="getDeckOfCards" returnType="Stack&lt;Palo&gt;" visibility="public"/>
+        <Method name="getDeckOfDiscartedCards" returnType="Stack&lt;Carta&gt;" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Carta" package="guia10ejercicio3.Entidad" visibility="public" xPosition="732.0" yPosition="88.0">
+      <Fields>
+        <Field name="valor" type="T" visibility="private"/>
+        <Field name="palo" type="G" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="T" name="valor"/>
+          <Argument type="G" name="palo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setValor" returnType="void" visibility="public">
+          <Argument type="T" name="valor"/>
+        </Method>
+        <Method name="setPalo" returnType="void" visibility="public">
+          <Argument type="G" name="palo"/>
+        </Method>
+        <Method name="getValor" returnType="T" visibility="public"/>
+        <Method name="getPalo" returnType="G" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Palo" package="guia10ejercicio3.Entidad" visibility="public" xPosition="450.0" yPosition="560.0">
+      <Fields>
+        <Field name="barajaPalo" type="Stack&lt;Carta&gt;" visibility="private"/>
+        <Field name="paloCarta" type="T" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Stack&lt;Carta&gt;" name="barajaPalo"/>
+          <Argument type="T" name="paloCarta"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setBarajaPalo" returnType="void" visibility="public">
+          <Argument type="Stack&lt;Carta&gt;" name="barajaPalo"/>
+        </Method>
+        <Method name="setPaloCarta" returnType="void" visibility="public">
+          <Argument type="T" name="paloCarta"/>
+        </Method>
+        <Method name="getBarajaPalo" returnType="Stack&lt;Carta&gt;" visibility="public"/>
+        <Method name="getpaloCarta" returnType="T" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Guia10Ejercicio3" package="guia10ejercicio3" visibility="public" xPosition="1072.0" yPosition="299.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="CartaServicio" package="guia10ejercicio3.Servicio" visibility="public" xPosition="1140.0" yPosition="42.0">
+      <Fields>
+        <Field name="INPUT" type="Scanner" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="crearCarta" returnType="Carta" visibility="public">
+          <Argument type="Integer" name="valor"/>
+          <Argument type="PaloClasico" name="palo"/>
+        </Method>
+        <Method name="imprimirCarta" returnType="void" visibility="public">
+          <Argument type="Carta" name="card"/>
+        </Method>
+        <Method name="modificarValorCarta" returnType="void" visibility="public">
+          <Argument type="Carta" name="card"/>
+        </Method>
+        <Method name="modificarPaloCarta" returnType="void" visibility="public">
+          <Argument type="Carta" name="card"/>
+        </Method>
+        <Method name="imprimirEnumPalo" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="PaloServicio" package="guia10ejercicio3.Servicio" visibility="public" xPosition="974.0" yPosition="674.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="crearPalo" returnType="Palo" visibility="public">
+          <Argument type="PaloClasico" name="palo"/>
+        </Method>
+        <Method name="imprimirPalo" returnType="void" visibility="public">
+          <Argument type="Palo" name="deckFamily"/>
+        </Method>
+        <Method name="desordenarPalo" returnType="void" visibility="public">
+          <Argument type="Palo" name="deckFamily"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="Croupier" package="guia10ejercicio3.Interfaces" visibility="public" xPosition="45.0" yPosition="583.0">
+      <Methods>
+        <Method name="barajar" returnType="void" visibility="package">
+          <Argument type="Baraja" name="deck"/>
+        </Method>
+        <Method name="siguienteCarta" returnType="boolean" visibility="package">
+          <Argument type="Baraja" name="deck"/>
+        </Method>
+        <Method name="cartasDisponibles" returnType="void" visibility="package">
+          <Argument type="Baraja" name="deck"/>
+        </Method>
+        <Method name="darCartas" returnType="void" visibility="package">
+          <Argument type="Baraja" name="deck"/>
+          <Argument type="int" name="cartasAEntregar"/>
+        </Method>
+        <Method name="cartasMonton" returnType="void" visibility="package">
+          <Argument type="Baraja" name="deck"/>
+        </Method>
+        <Method name="mostrarBaraja" returnType="void" visibility="package">
+          <Argument type="Baraja" name="deck"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Enum name="PaloClasico" package="guia10ejercicio3.Enumerables" visibility="public" xPosition="1378.0" yPosition="583.0">
+      <Literals>
+        <Literal name="ESPADAS"/>
+        <Literal name="BASTOS"/>
+        <Literal name="OROS"/>
+        <Literal name="COPAS"/>
+      </Literals>
+    </Enum>
+    <Enum name="PaloModerno" package="guia10ejercicio3.Enumerables" visibility="public" xPosition="1555.0" yPosition="720.0">
+      <Literals>
+        <Literal name="CORAZON"/>
+        <Literal name="PICAS"/>
+        <Literal name="TREBOL"/>
+        <Literal name="DIAMANTE"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="guia10ejercicio3.Interfaces.Croupier" target="guia10ejercicio3.Entidad.Baraja" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="pilaJuego" source="guia10ejercicio3.Entidad.Baraja" target="guia10ejercicio3.Entidad.Carta" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10ejercicio3.Entidad.Baraja" target="guia10ejercicio3.Entidad.Palo" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10ejercicio3.Entidad.Baraja" target="guia10ejercicio3.Entidad.Carta" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="deckOfCarts" source="guia10ejercicio3.Entidad.Baraja" target="guia10ejercicio3.Entidad.Palo" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="barajaPalo" source="guia10ejercicio3.Entidad.Palo" target="guia10ejercicio3.Entidad.Carta" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10ejercicio3.Entidad.Palo" target="guia10ejercicio3.Entidad.Carta" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10ejercicio3.Servicio.PaloServicio" target="guia10ejercicio3.Entidad.Palo" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10ejercicio3.Servicio.CartaServicio" target="guia10ejercicio3.Enumerables.PaloClasico" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="deckOfDiscartedCards" source="guia10ejercicio3.Entidad.Baraja" target="guia10ejercicio3.Entidad.Carta" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10ejercicio3.Servicio.PaloServicio" target="guia10ejercicio3.Enumerables.PaloClasico" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10ejercicio3.Servicio.CartaServicio" target="guia10ejercicio3.Entidad.Carta" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

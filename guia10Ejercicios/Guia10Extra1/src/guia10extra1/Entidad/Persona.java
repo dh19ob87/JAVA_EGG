@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package guia10ejercicio1.Entidad;
+package guia10extra1.Entidad;
 
+import java.util.LinkedList;
 /**
  *
  * @author diego
@@ -13,11 +14,19 @@ public class Persona {
     private String apellido;
     private Integer edad;
     private Long documento;
-    private Perro mascota;
+    private LinkedList <Perro> mascota;
     
     public Persona (){}
     
-    public Persona (String nombre, String apellido, Integer edad, Long documento, Perro mascota){
+    public Persona (String nombre, String apellido, Integer edad, Long documento){
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.edad = edad;
+        this.documento = documento;
+        this.mascota = new LinkedList<>();
+    }
+    
+    public Persona (String nombre, String apellido, Integer edad, Long documento, LinkedList <Perro> mascota){
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
@@ -41,7 +50,7 @@ public class Persona {
         this.documento = documento;
     }
     
-    public void setMascota (Perro mascota){
+    public void setMascota (LinkedList <Perro> mascota){
         this.mascota = mascota;
     }
     
@@ -61,7 +70,7 @@ public class Persona {
         return documento;
     }
     
-    public Perro getMascota (){
+    public LinkedList <Perro> getMascota (){
         return mascota;
     }
 
