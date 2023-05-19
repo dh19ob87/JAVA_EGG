@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Guia10Extra2">
+  <ClassDiagramComponents>
+    <Class name="Asiento" package="guia10extra2.Entidad" visibility="public" xPosition="114.0" yPosition="124.0">
+      <Fields>
+        <Field name="idAsiento" type="int" visibility="private"/>
+        <Field name="letra" type="LetrasAsiento" visibility="private"/>
+        <Field name="ocupado" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="idAsiento"/>
+          <Argument type="LetrasAsiento" name="letra"/>
+          <Argument type="boolean" name="ocupado"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getIdAsiento" returnType="int" visibility="public"/>
+        <Method name="setIdAsiento" returnType="void" visibility="public">
+          <Argument type="int" name="idAsiento"/>
+        </Method>
+        <Method name="getLetra" returnType="LetrasAsiento" visibility="public"/>
+        <Method name="setLetra" returnType="void" visibility="public">
+          <Argument type="LetrasAsiento" name="letra"/>
+        </Method>
+        <Method name="getOcupado" returnType="boolean" visibility="public"/>
+        <Method name="setOcupado" returnType="void" visibility="public">
+          <Argument type="boolean" name="ocupado"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Cine" package="guia10extra2.Entidad" visibility="public" xPosition="2205.0" yPosition="106.0">
+      <Fields>
+        <Field name="peliculaReproduciendo" type="Pelicula" visibility="private"/>
+        <Field name="salas" type="ArrayList&lt;Sala&gt;" visibility="private"/>
+        <Field name="precioEntrada" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Pelicula" name="peliculaReproduciendo"/>
+          <Argument type="ArrayList&lt;Sala&gt;" name="salas"/>
+          <Argument type="double" name="precioEntrada"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getPeliculaReproduciendo" returnType="Pelicula" visibility="public"/>
+        <Method name="setPeliculaReproduciendo" returnType="void" visibility="public">
+          <Argument type="Pelicula" name="peliculaReproduciendo"/>
+        </Method>
+        <Method name="getSalas" returnType="ArrayList&lt;Sala&gt;" visibility="public"/>
+        <Method name="setSalas" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Sala&gt;" name="salas"/>
+        </Method>
+        <Method name="getPrecioEntrada" returnType="double" visibility="public"/>
+        <Method name="setPrecioEntrada" returnType="void" visibility="public">
+          <Argument type="double" name="precioEntrada"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Espectador" package="guia10extra2.Entidad" visibility="public" xPosition="694.0" yPosition="106.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="edad" type="int" visibility="private"/>
+        <Field name="saldoDisponible" type="double" visibility="private"/>
+        <Field name="puesto" type="Asiento" visibility="private"/>
+        <Field name="salaProyeccion" type="Sala" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="int" name="edad"/>
+          <Argument type="double" name="saldoDisponible"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="int" name="edad"/>
+          <Argument type="double" name="saldoDisponible"/>
+          <Argument type="Asiento" name="puesto"/>
+          <Argument type="Sala" name="salaProyeccion"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getEdad" returnType="int" visibility="public"/>
+        <Method name="setEdad" returnType="void" visibility="public">
+          <Argument type="int" name="edad"/>
+        </Method>
+        <Method name="getSaldoDisponible" returnType="double" visibility="public"/>
+        <Method name="setSaldoDisponible" returnType="void" visibility="public">
+          <Argument type="double" name="saldoDisponible"/>
+        </Method>
+        <Method name="getPuesto" returnType="Asiento" visibility="public"/>
+        <Method name="setPuesto" returnType="void" visibility="public">
+          <Argument type="Asiento" name="puesto"/>
+        </Method>
+        <Method name="getSalaProyeccion" returnType="Sala" visibility="public"/>
+        <Method name="setSalaProyeccion" returnType="void" visibility="public">
+          <Argument type="Sala" name="salaProyeccion"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Pelicula" package="guia10extra2.Entidad" visibility="public" xPosition="1484.0" yPosition="106.0">
+      <Fields>
+        <Field name="titulo" type="String" visibility="private"/>
+        <Field name="minutos" type="Duration" visibility="private"/>
+        <Field name="edadMinima" type="int" visibility="private"/>
+        <Field name="director" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="titulo"/>
+          <Argument type="Duration" name="minutos"/>
+          <Argument type="int" name="edadMinima"/>
+          <Argument type="String" name="director"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getTitulo" returnType="String" visibility="public"/>
+        <Method name="setTitulo" returnType="void" visibility="public">
+          <Argument type="String" name="titulo"/>
+        </Method>
+        <Method name="getDuracionEnHoras" returnType="Duration" visibility="public"/>
+        <Method name="setDuracionEnHoras" returnType="void" visibility="public">
+          <Argument type="Duration" name="duracionEnHoras"/>
+        </Method>
+        <Method name="getEdadMinima" returnType="int" visibility="public"/>
+        <Method name="setEdadMinima" returnType="void" visibility="public">
+          <Argument type="int" name="edadMinima"/>
+        </Method>
+        <Method name="getDirector" returnType="String" visibility="public"/>
+        <Method name="setDirector" returnType="void" visibility="public">
+          <Argument type="String" name="director"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Sala" package="guia10extra2.Entidad" visibility="public" xPosition="2365.0" yPosition="899.0">
+      <Fields>
+        <Field name="idSala" type="int" visibility="private"/>
+        <Field name="nombreSala" type="String" visibility="private"/>
+        <Field name="puestos" type="ArrayList&lt;ArrayList&lt;Asiento&gt;&gt;" visibility="private"/>
+        <Field name="personasEnSala" type="ArrayList&lt;Espectador&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="idSala"/>
+          <Argument type="String" name="nombreSala"/>
+          <Argument type="ArrayList&lt;ArrayList&lt;Asiento&gt;&gt;" name="puestos"/>
+          <Argument type="ArrayList&lt;Espectador&gt;" name="personasEnSala"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getPersonasEnSala" returnType="ArrayList&lt;Espectador&gt;" visibility="public"/>
+        <Method name="setPersonasEnSala" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Espectador&gt;" name="personasEnSala"/>
+        </Method>
+        <Method name="getIdSala" returnType="int" visibility="public"/>
+        <Method name="setIdSala" returnType="void" visibility="public">
+          <Argument type="int" name="idSala"/>
+        </Method>
+        <Method name="getNombreSala" returnType="String" visibility="public"/>
+        <Method name="setNombreSala" returnType="void" visibility="public">
+          <Argument type="String" name="nombreSala"/>
+        </Method>
+        <Method name="getPuestos" returnType="ArrayList&lt;ArrayList&lt;Asiento&gt;&gt;" visibility="public"/>
+        <Method name="setPuestos" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;ArrayList&lt;Asiento&gt;&gt;" name="puestos"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Guia10Extra2" package="guia10extra2" visibility="public" xPosition="1342.0" yPosition="1374.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="AsientoServicio" package="guia10extra2.Servicio" visibility="public" xPosition="1148.0" yPosition="979.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="crearAsiento" returnType="Asiento" visibility="public">
+          <Argument type="int" name="id"/>
+          <Argument type="LetrasAsiento" name="letra"/>
+        </Method>
+        <Method name="imprimirDatosAsiento" returnType="void" visibility="public">
+          <Argument type="Asiento" name="puesto"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="EspectadorServicio" package="guia10extra2.Servicio" visibility="public" xPosition="835.0" yPosition="941.0">
+      <Fields>
+        <Field name="INPUT" type="Scanner" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="ss" type="SalaServicio" visibility="private"/>
+        <Field name="as" type="AsientoServicio" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="crearEspectador" returnType="Espectador" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="PeliculaServicio" package="guia10extra2.Servicio" visibility="public" xPosition="1072.0" yPosition="35.0">
+      <Fields>
+        <Field name="INPUT" type="Scanner" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="crearPelicula" returnType="Pelicula" visibility="public"/>
+        <Method name="imprimirDatosPelicula" returnType="void" visibility="public">
+          <Argument type="Pelicula" name="movie"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="SalaServicio" package="guia10extra2.Servicio" visibility="public" xPosition="395.0" yPosition="899.0">
+      <Fields>
+        <Field name="INPUT" type="Scanner" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="as" type="AsientoServicio" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="crearSala" returnType="Sala" visibility="public"/>
+        <Method name="crearMatrizAsientos" returnType="ArrayList&lt;ArrayList&lt;Asiento&gt;&gt;" visibility="private"/>
+        <Method name="imprimirEstadoSala" returnType="void" visibility="public">
+          <Argument type="Sala" name="sala"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Enum name="LetrasAsiento" package="guia10extra2.Enumerable" visibility="public" xPosition="121.0" yPosition="602.0">
+      <Literals>
+        <Literal name="A"/>
+        <Literal name="B"/>
+        <Literal name="C"/>
+        <Literal name="D"/>
+        <Literal name="E"/>
+        <Literal name="F"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="as" source="guia10extra2.Servicio.SalaServicio" target="guia10extra2.Servicio.AsientoServicio" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10extra2.Entidad.Espectador" target="guia10extra2.Entidad.Sala" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10extra2.Entidad.Asiento" target="guia10extra2.Enumerable.LetrasAsiento" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10extra2.Servicio.SalaServicio" target="guia10extra2.Entidad.Sala" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="salas" source="guia10extra2.Entidad.Cine" target="guia10extra2.Entidad.Sala" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Sala&gt;"/>
+    <UseRelation source="guia10extra2.Servicio.SalaServicio" target="guia10extra2.Entidad.Asiento" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="puestos" source="guia10extra2.Entidad.Sala" target="guia10extra2.Entidad.Asiento" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;ArrayList&lt;Asiento&gt;&gt;"/>
+    <HasRelation name="personasEnSala" source="guia10extra2.Entidad.Sala" target="guia10extra2.Entidad.Espectador" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Espectador&gt;"/>
+    <HasRelation name="puesto" source="guia10extra2.Entidad.Espectador" target="guia10extra2.Entidad.Asiento" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10extra2.Entidad.Cine" target="guia10extra2.Entidad.Pelicula" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="ss" source="guia10extra2.Servicio.EspectadorServicio" target="guia10extra2.Servicio.SalaServicio" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10extra2.Entidad.Sala" target="guia10extra2.Entidad.Asiento" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10extra2.Servicio.AsientoServicio" target="guia10extra2.Entidad.Asiento" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="peliculaReproduciendo" source="guia10extra2.Entidad.Cine" target="guia10extra2.Entidad.Pelicula" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="as" source="guia10extra2.Servicio.EspectadorServicio" target="guia10extra2.Servicio.AsientoServicio" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10extra2.Servicio.AsientoServicio" target="guia10extra2.Enumerable.LetrasAsiento" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10extra2.Entidad.Espectador" target="guia10extra2.Entidad.Asiento" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10extra2.Entidad.Sala" target="guia10extra2.Entidad.Espectador" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10extra2.Entidad.Cine" target="guia10extra2.Entidad.Sala" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10extra2.Servicio.PeliculaServicio" target="guia10extra2.Entidad.Pelicula" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="salaProyeccion" source="guia10extra2.Entidad.Espectador" target="guia10extra2.Entidad.Sala" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10extra2.Servicio.EspectadorServicio" target="guia10extra2.Entidad.Espectador" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="letra" source="guia10extra2.Entidad.Asiento" target="guia10extra2.Enumerable.LetrasAsiento" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

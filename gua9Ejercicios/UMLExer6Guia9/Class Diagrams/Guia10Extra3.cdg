@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Guia10Extra3">
+  <ClassDiagramComponents>
+    <Class name="Persona" package="" visibility="public" xPosition="76.0" yPosition="361.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Vehiculo" package="" visibility="public" xPosition="76.0" yPosition="99.0">
+      <Fields>
+        <Field name="idPoliza" type="Poliza" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Poliza" package="" visibility="public" xPosition="500.0" yPosition="99.0">
+      <Fields>
+        <Field name="dueno" type="Persona" visibility="private"/>
+        <Field name="auto" type="Vehiculo" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Cuotas" package="" visibility="public" xPosition="500.0" yPosition="372.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="Tiene" source="Vehiculo" target="Poliza" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="Tiene cuota" source="Poliza" target="Cuotas" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="Tiene" source="Persona" target="Vehiculo" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="Tiene" source="Persona" target="Poliza" type="Aggregation" sourceCardinality="0..1" targetCardinality="0..1"/>
+    <HasRelation name="Tiene" source="Poliza" target="Vehiculo" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
