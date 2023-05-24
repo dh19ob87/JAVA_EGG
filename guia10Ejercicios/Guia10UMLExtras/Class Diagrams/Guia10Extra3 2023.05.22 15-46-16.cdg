@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Guia10Extra3">
+  <ClassDiagramComponents>
+    <Class name="Cuotas" package="guia10extra3.Entidad" visibility="public" xPosition="3959.0" yPosition="1132.0">
+      <Fields>
+        <Field name="numeroDeCuota" type="int" visibility="private"/>
+        <Field name="montoTotalCuota" type="double" visibility="private"/>
+        <Field name="pagada" type="boolean" visibility="private"/>
+        <Field name="fechaDeVencimiento" type="LocalDate" visibility="private"/>
+        <Field name="formaDePago" type="FormasDePago" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="numeroDeCuota"/>
+          <Argument type="double" name="montoTotalCuota"/>
+          <Argument type="boolean" name="pagada"/>
+          <Argument type="LocalDate" name="fechaDeVencimiento"/>
+          <Argument type="FormasDePago" name="formaDePago"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNumeroDeCuota" returnType="int" visibility="public"/>
+        <Method name="setNumeroDeCuota" returnType="void" visibility="public">
+          <Argument type="int" name="numeroDeCuota"/>
+        </Method>
+        <Method name="getMontoTotalCuota" returnType="double" visibility="public"/>
+        <Method name="setMontoTotalCuota" returnType="void" visibility="public">
+          <Argument type="double" name="montoTotalCuota"/>
+        </Method>
+        <Method name="isPagada" returnType="boolean" visibility="public"/>
+        <Method name="setPagada" returnType="void" visibility="public">
+          <Argument type="boolean" name="pagada"/>
+        </Method>
+        <Method name="getFechaDeVencimiento" returnType="LocalDate" visibility="public"/>
+        <Method name="setFechaDeVencimiento" returnType="void" visibility="public">
+          <Argument type="LocalDate" name="fechaDeVencimiento"/>
+        </Method>
+        <Method name="getFormaDePago" returnType="FormasDePago" visibility="public"/>
+        <Method name="setFormaDePago" returnType="void" visibility="public">
+          <Argument type="FormasDePago" name="formaDePago"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Persona" package="guia10extra3.Entidad" visibility="public" xPosition="2572.0" yPosition="106.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="dni" type="Long" visibility="private"/>
+        <Field name="email" type="String" visibility="private"/>
+        <Field name="address" type="String" visibility="private"/>
+        <Field name="numeroCelular" type="long" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="Long" name="dni"/>
+          <Argument type="String" name="email"/>
+          <Argument type="String" name="address"/>
+          <Argument type="long" name="numeroCelular"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="setApellido" returnType="void" visibility="public">
+          <Argument type="String" name="apellido"/>
+        </Method>
+        <Method name="setDni" returnType="void" visibility="public">
+          <Argument type="Long" name="dni"/>
+        </Method>
+        <Method name="setEmail" returnType="void" visibility="public">
+          <Argument type="String" name="email"/>
+        </Method>
+        <Method name="setAddress" returnType="void" visibility="public">
+          <Argument type="String" name="address"/>
+        </Method>
+        <Method name="setNumeroCelular" returnType="void" visibility="public">
+          <Argument type="long" name="numeroCelular"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="getApellido" returnType="String" visibility="public"/>
+        <Method name="getDni" returnType="Long" visibility="public"/>
+        <Method name="getEmail" returnType="String" visibility="public"/>
+        <Method name="getAddress" returnType="String" visibility="public"/>
+        <Method name="getNumeroCelular" returnType="long" visibility="public"/>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Poliza" package="guia10extra3.Entidad" visibility="public" xPosition="2046.0" yPosition="1187.0">
+      <Fields>
+        <Field name="acreedor" type="Persona" visibility="private"/>
+        <Field name="auto" type="Vehiculo" visibility="private"/>
+        <Field name="numeroDePoliza" type="long" visibility="private"/>
+        <Field name="fechaInicio" type="LocalDate" visibility="private"/>
+        <Field name="fechaFinal" type="LocalDate" visibility="private"/>
+        <Field name="cantidadDeCuotas" type="int" visibility="private"/>
+        <Field name="formaDePago" type="FormasDePago" visibility="private"/>
+        <Field name="montoTotalAsegurado" type="double" visibility="private"/>
+        <Field name="granizo" type="boolean" visibility="private"/>
+        <Field name="montoMaximoGranizo" type="double" visibility="private"/>
+        <Field name="tipoDeCobertura" type="TiposDeCobertura" visibility="private"/>
+        <Field name="cuotas" type="LinkedList&lt;Cuotas&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Persona" name="acreedor"/>
+          <Argument type="Vehiculo" name="auto"/>
+          <Argument type="long" name="numeroDePoliza"/>
+          <Argument type="LocalDate" name="fechaInicio"/>
+          <Argument type="LocalDate" name="fechaFinal"/>
+          <Argument type="int" name="cantidadDeCuotas"/>
+          <Argument type="FormasDePago" name="formaDePago"/>
+          <Argument type="double" name="montoTotalAsegurado"/>
+          <Argument type="boolean" name="granizo"/>
+          <Argument type="double" name="montoMaximoGranizo"/>
+          <Argument type="TiposDeCobertura" name="tipoDeCobertura"/>
+          <Argument type="LinkedList&lt;Cuotas&gt;" name="cuotas"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getAcreedor" returnType="Persona" visibility="public"/>
+        <Method name="setAcreedor" returnType="void" visibility="public">
+          <Argument type="Persona" name="acreedor"/>
+        </Method>
+        <Method name="getAuto" returnType="Vehiculo" visibility="public"/>
+        <Method name="setAuto" returnType="void" visibility="public">
+          <Argument type="Vehiculo" name="auto"/>
+        </Method>
+        <Method name="getNumeroDePoliza" returnType="long" visibility="public"/>
+        <Method name="setNumeroDePoliza" returnType="void" visibility="public">
+          <Argument type="long" name="numeroDePoliza"/>
+        </Method>
+        <Method name="getFechaInicio" returnType="LocalDate" visibility="public"/>
+        <Method name="setFechaInicio" returnType="void" visibility="public">
+          <Argument type="LocalDate" name="fechaInicio"/>
+        </Method>
+        <Method name="getFechaFinal" returnType="LocalDate" visibility="public"/>
+        <Method name="setFechaFinal" returnType="void" visibility="public">
+          <Argument type="LocalDate" name="fechaFinal"/>
+        </Method>
+        <Method name="getCantidadDeCuotas" returnType="int" visibility="public"/>
+        <Method name="setCantidadDeCuotas" returnType="void" visibility="public">
+          <Argument type="int" name="cantidadDeCuotas"/>
+        </Method>
+        <Method name="getFormaDePago" returnType="FormasDePago" visibility="public"/>
+        <Method name="setFormaDePago" returnType="void" visibility="public">
+          <Argument type="FormasDePago" name="formaDePago"/>
+        </Method>
+        <Method name="getMontoTotalAsegurado" returnType="double" visibility="public"/>
+        <Method name="setMontoTotalAsegurado" returnType="void" visibility="public">
+          <Argument type="double" name="montoTotalAsegurado"/>
+        </Method>
+        <Method name="isGranizo" returnType="boolean" visibility="public"/>
+        <Method name="setGranizo" returnType="void" visibility="public">
+          <Argument type="boolean" name="granizo"/>
+        </Method>
+        <Method name="getMontoMaximoGranizo" returnType="double" visibility="public"/>
+        <Method name="setMontoMaximoGranizo" returnType="void" visibility="public">
+          <Argument type="double" name="montoMaximoGranizo"/>
+        </Method>
+        <Method name="getTipoDeCobertura" returnType="TiposDeCobertura" visibility="public"/>
+        <Method name="setTipoDeCobertura" returnType="void" visibility="public">
+          <Argument type="TiposDeCobertura" name="tipoDeCobertura"/>
+        </Method>
+        <Method name="getCuotas" returnType="LinkedList&lt;Cuotas&gt;" visibility="public"/>
+        <Method name="setCuotas" returnType="void" visibility="public">
+          <Argument type="LinkedList&lt;Cuotas&gt;" name="cuotas"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Vehiculo" package="guia10extra3.Entidad" visibility="public" xPosition="545.0" yPosition="1399.0">
+      <Fields>
+        <Field name="marca" type="MarcasAutos" visibility="private"/>
+        <Field name="modelo" type="Year" visibility="private"/>
+        <Field name="numeroDeMotor" type="long" visibility="private"/>
+        <Field name="chasis" type="String" visibility="private"/>
+        <Field name="color" type="Colores" visibility="private"/>
+        <Field name="tipoAuto" type="TipoVehiculo" visibility="private"/>
+        <Field name="propietario" type="Persona" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="MarcasAutos" name="marca"/>
+          <Argument type="Year" name="modelo"/>
+          <Argument type="long" name="numeroDeMotor"/>
+          <Argument type="String" name="chasis"/>
+          <Argument type="Colores" name="color"/>
+          <Argument type="TipoVehiculo" name="tipoAuto"/>
+          <Argument type="Persona" name="propietario"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getMarca" returnType="MarcasAutos" visibility="public"/>
+        <Method name="setMarca" returnType="void" visibility="public">
+          <Argument type="MarcasAutos" name="marca"/>
+        </Method>
+        <Method name="getModelo" returnType="Year" visibility="public"/>
+        <Method name="setModelo" returnType="void" visibility="public">
+          <Argument type="Year" name="modelo"/>
+        </Method>
+        <Method name="getNumeroDeMotor" returnType="long" visibility="public"/>
+        <Method name="setNumeroDeMotor" returnType="void" visibility="public">
+          <Argument type="long" name="numeroDeMotor"/>
+        </Method>
+        <Method name="getChasis" returnType="String" visibility="public"/>
+        <Method name="setChasis" returnType="void" visibility="public">
+          <Argument type="String" name="chasis"/>
+        </Method>
+        <Method name="getColor" returnType="Colores" visibility="public"/>
+        <Method name="setColor" returnType="void" visibility="public">
+          <Argument type="Colores" name="color"/>
+        </Method>
+        <Method name="getTipoAuto" returnType="TipoVehiculo" visibility="public"/>
+        <Method name="setTipoAuto" returnType="void" visibility="public">
+          <Argument type="TipoVehiculo" name="tipoAuto"/>
+        </Method>
+        <Method name="getPropietario" returnType="Persona" visibility="public"/>
+        <Method name="setPropietario" returnType="void" visibility="public">
+          <Argument type="Persona" name="propietario"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Guia10Extra3" package="guia10extra3" visibility="public" xPosition="1575.0" yPosition="538.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="CuotasServicio" package="guia10extra3.Servicio" visibility="public" xPosition="4868.0" yPosition="1293.0">
+      <Fields>
+        <Field name="INPUT" type="Scanner" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="crearCuotas" returnType="Cuotas" visibility="public">
+          <Argument type="int" name="numeroDeCuota"/>
+        </Method>
+        <Method name="imprimirFormasDePago" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="PersonaServicio" package="guia10extra3.Servicio" visibility="public" xPosition="2018.0" yPosition="216.0">
+      <Fields>
+        <Field name="INPUT" type="Scanner" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="personasRegistradas" type="HashSet&lt;Persona&gt;" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="crearPersona" returnType="Persona" visibility="public"/>
+        <Method name="imprimitDatosPersona" returnType="void" visibility="public">
+          <Argument type="Persona" name="person"/>
+        </Method>
+        <Method name="imprimirPersonasRegistradas" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="VehiculoServicio" package="guia10extra3.Servicio" visibility="public" xPosition="803.0" yPosition="2147.0">
+      <Fields>
+        <Field name="INPUT" type="Scanner" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="crearVehiculo" returnType="Vehiculo" visibility="public">
+          <Argument type="Persona" name="propietario"/>
+        </Method>
+        <Method name="imprimirColores" returnType="void" visibility="private"/>
+        <Method name="imprimirmarcasAutos" returnType="void" visibility="private"/>
+        <Method name="imprimirTipoVehiculo" returnType="void" visibility="private"/>
+        <Method name="imprimirDatosAuto" returnType="void" visibility="public">
+          <Argument type="Vehiculo" name="auto"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Comparadores" package="guia10extra3.Utilidades" visibility="public" xPosition="2655.0" yPosition="2461.0">
+      <Fields>
+        <Field name="ordenarPolizaPorPropietarioAsc" type="Comparator&lt;Poliza&gt;" visibility="public" isStatic="true"/>
+        <Field name="ordenarPolizaPorPropietarioDesc" type="Comparator&lt;Poliza&gt;" visibility="public" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Enum name="Colores" package="guia10extra3.Enumerables" visibility="public" xPosition="4188.0" yPosition="136.0">
+      <Literals>
+        <Literal name="AZUL"/>
+        <Literal name="AMARILLO"/>
+        <Literal name="ROJO"/>
+        <Literal name="NARANJA"/>
+        <Literal name="VIOLETA"/>
+        <Literal name="MAGENTA"/>
+        <Literal name="MORADO"/>
+        <Literal name="NEGRO"/>
+        <Literal name="BLANCO"/>
+        <Literal name="ROSA"/>
+        <Literal name="SALMON"/>
+        <Literal name="CARMIN"/>
+        <Literal name="SIENA"/>
+        <Literal name="CELESTE"/>
+        <Literal name="TURQUESA"/>
+      </Literals>
+    </Enum>
+    <Enum name="FormasDePago" package="guia10extra3.Enumerables" visibility="public" xPosition="3944.0" yPosition="136.0">
+      <Literals>
+        <Literal name="EFECTIVO"/>
+        <Literal name="PSE"/>
+        <Literal name="PAYPAL"/>
+        <Literal name="CREDITO"/>
+        <Literal name="EFECTY"/>
+        <Literal name="TRANSFERENCIA"/>
+        <Literal name="CONSIGNACION"/>
+      </Literals>
+    </Enum>
+    <Enum name="MarcasAutos" package="guia10extra3.Enumerables" visibility="public" xPosition="4675.0" yPosition="126.0">
+      <Literals>
+        <Literal name="ACURA"/>
+        <Literal name="ALFAROMEO"/>
+        <Literal name="ASTONMARTIN"/>
+        <Literal name="AUDI"/>
+        <Literal name="BAIC"/>
+        <Literal name="BENTLEY"/>
+        <Literal name="BMW"/>
+        <Literal name="BUICK"/>
+        <Literal name="CADILLAC"/>
+        <Literal name="CHEVROLET"/>
+        <Literal name="CRYSLER"/>
+        <Literal name="DODGE"/>
+        <Literal name="FERRARI"/>
+        <Literal name="FIAT"/>
+        <Literal name="FORD"/>
+        <Literal name="HONDA"/>
+        <Literal name="GMC"/>
+        <Literal name="HYUNDAI"/>
+        <Literal name="JAGUAR"/>
+        <Literal name="INFINITI"/>
+        <Literal name="JAC"/>
+        <Literal name="JEEP"/>
+        <Literal name="KIA"/>
+        <Literal name="MAZDA"/>
+        <Literal name="MERCEDESBENZ"/>
+        <Literal name="MITSUBISHI"/>
+        <Literal name="NISSAN"/>
+        <Literal name="PEUGEOT"/>
+        <Literal name="RAM"/>
+        <Literal name="RENAULT"/>
+        <Literal name="SEAT"/>
+        <Literal name="SUBARU"/>
+        <Literal name="SUSUKI"/>
+        <Literal name="TESLA"/>
+        <Literal name="TOYOTA"/>
+      </Literals>
+    </Enum>
+    <Enum name="TiposDeCobertura" package="guia10extra3.Enumerables" visibility="public" xPosition="4454.0" yPosition="136.0">
+      <Literals>
+        <Literal name="TOTAL"/>
+        <Literal name="CONTRATERCEROS"/>
+        <Literal name="RESPONSABILIDADCIVIL"/>
+        <Literal name="ACCIDENTE"/>
+        <Literal name="INTEGRAL"/>
+        <Literal name="SINSEGURO"/>
+        <Literal name="PAGOSMEDICOS"/>
+        <Literal name="SEGUROINSUFICIENTE"/>
+        <Literal name="LESIONESPERSONALES"/>
+        <Literal name="DEFICIT"/>
+        <Literal name="REMOLQUE"/>
+        <Literal name="MANODEOBRA"/>
+        <Literal name="ALQUILER"/>
+        <Literal name="AUTOCLASICO"/>
+      </Literals>
+    </Enum>
+    <Enum name="TipoVehiculo" package="guia10extra3.Enumerables" visibility="public" xPosition="3714.0" yPosition="136.0">
+      <Literals>
+        <Literal name="SUV"/>
+        <Literal name="HATCHBACK"/>
+        <Literal name="CROSSOVER"/>
+        <Literal name="CONVERTIBLE"/>
+        <Literal name="SEDAN"/>
+        <Literal name="DEPORTIVO"/>
+        <Literal name="COUPE"/>
+        <Literal name="MINIVAN"/>
+        <Literal name="STATIONWAGON"/>
+        <Literal name="PICKUP"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="propietario" source="guia10extra3.Entidad.Vehiculo" target="guia10extra3.Entidad.Persona" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10extra3.Entidad.Vehiculo" target="guia10extra3.Enumerables.TipoVehiculo" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10extra3.Servicio.VehiculoServicio" target="guia10extra3.Entidad.Vehiculo" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="color" source="guia10extra3.Entidad.Vehiculo" target="guia10extra3.Enumerables.Colores" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="ordenarPolizaPorPropietarioDesc" source="guia10extra3.Utilidades.Comparadores" target="guia10extra3.Entidad.Poliza" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="cuotas" source="guia10extra3.Entidad.Poliza" target="guia10extra3.Entidad.Cuotas" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="LinkedList&lt;Cuotas&gt;"/>
+    <HasRelation name="formaDePago" source="guia10extra3.Entidad.Poliza" target="guia10extra3.Enumerables.FormasDePago" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10extra3.Entidad.Vehiculo" target="guia10extra3.Enumerables.Colores" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="acreedor" source="guia10extra3.Entidad.Poliza" target="guia10extra3.Entidad.Persona" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10extra3.Servicio.CuotasServicio" target="guia10extra3.Entidad.Cuotas" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="personasRegistradas" source="guia10extra3.Servicio.PersonaServicio" target="guia10extra3.Entidad.Persona" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="HashSet&lt;Persona&gt;"/>
+    <UseRelation source="guia10extra3.Entidad.Poliza" target="guia10extra3.Enumerables.TiposDeCobertura" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="auto" source="guia10extra3.Entidad.Poliza" target="guia10extra3.Entidad.Vehiculo" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10extra3.Servicio.PersonaServicio" target="guia10extra3.Entidad.Persona" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="formaDePago" source="guia10extra3.Entidad.Cuotas" target="guia10extra3.Enumerables.FormasDePago" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10extra3.Entidad.Vehiculo" target="guia10extra3.Enumerables.MarcasAutos" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10extra3.Entidad.Poliza" target="guia10extra3.Enumerables.FormasDePago" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10extra3.Entidad.Cuotas" target="guia10extra3.Enumerables.FormasDePago" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="tipoDeCobertura" source="guia10extra3.Entidad.Poliza" target="guia10extra3.Enumerables.TiposDeCobertura" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10extra3.Entidad.Vehiculo" target="guia10extra3.Entidad.Persona" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="ordenarPolizaPorPropietarioAsc" source="guia10extra3.Utilidades.Comparadores" target="guia10extra3.Entidad.Poliza" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10extra3.Entidad.Poliza" target="guia10extra3.Entidad.Vehiculo" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10extra3.Entidad.Poliza" target="guia10extra3.Entidad.Persona" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="tipoAuto" source="guia10extra3.Entidad.Vehiculo" target="guia10extra3.Enumerables.TipoVehiculo" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10extra3.Entidad.Poliza" target="guia10extra3.Entidad.Cuotas" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="marca" source="guia10extra3.Entidad.Vehiculo" target="guia10extra3.Enumerables.MarcasAutos" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

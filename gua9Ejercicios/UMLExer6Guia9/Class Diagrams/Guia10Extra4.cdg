@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Guia10Extra4">
+  <ClassDiagramComponents>
+    <Class name="Alumno" package="" visibility="public" xPosition="164.0" yPosition="165.0">
+      <Fields>
+        <Field name="nombres" type="String" visibility="private"/>
+        <Field name="apellidos" type="String" visibility="private"/>
+        <Field name="DNI" type="Long" visibility="private"/>
+        <Field name="votosObtenidos" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Simulador" package="" visibility="public" xPosition="577.0" yPosition="165.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="ListadoAlumnos" returnType="void" visibility="public"/>
+        <Method name="DNI" returnType="Lista" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="UntitledClass" package="" visibility="public" xPosition="419.0" yPosition="464.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>
