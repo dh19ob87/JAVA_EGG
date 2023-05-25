@@ -2,29 +2,43 @@
 
 <ClassDiagram name="Guia10Extra4">
   <ClassDiagramComponents>
-    <Class name="Alumno" package="" visibility="public" xPosition="164.0" yPosition="165.0">
+    <Class name="Alumno" package="" visibility="public" xPosition="84.0" yPosition="67.0">
       <Fields>
         <Field name="nombres" type="String" visibility="private"/>
         <Field name="apellidos" type="String" visibility="private"/>
         <Field name="DNI" type="Long" visibility="private"/>
         <Field name="votosObtenidos" type="int" visibility="private"/>
+        <Field name="votosDados" type="LinkedList" visibility="private"/>
       </Fields>
       <Constructors/>
       <Methods/>
     </Class>
-    <Class name="Simulador" package="" visibility="public" xPosition="577.0" yPosition="165.0">
-      <Fields/>
+    <Class name="Simulador" package="" visibility="public" xPosition="638.0" yPosition="48.0">
+      <Fields>
+        <Field name="VotosAlumno" type="HashMap" visibility="private"/>
+      </Fields>
       <Constructors/>
       <Methods>
         <Method name="ListadoAlumnos" returnType="void" visibility="public"/>
         <Method name="DNI" returnType="Lista" visibility="public"/>
+        <Method name="imprimirListadoAlumnos" returnType="void" visibility="public"/>
+        <Method name="votacion" returnType="void" visibility="public">
+          <Argument type="LinkedList" name="Alumnos"/>
+        </Method>
       </Methods>
     </Class>
-    <Class name="UntitledClass" package="" visibility="public" xPosition="419.0" yPosition="464.0">
-      <Fields/>
+    <Class name="Voto" package="" visibility="public" xPosition="287.0" yPosition="530.0">
+      <Fields>
+        <Field name="estudiante" type="Alumno" visibility="private"/>
+        <Field name="AlumnosVotados" type="LinkedList" visibility="private"/>
+      </Fields>
       <Constructors/>
       <Methods/>
     </Class>
   </ClassDiagramComponents>
-  <ClassDiagramRelations/>
+  <ClassDiagramRelations>
+    <HasRelation name="Tiene" source="Alumno" target="Voto" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="Tiene" source="Simulador" target="Alumno" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="Tiene" source="Simulador" target="Voto" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+  </ClassDiagramRelations>
 </ClassDiagram>
