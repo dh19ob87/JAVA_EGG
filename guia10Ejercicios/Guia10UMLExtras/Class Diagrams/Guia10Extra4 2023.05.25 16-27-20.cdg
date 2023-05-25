@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Guia10Extra4">
+  <ClassDiagramComponents>
+    <Class name="Alumno" package="guia10extra4.Entidad" visibility="public" xPosition="477.0" yPosition="826.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="dni" type="Long" visibility="private"/>
+        <Field name="votosObtenidos" type="Integer" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="Long" name="dni"/>
+          <Argument type="Integer" name="votosObtenidos"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getApeliido" returnType="String" visibility="public"/>
+        <Method name="setApeliido" returnType="void" visibility="public">
+          <Argument type="String" name="apeliido"/>
+        </Method>
+        <Method name="getDni" returnType="Long" visibility="public"/>
+        <Method name="setDni" returnType="void" visibility="public">
+          <Argument type="Long" name="dni"/>
+        </Method>
+        <Method name="getVotosObtenidos" returnType="Integer" visibility="public"/>
+        <Method name="setVotosObtenidos" returnType="void" visibility="public">
+          <Argument type="Integer" name="votosObtenidos"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Simulador" package="guia10extra4.Entidad" visibility="public" xPosition="63.0" yPosition="384.0">
+      <Fields>
+        <Field name="votaciones" type="LinkedList&lt;Voto&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="LinkedList&lt;Voto&gt;" name="votaciones"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getVotaciones" returnType="LinkedList&lt;Voto&gt;" visibility="public"/>
+        <Method name="setVotaciones" returnType="void" visibility="public">
+          <Argument type="LinkedList&lt;Voto&gt;" name="votaciones"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Voto" package="guia10extra4.Entidad" visibility="public" xPosition="506.0" yPosition="355.0">
+      <Fields>
+        <Field name="student" type="Alumno" visibility="private"/>
+        <Field name="votosOtorgados" type="LinkedList&lt;Alumno&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Alumno" name="student"/>
+          <Argument type="LinkedList&lt;Alumno&gt;" name="votosOtorgados"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getStudent" returnType="Alumno" visibility="public"/>
+        <Method name="setStudent" returnType="void" visibility="public">
+          <Argument type="Alumno" name="student"/>
+        </Method>
+        <Method name="getVotosOtorgados" returnType="LinkedList&lt;Alumno&gt;" visibility="public"/>
+        <Method name="setVotosOtorgados" returnType="void" visibility="public">
+          <Argument type="LinkedList&lt;Alumno&gt;" name="votosOtorgados"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Guia10Extra4" package="guia10extra4" visibility="public" xPosition="882.0" yPosition="206.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="AlumnoServicio" package="guia10extra4.Servicio" visibility="public" xPosition="1006.0" yPosition="969.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="crearAlumno" returnType="Alumno" visibility="public">
+          <Argument type="String" name="nombres"/>
+          <Argument type="String" name="apellidos"/>
+          <Argument type="Long" name="dni"/>
+          <Argument type="Integer" name="votosObtenidos"/>
+        </Method>
+        <Method name="printAlumno" returnType="void" visibility="public">
+          <Argument type="Alumno" name="student"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="SimuladorServicio" package="guia10extra4.Servicio" visibility="public" xPosition="1020.0" yPosition="674.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="iniciarSimulacion" returnType="void" visibility="public"/>
+        <Method name="votacionAleatoria" returnType="void" visibility="private">
+          <Argument type="LinkedList&lt;Alumno&gt;" name="electores"/>
+          <Argument type="LinkedList&lt;Voto&gt;" name="candidatos"/>
+        </Method>
+        <Method name="imprimirResultadoElecciones" returnType="void" visibility="private">
+          <Argument type="LinkedList&lt;Voto&gt;" name="candidatos"/>
+        </Method>
+        <Method name="recuentoDeVotos" returnType="void" visibility="private">
+          <Argument type="LinkedList&lt;Voto&gt;" name="resultadoElecciones"/>
+        </Method>
+        <Method name="facilitadoresYSupletes" returnType="void" visibility="private">
+          <Argument type="LinkedList&lt;Voto&gt;" name="resultadoElecciones"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="VotoServicio" package="guia10extra4.Servicio" visibility="public" xPosition="1154.0" yPosition="263.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="crearVoto" returnType="Voto" visibility="public">
+          <Argument type="Alumno" name="estudiante"/>
+        </Method>
+        <Method name="imprimirVoto" returnType="void" visibility="public">
+          <Argument type="Voto" name="vote"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Comparadores" package="guia10extra4.Utilidades" visibility="public" xPosition="1113.0" yPosition="441.0">
+      <Fields>
+        <Field name="ordenarEleccionesDesc" type="Comparator&lt;Voto&gt;" visibility="public" isStatic="true"/>
+        <Field name="ordenarEleccionesAsc" type="Comparator&lt;Voto&gt;" visibility="public" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="RandomUser" package="guia10extra4.Utilidades" visibility="public" xPosition="50.0" yPosition="969.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="getUsuarios" returnType="LinkedList&lt;Alumno&gt;" visibility="public" isStatic="true">
+          <Argument type="int" name="cantidadUsuarios"/>
+        </Method>
+        <Method name="procesarString" returnType="LinkedList&lt;Alumno&gt;" visibility="private" isStatic="true">
+          <Argument type="String" name="personas"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="votaciones" source="guia10extra4.Entidad.Simulador" target="guia10extra4.Entidad.Voto" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="LinkedList&lt;Voto&gt;"/>
+    <HasRelation name="ordenarEleccionesAsc" source="guia10extra4.Utilidades.Comparadores" target="guia10extra4.Entidad.Voto" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10extra4.Entidad.Simulador" target="guia10extra4.Entidad.Voto" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10extra4.Servicio.AlumnoServicio" target="guia10extra4.Entidad.Alumno" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10extra4.Servicio.SimuladorServicio" target="guia10extra4.Entidad.Voto" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10extra4.Servicio.VotoServicio" target="guia10extra4.Entidad.Voto" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="votosOtorgados" source="guia10extra4.Entidad.Voto" target="guia10extra4.Entidad.Alumno" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="LinkedList&lt;Alumno&gt;"/>
+    <HasRelation name="ordenarEleccionesDesc" source="guia10extra4.Utilidades.Comparadores" target="guia10extra4.Entidad.Voto" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10extra4.Entidad.Voto" target="guia10extra4.Entidad.Alumno" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="student" source="guia10extra4.Entidad.Voto" target="guia10extra4.Entidad.Alumno" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="guia10extra4.Utilidades.RandomUser" target="guia10extra4.Entidad.Alumno" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
