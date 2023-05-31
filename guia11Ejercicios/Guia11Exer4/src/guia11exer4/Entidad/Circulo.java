@@ -42,4 +42,12 @@ public class Circulo implements calculosFormas{
     public Double calcularPerimetro(double ... values) {
         return (2*values[0]) * PI;
     }
+    
+    public Double calcularArea(double radio) {
+        return Math.PI * (Math.pow(radio, 2));
+    }
+    
+    public Double calcularPerimetro(double radio){
+        return (2 * radio) * Math.PI;
+    }
 }

@@ -24,14 +24,16 @@ public class CirculoServicio {
     }
     
     public void calcularArea(Circulo circle){
-        System.out.println(circle.calcularArea(circle.getRadio()));
+        System.out.println("Área círculo Override interface: " + circle.calcularArea(circle.getRadio()));
+        System.out.println("Área círculo polimorfismo interface method: " + circle.calcularArea(circle.getRadio()));
     }
     
     public void calcularPerimetro (Circulo circle){
-        System.out.println(circle.calcularPerimetro(circle.getRadio()));
+        System.out.println("Perímetro círculo Override interface: " + circle.calcularPerimetro(circle.getRadio()));
+        System.out.println("Perímetro círculo polimorfismo interface method: " + circle.calcularPerimetro(circle.getRadio()));
     }
     
     public void calcularPropiedadCirculo(CalcularPropiedadFormas lambda, Circulo circle){
-        System.out.println("Área circulo: "  + lambda.calcularPropiedad(circle));
+        System.out.println("Área circulo functional interface: "  + lambda.calcularPropiedad(circle));
     }
 }

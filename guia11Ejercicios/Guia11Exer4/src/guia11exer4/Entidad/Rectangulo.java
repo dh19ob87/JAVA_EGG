@@ -49,6 +49,14 @@ public class Rectangulo implements calculosFormas{
     
     @Override
     public Double calcularPerimetro(double ... values){
-        return (base+ altura) * 2;
+        return (values[0]+ values[1]) * 2;
+    }
+    
+    public Double calcularArea(double base, double altura){
+        return base * altura;
+    }
+    
+    public Double calcularPerimetro(double base, double altura){
+        return (base + altura) * 2;
     }
 }

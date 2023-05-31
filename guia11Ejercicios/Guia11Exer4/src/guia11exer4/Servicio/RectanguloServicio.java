@@ -26,14 +26,16 @@ public class RectanguloServicio {
     }
     
     public void calcularAreaRectangulo(Rectangulo rectangle){
-        System.out.println(rectangle.calcularArea(rectangle.getAltura(), rectangle.getBase()));
+        System.out.println("Área rectángulo Override method interface: " + rectangle.calcularArea(rectangle.getAltura(), rectangle.getBase()));
+        System.out.println("Área rectángulo polimorfismo method interface: " + rectangle.calcularArea(rectangle.getAltura(), rectangle.getBase()));
     }
     
     public void calcularPerimetroRectangulo (Rectangulo rectangle){
-        System.out.println(rectangle.calcularPerimetro(rectangle.getAltura(), rectangle.getBase()));
+        System.out.println("Perímetro rectángulo Override method interface: " + rectangle.calcularPerimetro(rectangle.getAltura(), rectangle.getBase()));
+        System.out.println("Perímetro rectángulo polimorfismo method interface: " + rectangle.calcularPerimetro(rectangle.getBase(), rectangle.getAltura()));
     }
 
     public void calcularPropiedadRectanguloLambda(CalcularPropiedadFormas lambda, Rectangulo rectangle) {
-        System.out.println("El área del círculo es: " + lambda.calcularPropiedad(rectangle));
+        System.out.println("El área del círculo es (Functional interface): " + lambda.calcularPropiedad(rectangle));
     }
 }
