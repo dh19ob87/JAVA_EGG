@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Extra1">
+  <ClassDiagramComponents>
+    <Class name="Alquiler" package="" visibility="public" xPosition="123.0" yPosition="230.0">
+      <Fields>
+        <Field name="nombreCliente" type="String" visibility="private"/>
+        <Field name="dniCliente" type="Long" visibility="private"/>
+        <Field name="fechaAlquiler" type="Date" visibility="private"/>
+        <Field name="fechaDevolucion" type="Date" visibility="private"/>
+        <Field name="posicionAmarre" type="Amarre" visibility="private"/>
+        <Field name="barco" type="Barco" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Barco" package="" visibility="public" xPosition="439.0" yPosition="258.0">
+      <Fields>
+        <Field name="matricula" type="Long" visibility="private"/>
+        <Field name="eslora" type="Double" visibility="private"/>
+        <Field name="anioDeFabricacion" type="Year" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Veleros" package="" visibility="public" xPosition="248.0" yPosition="489.0">
+      <Fields>
+        <Field name="cantidadMastiles" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Motorizado" package="" visibility="public" xPosition="443.0" yPosition="541.0">
+      <Fields>
+        <Field name="potenciaCv" type="double" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="YateLujo" package="" visibility="public" xPosition="697.0" yPosition="489.0">
+      <Fields>
+        <Field name="cantidadCamarotes" type="int" visibility="private"/>
+        <Field name="potenciaCV" type="double" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Amarre" package="" visibility="public" xPosition="123.0" yPosition="49.0">
+      <Fields>
+        <Field name="posicion" type="Integer" visibility="private"/>
+        <Field name="ocupado" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="YateLujo" target="Barco"/>
+    <IsRelation name="is" source="Veleros" target="Barco"/>
+    <HasRelation name="Tiene" source="Barco" target="Alquiler" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="tiene" source="Amarre" target="Alquiler" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Motorizado" target="Barco"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
