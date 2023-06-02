@@ -4,6 +4,7 @@
  */
 package guia11extra1;
 
+import guia11extra1.Servicio.AlquilerServicio;
 /**
  *
  * @author diego
@@ -15,6 +16,8 @@ public class Guia11Extra1 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        AlquilerServicio as = new AlquilerServicio();
+        as.abrirPuerto();
     }
     
 }

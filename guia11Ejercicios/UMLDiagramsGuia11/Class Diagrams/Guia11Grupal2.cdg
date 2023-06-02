@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Guia11Grupal2">
+  <ClassDiagramComponents>
+    <Class name="Electrodomestico" package="" visibility="public" xPosition="342.0" yPosition="51.0">
+      <Fields>
+        <Field name="precio" type="Double" visibility="private"/>
+        <Field name="color" type="String" visibility="private"/>
+        <Field name="letraConsumo" type="String" visibility="private"/>
+        <Field name="peso" type="Double" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="Electrodomestico" returnType="void" visibility="public"/>
+        <Method name="comprobarConsumoEnergetico" returnType="Boolean" visibility="public"/>
+        <Method name="comprobarColor" returnType="Boolean" visibility="public"/>
+        <Method name="crearElectrodomestico" returnType="Electrodomestico" visibility="public"/>
+        <Method name="precioFinal" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Lavadora" package="" visibility="public" xPosition="250.0" yPosition="496.0">
+      <Fields>
+        <Field name="carga" type="Double" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="precioFinal" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Televisor" package="" visibility="public" xPosition="591.0" yPosition="510.0">
+      <Fields>
+        <Field name="resolucion" type="Double" visibility="private"/>
+        <Field name="tdt" type="Boolean" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="Lavadora" target="Electrodomestico"/>
+    <IsRelation name="is" source="Televisor" target="Electrodomestico"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

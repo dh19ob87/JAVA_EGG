@@ -14,7 +14,7 @@ public class AmarreServicio {
     public ArrayList<Amarre> crearAmarres(){
         ArrayList <Amarre> amarresPuerto = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            amarresPuerto.add(new Amarre(i+1, true));
+            amarresPuerto.add(new Amarre(i+1, false));
         }
         return amarresPuerto;
     }

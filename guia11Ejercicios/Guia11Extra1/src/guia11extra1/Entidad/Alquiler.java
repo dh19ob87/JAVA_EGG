@@ -5,7 +5,6 @@
 package guia11extra1.Entidad;
 
 import java.time.LocalDate;
-import java.time.Period;
 /**
  *
  * @author diego
@@ -17,6 +16,7 @@ public class Alquiler {
     private LocalDate fechaDevolucion;
     private Amarre posicionAmarre;
     private Barco barco;
+    double precioAlquiler;
 
     public Alquiler() {
     }
@@ -28,6 +28,14 @@ public class Alquiler {
         this.fechaDevolucion = fechaDevolucion;
         this.posicionAmarre = posicionAmarre;
         this.barco = barco;
+    }
+
+    public double getPrecioAlquiler() {
+        return precioAlquiler;
+    }
+
+    public void setPrecioAlquiler(double precioAlquiler) {
+        this.precioAlquiler = precioAlquiler;
     }
 
     public String getNombrePropietario() {
@@ -80,6 +88,6 @@ public class Alquiler {
 
     @Override
     public String toString() {
-        return "Alquiler{" + "nombrePropietario=" + nombrePropietario + ", dniPropietario=" + dniPropietario + ", fechaAlquiler=" + fechaAlquiler + ", fechaDevolucion=" + fechaDevolucion + ", posicionAmarre=" + posicionAmarre + ", barco=" + barco + '}';
+        return "Alquiler{" + "nombrePropietario=" + nombrePropietario + ", dniPropietario=" + dniPropietario + ", fechaAlquiler=" + fechaAlquiler + ", fechaDevolucion=" + fechaDevolucion + ", posicionAmarre=" + posicionAmarre + ", barco=" + barco + ", precioAlquiler=" + precioAlquiler + '}';
     }
 }
