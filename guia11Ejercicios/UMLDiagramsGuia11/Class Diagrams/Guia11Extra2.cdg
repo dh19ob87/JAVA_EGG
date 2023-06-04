@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Guia11Extra2">
+  <ClassDiagramComponents>
+    <Class name="Edificio" package="" visibility="public" isAbstract="true" xPosition="382.0" yPosition="123.0">
+      <Fields>
+        <Field name="ancho" type="double" visibility="private"/>
+        <Field name="alto" type="double" visibility="private"/>
+        <Field name="largo" type="double" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="calcularSuperficie" returnType="void" visibility="public"/>
+        <Method name="calcularVolumen" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Polideportivo" package="" visibility="public" xPosition="217.0" yPosition="585.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="isTechado" type="Boolean" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="calcularSuperficie" returnType="void" visibility="public"/>
+        <Method name="calcularVolumen" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="EdificioOficinas" package="" visibility="public" xPosition="582.0" yPosition="585.0">
+      <Fields>
+        <Field name="totalOficinas" type="List&lt;Oficina&gt;" visibility="private"/>
+        <Field name="maxPersonasEnEdificio" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="cantidadPersonas" returnType="Double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Oficina" package="" visibility="public" xPosition="711.0" yPosition="316.0">
+      <Fields>
+        <Field name="numeroPiso" type="int" visibility="private"/>
+        <Field name="maxPersonasEnOficina" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Main" package="" visibility="public" xPosition="87.0" yPosition="169.0">
+      <Fields>
+        <Field name="edificios" type="ArrayList&lt;Edificio&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="Polideportivo" target="Edificio"/>
+    <IsRelation name="is" source="EdificioOficinas" target="Edificio"/>
+    <HasRelation name="tiene" source="Oficina" target="EdificioOficinas" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
