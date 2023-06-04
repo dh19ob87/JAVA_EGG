@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="guia11extra.Entidad">
+  <ClassDiagramComponents>
+    <Class name="Edificio" package="guia11extra.Entidad" visibility="public" isAbstract="true" xPosition="569.0" yPosition="206.0">
+      <Fields>
+        <Field name="ancho" type="Double" visibility="protected"/>
+        <Field name="alto" type="Double" visibility="protected"/>
+        <Field name="largo" type="Double" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Double" name="ancho"/>
+          <Argument type="Double" name="alto"/>
+          <Argument type="Double" name="largo"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getAncho" returnType="Double" visibility="public"/>
+        <Method name="setAncho" returnType="void" visibility="public">
+          <Argument type="Double" name="ancho"/>
+        </Method>
+        <Method name="getAlto" returnType="Double" visibility="public"/>
+        <Method name="setAlto" returnType="void" visibility="public">
+          <Argument type="Double" name="alto"/>
+        </Method>
+        <Method name="getLargo" returnType="Double" visibility="public"/>
+        <Method name="setLargo" returnType="void" visibility="public">
+          <Argument type="Double" name="largo"/>
+        </Method>
+        <Method name="calcularSuperficie" returnType="Double" visibility="public" isAbstract="true"/>
+        <Method name="calcularVolumen" returnType="Double" visibility="public" isAbstract="true"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="EdificioDeOficinas" package="guia11extra.Entidad" visibility="public" xPosition="376.0" yPosition="850.0">
+      <Fields>
+        <Field name="oficinas" type="LinkedList&lt;Oficina&gt;" visibility="private"/>
+        <Field name="maxPersonasEdificio" type="Integer" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="LinkedList&lt;Oficina&gt;" name="oficinas"/>
+          <Argument type="Integer" name="maxPersonasEdificio"/>
+          <Argument type="Double" name="ancho"/>
+          <Argument type="Double" name="alto"/>
+          <Argument type="Double" name="largo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getOficinas" returnType="LinkedList&lt;Oficina&gt;" visibility="public"/>
+        <Method name="setOficinas" returnType="void" visibility="public">
+          <Argument type="LinkedList&lt;Oficina&gt;" name="oficinas"/>
+        </Method>
+        <Method name="getMaxPersonasEdificio" returnType="Integer" visibility="public"/>
+        <Method name="setMaxPersonasEdificio" returnType="void" visibility="public">
+          <Argument type="Integer" name="maxPersonasEdificio"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="calcularSuperficie" returnType="Double" visibility="public"/>
+        <Method name="calcularVolumen" returnType="Double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Oficina" package="guia11extra.Entidad" visibility="public" xPosition="1578.0" yPosition="869.0">
+      <Fields>
+        <Field name="numeroDePisos" type="Integer" visibility="private"/>
+        <Field name="maxPersonasEnOficina" type="Integer" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="numeroDePisos"/>
+          <Argument type="Integer" name="maxPersonasEnOficina"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNumeroDePisos" returnType="Integer" visibility="public"/>
+        <Method name="setNumeroDePisos" returnType="void" visibility="public">
+          <Argument type="Integer" name="numeroDePisos"/>
+        </Method>
+        <Method name="getMaxPersonasEnOficina" returnType="Integer" visibility="public"/>
+        <Method name="setMaxPersonasEnOficina" returnType="void" visibility="public">
+          <Argument type="Integer" name="maxPersonasEnOficina"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Polideportivo" package="guia11extra.Entidad" visibility="public" xPosition="1477.0" yPosition="243.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="isTechado" type="Boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="Boolean" name="isTechado"/>
+          <Argument type="Double" name="ancho"/>
+          <Argument type="Double" name="alto"/>
+          <Argument type="Double" name="largo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getIsTechado" returnType="Boolean" visibility="public"/>
+        <Method name="setIsTechado" returnType="void" visibility="public">
+          <Argument type="Boolean" name="isTechado"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="calcularSuperficie" returnType="Double" visibility="public"/>
+        <Method name="calcularVolumen" returnType="Double" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="guia11extra.Entidad.EdificioDeOficinas" target="guia11extra.Entidad.Edificio"/>
+    <UseRelation source="guia11extra.Entidad.EdificioDeOficinas" target="guia11extra.Entidad.Oficina" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="guia11extra.Entidad.Polideportivo" target="guia11extra.Entidad.Edificio"/>
+    <HasRelation name="oficinas" source="guia11extra.Entidad.EdificioDeOficinas" target="guia11extra.Entidad.Oficina" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="LinkedList&lt;Oficina&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
