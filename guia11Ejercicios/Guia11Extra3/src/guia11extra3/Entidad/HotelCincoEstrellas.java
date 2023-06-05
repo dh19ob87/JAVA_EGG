@@ -8,7 +8,8 @@ package guia11extra3.Entidad;
  *
  * @author diego
  */
-public class HotelCincoEstrellas extends HotelCuatroEstrellas{
+public class HotelCincoEstrellas extends HotelCuatroEstrellas {
+
     private Integer cantidadSalonesConferencia;
     private Integer cantidadSuites;
     private Integer cantidadLimusinas;
@@ -51,9 +52,10 @@ public class HotelCincoEstrellas extends HotelCuatroEstrellas{
     public String toString() {
         return "HotelCincoEstrellas{" + "cantidadSalonesConferencia=" + cantidadSalonesConferencia + ", cantidadSuites=" + cantidadSuites + ", cantidadLimusinas=" + cantidadLimusinas + '}';
     }
-    
+
     @Override
-    protected Double precioHabitacion(){
-        return 0d;
+    public void precioHabitacion() {
+        super.precioHabitacion();
+        precioHabitaciones += (15 * cantidadLimusinas);
     }
 }

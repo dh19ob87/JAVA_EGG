@@ -8,7 +8,8 @@ package guia11extra3.Entidad;
  *
  * @author diego
  */
-public abstract class Hotel extends Alojamiento{
+public abstract class Hotel extends Alojamiento {
+
     protected Integer cantidadHabitaciones;
     protected Integer cantidadCamas;
     protected Integer cantidadPisos;
@@ -63,8 +64,8 @@ public abstract class Hotel extends Alojamiento{
     public void setPrecioHabitaciones(Double precioHabitaciones) {
         this.precioHabitaciones = precioHabitaciones;
     }
-    
-    protected abstract Double precioHabitacion();
+
+    protected abstract void precioHabitacion();
 
     @Override
     public String toString() {

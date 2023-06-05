@@ -4,11 +4,14 @@
  */
 package guia11extra3.Entidad;
 
+import java.util.Objects;
+
 /**
  *
  * @author diego
  */
 public abstract class Alojamiento {
+
     protected String nombre;
     protected String direccion;
     protected String localidad;
@@ -56,6 +59,40 @@ public abstract class Alojamiento {
         this.manager = manager;
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 67 * hash + Objects.hashCode(this.nombre);
+        hash = 67 * hash + Objects.hashCode(this.direccion);
+        hash = 67 * hash + Objects.hashCode(this.localidad);
+        hash = 67 * hash + Objects.hashCode(this.manager);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Alojamiento other = (Alojamiento) obj;
+        if (!Objects.equals(this.nombre, other.nombre)) {
+            return false;
+        }
+        if (!Objects.equals(this.direccion, other.direccion)) {
+            return false;
+        }
+        if (!Objects.equals(this.localidad, other.localidad)) {
+            return false;
+        }
+        return Objects.equals(this.manager, other.manager);
+    }
+    
     @Override
     public String toString() {
         return "Alojamiento{" + "nombre=" + nombre + ", direccion=" + direccion + ", localidad=" + localidad + ", manager=" + manager + '}';

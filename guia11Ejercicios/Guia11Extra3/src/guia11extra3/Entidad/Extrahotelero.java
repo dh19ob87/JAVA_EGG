@@ -8,7 +8,8 @@ package guia11extra3.Entidad;
  *
  * @author diego
  */
-public abstract class Extrahotelero extends Alojamiento{
+public abstract class Extrahotelero extends Alojamiento {
+
     protected Boolean isPrivete;
     protected Double area;
 
@@ -41,6 +42,6 @@ public abstract class Extrahotelero extends Alojamiento{
     public String toString() {
         return "Extrahotelero{" + "isPrivete=" + isPrivete + ", area=" + area + '}';
     }
-    
+
     protected abstract Double precioEstadia();
 }

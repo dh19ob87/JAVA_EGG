@@ -8,7 +8,8 @@ package guia11extra3.Entidad;
  *
  * @author diego
  */
-public class Camping extends Extrahotelero{
+public class Camping extends Extrahotelero {
+
     private Integer cantidadMaximaCarpas;
     private Integer cantidadBanos;
     private Boolean restaurante;
@@ -51,9 +52,9 @@ public class Camping extends Extrahotelero{
     public String toString() {
         return "Camping{" + "cantidadMaximaCarpas=" + cantidadMaximaCarpas + ", cantidadBanos=" + cantidadBanos + ", restaurante=" + restaurante + '}';
     }
-    
+
     @Override
-    protected Double precioEstadia(){
-        return 0d;
+    public Double precioEstadia() {
+        return 50 + cantidadMaximaCarpas + ((cantidadMaximaCarpas < 30) ? 10d : (cantidadMaximaCarpas >= 30 && cantidadMaximaCarpas <= 50) ? 30d : 50d);
     }
 }

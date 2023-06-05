@@ -9,6 +9,7 @@ package guia11extra3.Entidad;
  * @author diego
  */
 public class Gerente {
+
     private String nombre;
     private Long dni;
 

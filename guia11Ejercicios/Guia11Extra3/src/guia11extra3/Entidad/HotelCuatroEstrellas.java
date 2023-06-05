@@ -8,7 +8,8 @@ package guia11extra3.Entidad;
  *
  * @author diego
  */
-public class HotelCuatroEstrellas extends Hotel{
+public class HotelCuatroEstrellas extends Hotel {
+
     protected Character categoriaGimnasio;
     protected String nombreRestaurante;
     protected Integer capacidadRestaurante;
@@ -51,9 +52,10 @@ public class HotelCuatroEstrellas extends Hotel{
     public String toString() {
         return "HotelCuatroEstrellas{" + "categoriaGimnasio=" + categoriaGimnasio + ", nombreRestaurante=" + nombreRestaurante + ", capacidadRestaurante=" + capacidadRestaurante + '}';
     }
-    
+
     @Override
-    protected Double precioHabitacion(){
-        return 0d;
+    public void precioHabitacion() {
+        precioHabitaciones = 50 + (cantidadCamas) + ((capacidadRestaurante < 30) ? 10d : (capacidadRestaurante >= 30 && capacidadRestaurante <= 50) ? 30d : 50d)
+                + ((categoriaGimnasio.toString().equalsIgnoreCase("a")) ? 50d : 30d);
     }
 }

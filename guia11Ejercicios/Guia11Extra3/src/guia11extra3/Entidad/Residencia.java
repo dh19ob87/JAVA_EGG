@@ -55,6 +55,6 @@ public class Residencia extends Extrahotelero {
     
     @Override
     protected Double precioEstadia(){
-        return 0d;
+        return 50 + ((double) cantidadHabitaciones);
     }
 }
