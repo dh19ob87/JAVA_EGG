@@ -17,8 +17,8 @@ public class Residencia extends Extrahotelero {
     public Residencia() {
     }
 
-    public Residencia(Integer cantidadHabitaciones, Boolean descuentoAGremios, Boolean campoDeportivo, Boolean isPrivete, Double area, String nombre, String direccion, String localidad, Gerente manager) {
-        super(isPrivete, area, nombre, direccion, localidad, manager);
+    public Residencia(Integer cantidadHabitaciones, Boolean descuentoAGremios, Boolean campoDeportivo, Boolean isPrivete, Double area, Double precioEstadia, String nombre, String direccion, String localidad, Gerente manager) {
+        super(isPrivete, area, precioEstadia, nombre, direccion, localidad, manager);
         this.cantidadHabitaciones = cantidadHabitaciones;
         this.descuentoAGremios = descuentoAGremios;
         this.campoDeportivo = campoDeportivo;
@@ -50,11 +50,11 @@ public class Residencia extends Extrahotelero {
 
     @Override
     public String toString() {
-        return "Residencia{" + "cantidadHabitaciones=" + cantidadHabitaciones + ", descuentoAGremios=" + descuentoAGremios + ", campoDeportivo=" + campoDeportivo + '}';
+        return "Residencia{" + "cantidadHabitaciones=" + cantidadHabitaciones + ", descuentoAGremios=" + descuentoAGremios + ", campoDeportivo=" + campoDeportivo + '}' + super.toString();
     }
     
     @Override
-    protected Double precioEstadia(){
-        return 50 + ((double) cantidadHabitaciones);
+    public void precioEstadia(){
+        precioEstadia = 50 + ((double) cantidadHabitaciones);
     }
 }

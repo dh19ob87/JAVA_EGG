@@ -65,7 +65,7 @@ public abstract class Hotel extends Alojamiento {
         this.precioHabitaciones = precioHabitaciones;
     }
 
-    protected abstract void precioHabitacion();
+    public abstract void precioHabitacion();
 
     @Override
     public String toString() {

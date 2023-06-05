@@ -12,14 +12,24 @@ public abstract class Extrahotelero extends Alojamiento {
 
     protected Boolean isPrivete;
     protected Double area;
+    protected Double precioEstadia;
 
     public Extrahotelero() {
     }
 
-    public Extrahotelero(Boolean isPrivete, Double area, String nombre, String direccion, String localidad, Gerente manager) {
+    public Extrahotelero(Boolean isPrivete, Double area, Double precioEstadia, String nombre, String direccion, String localidad, Gerente manager) {
         super(nombre, direccion, localidad, manager);
+        this.precioEstadia = precioEstadia; 
         this.isPrivete = isPrivete;
         this.area = area;
+    }
+
+    public Double getPrecioEstadia() {
+        return precioEstadia;
+    }
+
+    public void setPrecioEstadia(Double precioEstadia) {
+        this.precioEstadia = precioEstadia;
     }
 
     public Boolean getIsPrivete() {
@@ -40,8 +50,8 @@ public abstract class Extrahotelero extends Alojamiento {
 
     @Override
     public String toString() {
-        return "Extrahotelero{" + "isPrivete=" + isPrivete + ", area=" + area + '}';
+        return "Extrahotelero{" + "isPrivete=" + isPrivete + ", area=" + area + ", precioEstadia=" + precioEstadia + '}';
     }
 
-    protected abstract Double precioEstadia();
+    public abstract void precioEstadia();
 }

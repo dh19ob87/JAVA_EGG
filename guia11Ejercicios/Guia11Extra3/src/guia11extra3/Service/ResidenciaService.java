@@ -30,6 +30,6 @@ public class ResidenciaService {
                            - Datos del gerente:
                            """);
         return new Residencia(IOUtilities.input.nextInt(), IOUtilities.input.nextBoolean(), IOUtilities.input.nextBoolean(), IOUtilities.input.nextBoolean(),
-                IOUtilities.input.nextDouble(), IOUtilities.input.next(), IOUtilities.input.next(), IOUtilities.input.next(), new GerenteService().crearGerente());
+                IOUtilities.input.nextDouble(), 0d, IOUtilities.input.next(), IOUtilities.input.next(), IOUtilities.input.next(), new GerenteService().crearGerente());
     }
 }

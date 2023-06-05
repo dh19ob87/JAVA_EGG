@@ -4,6 +4,8 @@
  */
 package guia11extra3.Entidad;
 
+import java.util.Objects;
+
 /**
  *
  * @author diego
@@ -49,8 +51,38 @@ public class HotelCincoEstrellas extends HotelCuatroEstrellas {
     }
 
     @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 97 * hash + Objects.hashCode(this.cantidadSalonesConferencia);
+        hash = 97 * hash + Objects.hashCode(this.cantidadSuites);
+        hash = 97 * hash + Objects.hashCode(this.cantidadLimusinas);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final HotelCincoEstrellas other = (HotelCincoEstrellas) obj;
+        if (!Objects.equals(this.cantidadSalonesConferencia, other.cantidadSalonesConferencia)) {
+            return false;
+        }
+        if (!Objects.equals(this.cantidadSuites, other.cantidadSuites)) {
+            return false;
+        }
+        return Objects.equals(this.cantidadLimusinas, other.cantidadLimusinas);
+    }
+
+    @Override
     public String toString() {
-        return "HotelCincoEstrellas{" + "cantidadSalonesConferencia=" + cantidadSalonesConferencia + ", cantidadSuites=" + cantidadSuites + ", cantidadLimusinas=" + cantidadLimusinas + '}';
+        return "HotelCincoEstrellas{" + "cantidadSalonesConferencia=" + cantidadSalonesConferencia + ", cantidadSuites=" + cantidadSuites + ", cantidadLimusinas=" + cantidadLimusinas + '}' + super.toString();
     }
 
     @Override

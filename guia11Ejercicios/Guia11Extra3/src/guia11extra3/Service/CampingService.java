@@ -30,7 +30,7 @@ public class CampingService {
                            - Datos del gerente:
                            """);
         return new Camping(IOUtilities.input.nextInt(), IOUtilities.input.nextInt(),
-                IOUtilities.input.nextBoolean(), IOUtilities.input.nextBoolean(), IOUtilities.input.nextDouble(),
+                IOUtilities.input.nextBoolean(), IOUtilities.input.nextBoolean(), IOUtilities.input.nextDouble(), 0d,
                 IOUtilities.input.next(), IOUtilities.input.next(), IOUtilities.input.next(), new GerenteService().crearGerente());
     }
     

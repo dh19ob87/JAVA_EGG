@@ -5,12 +5,12 @@
 package guia11extra3.Utilidades;
 
 import java.util.Comparator;
-import guia11extra3.Entidad.Alojamiento;
+import guia11extra3.Entidad.Hotel;
 
 /**
  *
  * @author diego
  */
 public class Comparadores{
-    public static Comparator<Alojamiento>  ordenarPorPrecioDescendente = (alojamiento1, alojamiento2) -> (alojamiento1.getDireccion().compareTo(alojamiento2.getDireccion()));
+    public static Comparator<Hotel>  ordenarPorPrecioDescendente = (hotelA, hotelB) -> hotelA.getPrecioHabitaciones().compareTo(hotelB.getPrecioHabitaciones());
 }

@@ -10,7 +10,7 @@ import java.util.Objects;
  *
  * @author diego
  */
-public abstract class Alojamiento {
+public abstract class Alojamiento{
 
     protected String nombre;
     protected String direccion;
