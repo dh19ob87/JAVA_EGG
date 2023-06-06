@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="G11X4PRC">
+  <ClassDiagramComponents>
+    <Class name="Estudiante" package="" visibility="public" xPosition="191.0" yPosition="388.0">
+      <Fields>
+        <Field name="cursos" type="ArryaList" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Profesor" package="" visibility="public" xPosition="1245.0" yPosition="362.0">
+      <Fields>
+        <Field name="departamento" type="Departamento" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Empleado" package="" visibility="public" xPosition="970.0" yPosition="112.0">
+      <Fields>
+        <Field name="anioIncorporacionFacultad" type="Year" visibility="private"/>
+        <Field name="numeroDespacho" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Persona" package="" visibility="public" xPosition="645.0" yPosition="93.0">
+      <Fields>
+        <Field name="nombres" type="String" visibility="private"/>
+        <Field name="apellidos" type="String" visibility="private"/>
+        <Field name="dni" type="Long" visibility="private"/>
+        <Field name="estadoCivil" type="EstadoCivil" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="PersonalServicio" package="" visibility="public" xPosition="1425.0" yPosition="121.0">
+      <Fields>
+        <Field name="seccionAsignada" type="Seccion" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Enum name="EstadoCivil" package="" visibility="public" xPosition="191.0" yPosition="93.0">
+      <Literals>
+        <Literal name="CASADO"/>
+        <Literal name="SOLTERO"/>
+        <Literal name="UNIONLIBRE"/>
+        <Literal name="SEPARADO"/>
+        <Literal name="VIUDO"/>
+      </Literals>
+    </Enum>
+    <Enum name="Departamento" package="" visibility="public" xPosition="934.0" yPosition="346.0">
+      <Literals>
+        <Literal name="CIENCIAS"/>
+        <Literal name="INGENIERIA"/>
+        <Literal name="ARTE"/>
+        <Literal name="QUIMICA"/>
+        <Literal name="SALUD"/>
+        <Literal name="ADMINISTRACION"/>
+      </Literals>
+    </Enum>
+    <Enum name="Seccion" package="" visibility="public" xPosition="1529.0" yPosition="346.0">
+      <Literals>
+        <Literal name="BIBLIOTECA"/>
+        <Literal name="DECANATO"/>
+        <Literal name="SECRETARIA"/>
+        <Literal name="RECTORIA"/>
+        <Literal name="TESORERIA"/>
+        <Literal name="ENFERMERIA"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="Empleado" target="Persona"/>
+    <IsRelation name="is" source="Profesor" target="Empleado"/>
+    <IsRelation name="is" source="PersonalServicio" target="Empleado"/>
+    <HasRelation name="TIENE" source="PersonalServicio" target="Seccion" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="Pertenece" source="Profesor" target="Departamento" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Estudiante" target="Persona"/>
+    <HasRelation name="tiene" source="Persona" target="EstadoCivil" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
