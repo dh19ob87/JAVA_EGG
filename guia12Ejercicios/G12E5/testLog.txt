@@ -1,0 +1,34 @@
+jun 16, 2023 3:02:24 A. M. g12e5.G12E5 main
+INFO: Random creado 3
+jun 16, 2023 3:02:34 A. M. g12e5.G12E5 main
+SEVERE: Error de tipo de ingreso de dato: 
+java.util.InputMismatchException
+	at java.base/java.util.Scanner.throwFor(Scanner.java:943)
+	at java.base/java.util.Scanner.next(Scanner.java:1598)
+	at java.base/java.util.Scanner.nextInt(Scanner.java:2263)
+	at java.base/java.util.Scanner.nextInt(Scanner.java:2217)
+	at g12e5.G12E5.main(G12E5.java:50)
+
+jun 16, 2023 3:02:50 A. M. g12e5.G12E5 main
+SEVERE: Error de tipo de ingreso de dato: 
+java.util.InputMismatchException: For input string: "987465468749846541798"
+	at java.base/java.util.Scanner.nextInt(Scanner.java:2269)
+	at java.base/java.util.Scanner.nextInt(Scanner.java:2217)
+	at g12e5.G12E5.main(G12E5.java:50)
+
+jun 16, 2023 3:02:55 A. M. g12e5.G12E5 main
+SEVERE: Error de tipo de ingreso de dato: 
+java.util.InputMismatchException
+	at java.base/java.util.Scanner.throwFor(Scanner.java:943)
+	at java.base/java.util.Scanner.next(Scanner.java:1598)
+	at java.base/java.util.Scanner.nextInt(Scanner.java:2263)
+	at java.base/java.util.Scanner.nextInt(Scanner.java:2217)
+	at g12e5.G12E5.main(G12E5.java:50)
+
+jun 16, 2023 3:02:57 A. M. g12e5.G12E5 main
+INFO: Número ingresado usuario: 3
+jun 16, 2023 3:02:57 A. M. g12e5.G12E5 main
+INFO: Evento número ingresado 3
+g12e5.Excepciones.Ganaste: Adivinaste
+	at g12e5.G12E5.main(G12E5.java:52)
+

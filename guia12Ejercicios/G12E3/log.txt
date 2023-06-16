@@ -1,0 +1,30 @@
+jun 16, 2023 3:22:29 A. M. g12e3.Servicio.DivisionNumeroServicio dividir
+SEVERE: opción no válida
+java.lang.NumberFormatException: For input string: "a"
+	at g12e3.Servicio.DivisionNumeroServicio.dividir(DivisionNumeroServicio.java:61)
+	at g12e3.G12E3.main(G12E3.java:28)
+
+jun 16, 2023 3:22:30 A. M. g12e3.Servicio.DivisionNumeroServicio dividir
+SEVERE: opción no válida
+java.lang.NumberFormatException: For input string: "b"
+	at g12e3.Servicio.DivisionNumeroServicio.dividir(DivisionNumeroServicio.java:61)
+	at g12e3.G12E3.main(G12E3.java:28)
+
+jun 16, 2023 3:22:32 A. M. g12e3.Servicio.DivisionNumeroServicio dividir
+SEVERE: opción no válida
+java.lang.NumberFormatException: For input string: "2135465498498321654"
+	at g12e3.Servicio.DivisionNumeroServicio.dividir(DivisionNumeroServicio.java:61)
+	at g12e3.G12E3.main(G12E3.java:28)
+
+jun 16, 2023 3:22:36 A. M. g12e3.Servicio.DivisionNumeroServicio dividir
+SEVERE: opción no válida
+java.lang.ArithmeticException: / by zero
+	at g12e3.Servicio.DivisionNumeroServicio.dividir(DivisionNumeroServicio.java:61)
+	at g12e3.G12E3.main(G12E3.java:28)
+
+jun 16, 2023 3:22:43 A. M. g12e3.Servicio.DivisionNumeroServicio dividir
+SEVERE: opción no válida
+java.lang.NumberFormatException: For input string: "asdas"
+	at g12e3.Servicio.DivisionNumeroServicio.dividir(DivisionNumeroServicio.java:61)
+	at g12e3.G12E3.main(G12E3.java:28)
+

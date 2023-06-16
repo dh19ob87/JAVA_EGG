@@ -1,0 +1,4 @@
+jun 16, 2023 3:44:09 A. M. g12e3.G12E3 main
+INFO: Inicio de programa
+jun 16, 2023 3:44:09 A. M. g12e3.G12E3 main
+INFO: Creación instancia Division servicio g12e3.Servicio.DivisionNumeroServicio@4534b60d

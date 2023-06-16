@@ -10,6 +10,8 @@ import java.util.Locale;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.logging.FileHandler;
+import java.util.logging.SimpleFormatter;
 
 /**
  *
@@ -18,6 +20,14 @@ import java.util.logging.Logger;
 public class DivisionNumeroServicio {
 
     public void dividir() throws Exception, NumberFormatException, ArithmeticException, InputMismatchException {
+        
+        Logger logger = Logger.getLogger(DivisionNumero.class.getName());
+        FileHandler handler = new FileHandler(DivisionNumeroServicio.class.getName() + "_log.txt");
+        handler.setFormatter(new SimpleFormatter());
+        
+        logger.addHandler(handler);
+        logger.setLevel(Level.ALL);
+        
         DivisionNumero operandos = new DivisionNumero();
         int salir = 5;
         String x;
@@ -38,9 +48,12 @@ public class DivisionNumeroServicio {
                     case 1 -> {
                         System.out.println("Por favor ingrese el numerador");
                         operandos.setNumerador(Integer.valueOf(input.next()));
+                        logger.log(Level.INFO, "numerador registrado {0}", operandos.getNumerador());
                         System.out.println("Por favor ingrese el denominador");
                         operandos.setDenominador(Integer.valueOf(input.next()));
+                        logger.log(Level.INFO, "denominador registrado {0}", operandos.getDenominador());
                         System.out.println("Resultado: " + operandos.getNumerador() / operandos.getDenominador());
+                        logger.log(Level.INFO, "Resultado división: {0}", operandos.toString());
                     }
                     default -> {
                         System.out.println("Opción no permitida");
@@ -49,7 +62,8 @@ public class DivisionNumeroServicio {
                 }
             } catch (NumberFormatException | ArithmeticException | InputMismatchException e) {
                 System.out.println(e.fillInStackTrace());
-                 Logger.getLogger(DivisionNumeroServicio.class.getName()).log(Level.SEVERE, "opción no válida", e);
+                e.printStackTrace();
+                 logger.log(Level.SEVERE, "Error de tipo de dato", e);
             }
         } while (salir != 0);
     }

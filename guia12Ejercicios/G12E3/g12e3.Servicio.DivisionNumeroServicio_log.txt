@@ -1,0 +1,42 @@
+jun 16, 2023 3:44:15 A. M. g12e3.Servicio.DivisionNumeroServicio dividir
+INFO: numerador registrado 21
+jun 16, 2023 3:44:17 A. M. g12e3.Servicio.DivisionNumeroServicio dividir
+INFO: denominador registrado 2
+jun 16, 2023 3:44:17 A. M. g12e3.Servicio.DivisionNumeroServicio dividir
+INFO: Resultado división: DivisionNumero{numerador=21, denominador=2}
+jun 16, 2023 3:44:33 A. M. g12e3.Servicio.DivisionNumeroServicio dividir
+INFO: numerador registrado 32
+jun 16, 2023 3:44:34 A. M. g12e3.Servicio.DivisionNumeroServicio dividir
+INFO: denominador registrado 0
+jun 16, 2023 3:44:34 A. M. g12e3.Servicio.DivisionNumeroServicio dividir
+SEVERE: Error de tipo de dato
+java.lang.ArithmeticException: / by zero
+	at g12e3.Servicio.DivisionNumeroServicio.dividir(DivisionNumeroServicio.java:64)
+	at g12e3.G12E3.main(G12E3.java:35)
+
+jun 16, 2023 3:44:40 A. M. g12e3.Servicio.DivisionNumeroServicio dividir
+INFO: numerador registrado 0
+jun 16, 2023 3:44:42 A. M. g12e3.Servicio.DivisionNumeroServicio dividir
+INFO: denominador registrado 20
+jun 16, 2023 3:44:42 A. M. g12e3.Servicio.DivisionNumeroServicio dividir
+INFO: Resultado división: DivisionNumero{numerador=0, denominador=20}
+jun 16, 2023 3:44:44 A. M. g12e3.Servicio.DivisionNumeroServicio dividir
+SEVERE: Error de tipo de dato
+java.lang.NumberFormatException: For input string: "as"
+	at g12e3.Servicio.DivisionNumeroServicio.dividir(DivisionNumeroServicio.java:64)
+	at g12e3.G12E3.main(G12E3.java:35)
+
+jun 16, 2023 3:44:47 A. M. g12e3.Servicio.DivisionNumeroServicio dividir
+SEVERE: Error de tipo de dato
+java.lang.NumberFormatException: For input string: "asd"
+	at g12e3.Servicio.DivisionNumeroServicio.dividir(DivisionNumeroServicio.java:64)
+	at g12e3.G12E3.main(G12E3.java:35)
+
+jun 16, 2023 3:44:50 A. M. g12e3.Servicio.DivisionNumeroServicio dividir
+INFO: numerador registrado 12
+jun 16, 2023 3:44:52 A. M. g12e3.Servicio.DivisionNumeroServicio dividir
+SEVERE: Error de tipo de dato
+java.lang.NumberFormatException: For input string: "asd"
+	at g12e3.Servicio.DivisionNumeroServicio.dividir(DivisionNumeroServicio.java:64)
+	at g12e3.G12E3.main(G12E3.java:35)
+
