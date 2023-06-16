@@ -58,6 +58,8 @@ public abstract class Persona {
     public void setEstadoCivil(EstadoCivil estadoCivil) {
         this.estadoCivil = estadoCivil;
     }
+    
+    public abstract void cambiarEstadoCivil();
 
     @Override
     public String toString() {

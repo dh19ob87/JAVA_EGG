@@ -42,4 +42,12 @@ public class PersonalServicioService {
         return new PersonalServicio(Seccion.valueOf(IOUtilities.input.next()), Year.of(IOUtilities.input.nextInt()), IOUtilities.input.nextInt(), IOUtilities.input.next(), IOUtilities.input.next(), IOUtilities.input.nextLong(), EstadoCivil.valueOf(IOUtilities.input.next()));
     }
     
+    public void printData(PersonalServicio service){
+        System.out.println(service.toString());
+    }
+    
+    public void cambiarDespacho(PersonalServicio service, Consumer secciones){
+        System.out.println("Por favor ingrese el nuevo despacho del empleado");
+        secciones.accept(Seccion.values());
+    }
 }

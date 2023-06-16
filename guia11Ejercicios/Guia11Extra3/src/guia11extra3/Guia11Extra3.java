@@ -18,6 +18,7 @@ import guia11extra3.Service.ResidenciaService;
 import guia11extra3.Service.HotelCuatroEstrellasService;
 import guia11extra3.Service.HotelCincoEstrellasService;
 import guia11extra3.Utilidades.Comparadores;
+import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.HashSet;
 import java.util.Iterator;

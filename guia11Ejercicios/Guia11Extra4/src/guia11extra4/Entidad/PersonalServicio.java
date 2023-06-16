@@ -6,7 +6,9 @@ package guia11extra4.Entidad;
 
 import guia11extra4.Enumerables.EstadoCivil;
 import guia11extra4.Enumerables.Seccion;
+import guia11extra4.Utilidades.IOUtilities;
 import java.time.Year;
+import java.util.Arrays;
 
 /**
  *
@@ -30,6 +32,13 @@ public class PersonalServicio extends Empleado{
 
     public void setSeccionAsignada(Seccion seccionAsignada) {
         this.seccionAsignada = seccionAsignada;
+    }
+    
+    @Override
+    public void cambiarEstadoCivil(){
+        System.out.println("Por favor ingrese el nuevo estado civil");
+        System.out.println(Arrays.toString(EstadoCivil.values()));
+        super.setEstadoCivil(EstadoCivil.valueOf(IOUtilities.input.next()));
     }
 
     @Override

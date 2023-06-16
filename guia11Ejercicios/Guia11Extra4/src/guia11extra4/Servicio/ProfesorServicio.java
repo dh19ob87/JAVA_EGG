@@ -42,4 +42,10 @@ public class ProfesorServicio{
    public void printData (Profesor teacher){
        System.out.println(teacher.toString());
    }
+   
+   public void reasignarDepartamento (Profesor teacher, Consumer lambda){
+       System.out.println("Por favor ingrese el nuevo departamento del profesor");
+       lambda.accept(Departamento.values());
+       teacher.setDepartamento(Departamento.valueOf(IOUtilities.input.next()));
+   }
 }
