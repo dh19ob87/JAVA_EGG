@@ -1,4 +1,4 @@
-# Guia 12
+# Guia 13
 
 ## Ejercicio 1 Querys
 
@@ -911,4 +911,96 @@ SELECT producto.nombre FROM producto WHERE EXISTS (SELECT * FROM detalle_pedido 
 ````
 
 ## Ejercicio Extra 3
+
+````mysql
+-- Query 1
+
+SELECT * FROM pokemon;
+
+-- QUery 2
+
+SELECT * FROM pokemon WHERE peso < 10;
+
+-- Query 3
+
+SELECT pokemon.nombre, tipo.nombre FROM pokemon INNER JOIN pokemon_tipo INNER JOIN tipo ON pokemon.numero_pokedex = pokemon_tipo.numero_pokedex AND pokemon_tipo.id_tipo = tipo.id_tipo WHERE tipo.nombre = "agua";
+
+-- Query 4
+
+SELECT pokemon.nombre, tipo.nombre FROM pokemon INNER JOIN pokemon_tipo INNER JOIN tipo ON pokemon.numero_pokedex = pokemon_tipo.numero_pokedex AND pokemon_tipo.id_tipo = tipo.id_tipo WHERE tipo.nombre IN ("agua", "fuego", "tierra") ORDER BY tipo.nombre;
+
+-- Query 5
+	
+	-- Fuego y volador
+
+SELECT pokemon.nombre, tipo.nombre FROM pokemon INNER JOIN pokemon_tipo INNER JOIN tipo ON pokemon.numero_pokedex = pokemon_tipo.numero_pokedex AND pokemon_tipo.id_tipo = tipo.id_tipo WHERE tipo.nombre = "fuego" AND tipo.nombre = "volador" ORDER BY tipo.nombre;
+
+	-- Fuego o volador
+
+SELECT pokemon.nombre, tipo.nombre FROM pokemon INNER JOIN pokemon_tipo INNER JOIN tipo ON pokemon.numero_pokedex = pokemon_tipo.numero_pokedex AND pokemon_tipo.id_tipo = tipo.id_tipo WHERE tipo.nombre IN ("fuego", "volador") ORDER BY tipo.nombre;
+
+-- Query 6
+
+SELECT estadisticas_base.ps, pokemon.nombre FROM pokemon INNER JOIN estadisticas_base ON pokemon.numero_pokedex = estadisticas_base.numero_pokedex WHERE estadisticas_base.ps > 200;
+
+-- Query 7
+
+SELECT pokemon.* FROM pokemon WHERE numero_pokedex = ((SELECT numero_pokedex FROM pokemon WHERE nombre = "Arbok") - 1);
+
+-- Query 8
+
+SELECT pokemon.*, tipo_evolucion.tipo_evolucion FROM pokemon INNER JOIN pokemon_forma_evolucion ON pokemon.numero_pokedex = pokemon_forma_evolucion.numero_pokedex INNER JOIN forma_evolucion ON pokemon_forma_evolucion.id_forma_evolucion = forma_evolucion.id_forma_evolucion INNER JOIN tipo_evolucion ON tipo_evolucion.id_tipo_evolucion = forma_evolucion.tipo_evolucion WHERE tipo_evolucion.tipo_evolucion = "intercambio";
+
+-- Query 9
+
+SELECT movimiento.* FROM movimiento WHERE prioridad = (SELECT MAX(prioridad) FROM movimiento);
+
+-- Query 10
+
+SELECT pokemon.* FROM pokemon WHERE peso = (SELECT MAX(peso) FROM pokemon);
+
+-- Query 11
+
+SELECT movimiento.nombre, movimiento.potencia, tipo.nombre FROM movimiento INNER JOIN tipo ON movimiento.id_tipo = tipo.id_tipo INNER JOIN tipo_ataque ON tipo.id_tipo_ataque = tipo_ataque.id_tipo_ataque WHERE movimiento.potencia = (SELECT MAX(potencia) FROM movimiento);
+
+-- Query 12
+
+SELECT COUNT(id_tipo), id_tipo FROM movimiento GROUP BY id_tipo;
+
+-- Query 13
+
+SELECT id_movimiento, nombre, descripcion FROM movimiento WHERE descripcion LIKE "%envenena%";
+
+-- Query 14
+
+SELECT id_movimiento, nombre, descripcion FROM movimiento WHERE descripcion LIKE "%causa daño%" order by nombre asc;
+
+-- Query 15
+
+SELECT pokemon.*, movimiento.nombre FROM pokemon INNER JOIN pokemon_movimiento_forma ON pokemon.numero_pokedex = pokemon_movimiento_forma.numero_pokedex INNER JOIN movimiento ON pokemon_movimiento_forma.id_movimiento = movimiento.id_movimiento WHERE pokemon.nombre = "pikachu";
+
+-- Query 16
+
+SELECT pokemon.*, movimiento.nombre, mt.MT FROM pokemon INNER JOIN pokemon_movimiento_forma ON pokemon.numero_pokedex = pokemon_movimiento_forma.numero_pokedex INNER JOIN movimiento ON pokemon_movimiento_forma.id_movimiento = movimiento.id_movimiento INNER JOIN mt ON mt.id_forma_aprendizaje = pokemon_movimiento_forma.id_forma_aprendizaje WHERE pokemon.nombre = "pikachu";
+
+-- Query 17
+
+SELECT pokemon.*, movimiento.nombre, tipo.nombre FROM pokemon INNER JOIN pokemon_movimiento_forma ON pokemon.numero_pokedex = pokemon_movimiento_forma.numero_pokedex INNER JOIN movimiento ON movimiento.id_movimiento = pokemon_movimiento_forma.id_movimiento INNER JOIN mt ON pokemon_movimiento_forma.id_forma_aprendizaje = mt.id_forma_aprendizaje INNER JOIN tipo ON tipo.id_tipo = movimiento.id_tipo WHERE tipo.nombre = "normal" AND pokemon.nombre = "pikachu";
+
+-- Query 18
+
+SELECT movimiento.nombre, movimiento_efecto_secundario.probabilidad FROM movimiento INNER JOIN movimiento_efecto_secundario ON movimiento.id_movimiento = movimiento_efecto_secundario.id_movimiento WHERE movimiento_efecto_secundario.probabilidad > 30;
+
+-- Query 19
+
+SELECT pokemon.nombre FROM pokemon INNER JOIN pokemon_evolucion_piedra ON pokemon.numero_pokedex = pokemon_evolucion_piedra.numero_pokedex;
+
+-- Query 20
+
+SELECT pokemon.nombre FROM pokemon INNER JOIN pokemon_no_evolucionan ON pokemon.numero_pokedex = pokemon_no_evolucionan.numero_pokedex;
+
+-- Query 21
+
+SELECT COUNT(tipo.id_tipo) AS suma, tipo.nombre FROM tipo INNER JOIN pokemon_tipo ON tipo.id_tipo = pokemon_tipo.id_tipo INNER JOIN pokemon ON pokemon.numero_pokedex = pokemon_tipo.numero_pokedex GROUP BY tipo.nombre ORDER BY suma ASC;
+````
 
