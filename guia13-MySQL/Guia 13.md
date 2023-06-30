@@ -360,15 +360,6 @@ SELECT partidos.*
                                 END AS diferencia
                                 FROM partidos) AS dif_points);
                                 
--- equipo ganador más información de equipos del partido
-
-SELECT CASE 
-		WHEN (puntos_local > puntos_visitante) THEN equipo_local
-		WHEN (puntos_local < puntos_visitante) THEN equipo_visitante 
-		ELSE "EMPATE" 
-	END AS Ganador, codigo, puntos_local, puntos_visitante, equipo_local, equipo_visitante 
-FROM partidos;
-                                
 -- También Query 15 pero con la columna de diferencia máxima
                                 
 SELECT partidos.*, diferencia_maxima
@@ -407,7 +398,14 @@ SELECT
         END AS Ganador, codigo
         FROM partidos;
         
+-- equipo ganador más información de equipos del partido
 
+SELECT CASE 
+		WHEN (puntos_local > puntos_visitante) THEN equipo_local
+		WHEN (puntos_local < puntos_visitante) THEN equipo_visitante 
+		ELSE "EMPATE" 
+	END AS Ganador, codigo, puntos_local, puntos_visitante, equipo_local, equipo_visitante 
+FROM partidos;
 
 -- Nombre del equipo de cada jugador junto con los puntos por partido de toda su carrera
 
