@@ -342,6 +342,10 @@ SELECT * FROM jugadores LEFT JOIN equipos ON jugadores.nombre_equipo = equipos.n
 
 SELECT AVG(puntos_local), AVG(puntos_visitante), division FROM partidos INNER JOIN equipos ON equipos.nombre IN (equipo_local, equipo_visitante) WHERE equipos.division = "Pacific";
 
+-- Puntaje promedio de cada equipo de la division pacific
+
+SELECT AVG(CASE WHEN partidos.equipo_local IN (SELECT nombre FROM equipos WHERE Division = "pacific") THEN partidos.puntos_local WHEN partidos.equipo_visitante IN (SELECT nombre FROM equipos WHERE Division = "pacific") THEN partidos.puntos_visitante ELSE 0 END) AS promedio_equipo, equipos.nombre FROM partidos INNER JOIN equipos ON equipos.nombre IN (equipo_local, equipo_visitante) WHERE equipos.Division = "pacific" GROUP BY equipos.Nombre;
+
 -- Query 15
                         
 SELECT partidos.*
