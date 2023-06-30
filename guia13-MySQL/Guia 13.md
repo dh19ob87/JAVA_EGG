@@ -407,6 +407,10 @@ SELECT CASE
 	END AS Ganador, codigo, puntos_local, puntos_visitante, equipo_local, equipo_visitante 
 FROM partidos;
 
+-- Alternativa con IF
+
+SELECT IF (partidos.puntos_local > partidos.puntos_visitante, partidos.equipo_local, partidos.equipo_visitante) AS ganador, puntos_visitante, equipo_visitante, puntos_local, equipo_local FROM partidos;
+
 -- Nombre del equipo de cada jugador junto con los puntos por partido de toda su carrera
 
 SELECT Stats_per_player.*, equipo.nombre FROM equipo INNER JOIN (SELECT nombre, Puntos_por_partido, nombre_equipo FROM estadisticas INNER JOIN jugadores ON estadisticas.jugador = jugadores.codigo) AS Stats_per_player ON equipo.nombre = Stats_per_player.nombre_equipo;
