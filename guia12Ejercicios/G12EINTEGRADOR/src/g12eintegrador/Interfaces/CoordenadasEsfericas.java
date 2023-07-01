@@ -11,4 +11,16 @@ package g12eintegrador.Interfaces;
 public interface CoordenadasEsfericas {
 
     public int[] convertirCoordenadasEsfericasACartesianas(boolean isMovil);
+    
+    public static double calcularVectorRho (int x, int y, int z){
+        return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2));
+    }
+    
+    public static double calculaAnguloTheta (int x, int y){
+        return (x == 0) ? 0 : (x < 0 && y > 0 || x < 0 && y < 0) ? (Math.atan(y / x) + 180) : (x > 0 && y < 0) ? (Math.atan(y / x) + 360) : (Math.atan(y / x));
+    }
+    
+    public static double calcularAnguloVarphi (int x, int y, int z){
+        return Math.acos((z / calcularVectorRho(x, y, z)));
+    }
 }

@@ -5,6 +5,7 @@
 package g12eintegrador.Entidad;
 
 import g12eintegrador.Enumerables.TipoMovimiento;
+import java.util.Objects;
 
 /**
  *
@@ -39,6 +40,34 @@ public class Fani extends Objeto{
     public void setHostil(boolean hostil) {
         this.hostil = hostil;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 37 * hash + Objects.hashCode(this.movimiento);
+        hash = 37 * hash + (this.hostil ? 1 : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Fani other = (Fani) obj;
+        if (this.hostil != other.hostil) {
+            return false;
+        }
+        return this.movimiento == other.movimiento;
+    }
+    
+    
     
     @Override
     public String toString() {

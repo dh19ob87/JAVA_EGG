@@ -31,4 +31,16 @@ public class ArmaduraServicio {
     public void printDataArmadura(Armadura ironman){
         System.out.println(ironman.toString());
     }
+    
+    public String imprimirEnergiaEnPorcentaje (float energia){
+        return ((energia == Integer.MAX_VALUE) ? "100%" : ((energia * Integer.MAX_VALUE) / 100) + "%");
+    }
+    
+    public String imprimirEnergiaEnJoules (float energia){
+        return energia + " Joules";
+    }
+    
+    public String imprimirEnergiaEnWattioHora(float energia){
+        return (energia / 3600) + " Watt Hora";
+    }
 }
