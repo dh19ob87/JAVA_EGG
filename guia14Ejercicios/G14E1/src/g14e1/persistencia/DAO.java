@@ -7,6 +7,7 @@ package g14e1.persistencia;
 import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.Statement;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -19,6 +20,7 @@ public abstract class DAO {
     protected Connection conexion;
     protected Statement sentencia;
     protected ResultSet resultado;
+    protected PreparedStatement query;
     
     private final String USER = "dh19ob87";
     private final String PASSWORD = "Clothing4_Mush_Earthly5_Unstuffed7_dilate_Swivel0_Ziti3_unhinge_Dork";

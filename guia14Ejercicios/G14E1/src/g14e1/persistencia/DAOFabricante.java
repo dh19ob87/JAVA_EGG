@@ -18,7 +18,7 @@ public final class DAOFabricante extends DAO {
     public DAOFabricante() {
     }
 
-    public void guardarFabricante(Fabricante fabricante) throws Exception {
+    public void agregarFabricante(Fabricante fabricante) throws Exception {
         try {
             if (fabricante == null) {
                 throw new Exception("Debe enviar una instancia inicializada.");

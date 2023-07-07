@@ -28,7 +28,7 @@ public class FabricanteServicio {
         return new Fabricante(codigo, nombre);
     }
     
-    public Collection<Fabricante> consultarTodosLosFabricantes () throws Exception{
+    public Collection<Fabricante> listarTodosLosFabricantes () throws Exception{
         try {
             return daof.listarNombreDeTodosLosFabricantes();
         } catch (Exception e) {
