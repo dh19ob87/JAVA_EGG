@@ -50,6 +50,18 @@ public class G14E1 {
             System.out.println("Producto más barato \n");
             ps.productoDeMenorPrecio();
             System.out.println("");
+            
+            System.out.println("Agregando producto \n");
+            ps.registrarProducto();
+            System.out.println("");
+            ps.listarTodosLosProductos();
+            System.out.println("");
+            
+            System.out.println("Modificando producto \n");
+            ps.modificarProducto();
+            System.out.println("");
+            ps.listarTodosLosProductos();
+            System.out.println("");
         }catch(Exception e){
             System.out.println(e.getMessage());
         }

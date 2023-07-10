@@ -24,7 +24,7 @@ public final class DAOFabricante extends DAO {
                 throw new Exception("Debe enviar una instancia inicializada.");
             }
 
-            String sql = "INSERT INTO fabricante (codigo, nombre) VALUES (" + fabricante.getCodigo() + ", ' " + fabricante.getNombre() + "' ;";
+            String sql = "INSERT INTO fabricante (nombre) VALUES ('" + fabricante.getNombre() + "');";
             insertarModificarEliminar(sql);
         } catch (Exception e) {
             throw e;
@@ -79,6 +79,29 @@ public final class DAOFabricante extends DAO {
             e.printStackTrace();
             desconectarBD();
             throw e;
+        }
+    }
+    
+    public Fabricante consultarFabricante (int codigoFabricante) throws Exception{
+        try {
+            conectarBD();
+            query = conexion.prepareStatement("SELECT * FROM fabricante WHERE codigo = ?;");
+            query.setInt(1, codigoFabricante);
+            resultado = query.executeQuery();
+            
+            Fabricante fabric = null;
+            while(resultado.next()){
+                fabric = new Fabricante(resultado.getInt(1), resultado.getString(2));
+            }
+            
+            desconectarBD();
+            return fabric;
+        } catch (Exception e) {
+            e.printStackTrace();
+            desconectarBD();
+            throw e;
+        }finally{
+            query.close();
         }
     }
 }

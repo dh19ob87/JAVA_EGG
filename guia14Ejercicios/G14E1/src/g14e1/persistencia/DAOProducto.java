@@ -23,16 +23,43 @@ public final class DAOProducto extends DAO {
         this.fs = new FabricanteServicio();
     }
 
-    public void agregarProducto() {
-
+    public void agregarProducto(Producto product) throws Exception{
+        try {
+            if(!fs.existeElFabricante(product.getCodigoFabricante())){
+                throw new Exception("El fabricante no existe. Debe indicar un fabricante registrado.");
+            }
+            
+            String sql = "INSERT INTO producto (nombre, precio, codigo_fabricante)  VALUES (' " + product.getNombre() + " ', " + product.getPrecio() + ", " + product.getCodigoFabricante() + ");";
+            insertarModificarEliminar(sql);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
     }
 
-    public void modificarProducto() {
-
+    public void modificarProducto(Producto product, String fields) throws Exception{
+        try {
+            conectarBD();
+            query = conexion.prepareStatement("UPDATE producto SET " + fields +" WHERE codigo = ?;");
+            query.setInt(1, product.getCodigo());
+            query.executeUpdate();
+        } catch (Exception e) {
+            desconectarBD();
+            e.printStackTrace();
+            throw e;
+        }finally{
+            query.close();
+        }
     }
 
-    public void eliminarProducto() {
-
+    public void eliminarProducto(Producto product) throws Exception{
+        try {
+            String sql  = "DELETE FROM producto WHERE codigo = " + product.getCodigo();
+            insertarModificarEliminar(sql);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
     }
 
     public Producto datosProductoMasBarato() throws Exception {
@@ -117,6 +144,24 @@ public final class DAOProducto extends DAO {
             }
 
             return listaDeProductos;
+        } catch (Exception e) {
+            e.printStackTrace();
+            desconectarBD();
+            throw e;
+        }
+    }
+    
+    public Producto buscarProducto (int codigoProducto) throws Exception{
+        try {
+            String sql = "SELECT * FROM producto WHERE codigo = " + codigoProducto;
+            consultarBD(sql);
+            
+            Producto product = null;
+            while(resultado.next()){
+                product = new Producto(resultado.getInt(1), resultado.getString(2), resultado.getDouble(3), resultado.getInt(4));
+            }
+            
+            return product;
         } catch (Exception e) {
             e.printStackTrace();
             desconectarBD();

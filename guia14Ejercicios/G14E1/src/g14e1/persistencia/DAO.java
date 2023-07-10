@@ -81,7 +81,9 @@ public abstract class DAO {
         } catch (ClassNotFoundException | SQLException e) {
             conexion.rollback();
             throw e;
-        } finally {
+        }catch(Exception e){
+            throw e;
+        }finally {
             desconectarBD();
         }
     }
