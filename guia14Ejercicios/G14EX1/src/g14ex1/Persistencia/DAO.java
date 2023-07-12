@@ -103,11 +103,26 @@ public abstract class DAO {
      * @throws SQLException
      * @throws Exception 
      */
-    protected void callStoredProcedure(String sql) throws ClassNotFoundException, SQLException, Exception{
+    protected void callStoredProcedureCud(String sql) throws ClassNotFoundException, SQLException, Exception{
         try {
             conectarBD();
             storedProcedure = conexion.prepareCall(sql);
-            storedProcedure.registerOutParameter(1, java.sql.Types.INTEGER);
+            storedProcedure.executeUpdate();
+//            storedProcedure.registerOutParameter(1, java.sql.Types.INTEGER);
+        } catch (ClassNotFoundException | SQLException e) {
+            conexion.rollback();
+            desconectarBD();
+            throw e;
+        }finally{
+            desconectarBD();
+        }
+    }
+    
+    protected void callStoredProcedureR (String sql) throws ClassNotFoundException, SQLException, Exception{
+        try {
+            conectarBD();
+            storedProcedure = conexion.prepareCall(sql);
+            resultado = storedProcedure.executeQuery();
         } catch (ClassNotFoundException | SQLException e) {
             throw e;
         }

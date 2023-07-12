@@ -13,10 +13,10 @@ import java.util.Collection;
 /**
  * Listar todas las estancias que han sido reservadas por un cliente, mostrar el
  * nombre, país y ciudad del cliente y además la información de la casa que
- * reservó. La que reemplazaría a la anterior
+ * reservó. La que reemplazaría a la anterior +
  *
  * Insertar nuevos datos en la tabla estancias verificando la disponibilidad de
- * las fechas.
+ * las fechas. +
  *
  * @author diego
  */

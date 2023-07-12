@@ -9,24 +9,45 @@ import g14ex1.Entidades.Casa;
 import g14ex1.Entidades.Estancia;
 import g14ex1.Servicio.CasaServicio;
 import g14ex1.Servicio.EstanciaServicio;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Collection;
 
 /**
  * Listar los datos de todos los clientes que en algún momento realizaron una
- * estancia y la descripción de la casa donde la realizaron.
+ * estancia y la descripción de la casa donde la realizaron. +
  *
  * @author diego
  */
 public final class ClienteDAO extends DAO {
-    
+
     private final CasaServicio casaServicio;
-    
-    public ClienteDAO (){
+    private final EstanciaServicio estanciaServicio;
+
+    public ClienteDAO() {
         this.casaServicio = new CasaServicio();
+        this.estanciaServicio = new EstanciaServicio();
     }
-    
-    public void insertarCliente(Cliente client) {
-        String sql = "{call AGREGAR_CLIENTE}";
+
+    public void insertarCliente(Cliente client) throws Exception{
+
+        try {
+            StringBuilder sql = new StringBuilder();
+            sql.append("CALL insertar_cliente('").append(client.getNombre()).append("'").append(",");
+            sql.append("'").append(client.getCalle()).append("'").append(",");
+            sql.append(client.getNumero()).append(",");
+            sql.append("'").append(client.getCodigoPostal()).append("'").append(",");
+            sql.append("'").append(client.getCiudad()).append("'").append(",");
+            sql.append("'").append(client.getPais()).append("'").append(",");
+            sql.append("'").append(client.getEmail()).append("'");
+            sql.append(");");
+            
+            callStoredProcedureCud(sql.toString());
+        } catch (Exception e) {
+            throw e;
+        }
     }
 
     public void modificarCliente(Cliente client) {
@@ -41,7 +62,49 @@ public final class ClienteDAO extends DAO {
         return null;
     }
 
-    public Collection<Cliente> consultarClientes() {
-        return null;
+    public Collection<Cliente> consultarClientes() throws Exception{
+        try {
+            String sql = "CALL consultar_todos_los_clientes();";
+            Cliente client = null;
+            ArrayList <Cliente> listaClientes = new ArrayList<>();
+            callStoredProcedureR(sql);
+            
+            while(resultado.next()){
+                client = new Cliente(resultado.getInt(1), resultado.getString(2), resultado.getString(3), resultado.getInt(4), resultado.getString(5), resultado.getString(6), resultado.getString(7), resultado.getString(8));
+                listaClientes.add(client);
+            }
+            desconectarBD();
+            return listaClientes;
+        } catch (Exception e) {
+            desconectarBD();
+            e.printStackTrace();
+            throw e;
+        }
+    }
+    
+    public Collection <Object> clientesQueRealizaronEstancia () throws Exception{
+        try {
+            String sql ="CALL consultar_clientes_que_contrataron_estancias()";
+            Cliente client = null;
+            Estancia stay = null;
+            Casa house = null;
+            ArrayList <Object> listaClienteEstaciaCasa = new ArrayList<>();
+            callStoredProcedureR(sql);
+            
+            while(resultado.next()){
+                client = new Cliente(resultado.getInt(1), resultado.getString(2), resultado.getString(3), resultado.getInt(4), resultado.getString(5), resultado.getString(6), resultado.getString(7), resultado.getString(8));
+                stay = new Estancia(resultado.getInt(9), resultado.getInt(10), resultado.getInt(11), resultado.getString(12), LocalDate.of(resultado.getDate(13).getYear(), resultado.getDate(13).getMonth(), resultado.getDate(13).getDay()), LocalDate.of(resultado.getDate(14).getYear(), resultado.getDate(14).getMonth(), resultado.getDate(14).getDay()));
+                house = new Casa(resultado.getInt(15), resultado.getString(16), resultado.getInt(17), resultado.getString(18), resultado.getString(19), resultado.getString(20), LocalDate.of(resultado.getDate(21).getYear(), resultado.getDate(21).getMonth(), resultado.getDate(21).getDay()), LocalDate.of(resultado.getDate(22).getYear(), resultado.getDate(22).getMonth(), resultado.getDate(22).getDay()), resultado.getInt(23), resultado.getInt(24), resultado.getDouble(25), resultado.getString(26));
+                listaClienteEstaciaCasa.add(client);
+                listaClienteEstaciaCasa.add(stay);
+                listaClienteEstaciaCasa.add(house);
+            }
+            
+            desconectarBD();
+            return listaClienteEstaciaCasa;
+        } catch (Exception e) {
+            desconectarBD();
+            throw e;
+        }
     }
 }

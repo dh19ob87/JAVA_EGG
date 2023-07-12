@@ -4,6 +4,8 @@
  */
 package g14ex1;
 
+import g14ex1.Servicio.ClienteServicio;
+
 /**
  *
  * @author diego
@@ -15,6 +17,16 @@ public class G14EX1 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        ClienteServicio servicioCliente = new ClienteServicio();
+
+        try {
+            servicioCliente.consultarTodosLosClientes();
+//            servicioCliente.insertarCliente();
+            System.out.println("*******");
+            servicioCliente.listaDeClientesQueRealizaronEstancia();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-    
+
 }
