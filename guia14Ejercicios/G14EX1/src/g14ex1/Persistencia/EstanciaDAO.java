@@ -20,7 +20,7 @@ import java.util.Collection;
  *
  * @author diego
  */
-public class EstanciaDAO extends DAO {
+public final class EstanciaDAO extends DAO {
 
     private final ClienteServicio clienteServicio;
     private final CasaServicio casaServicio;

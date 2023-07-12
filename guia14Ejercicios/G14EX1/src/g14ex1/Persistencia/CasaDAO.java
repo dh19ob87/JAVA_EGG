@@ -5,6 +5,8 @@
 package g14ex1.Persistencia;
 
 import g14ex1.Entidades.Casa;
+import g14ex1.Entidades.Comentario;
+import g14ex1.Servicio.ComentarioServicio;
 import java.util.Collection;
 
 /**
@@ -26,7 +28,13 @@ import java.util.Collection;
  *
  * @author diego
  */
-public class CasaDAO extends DAO{
+public final class CasaDAO extends DAO{
+    
+    private final ComentarioServicio comentarioServicio;
+    
+    public CasaDAO (){
+        this.comentarioServicio = new ComentarioServicio();
+    }
     
     public void insertarCasa(Casa house){
     
