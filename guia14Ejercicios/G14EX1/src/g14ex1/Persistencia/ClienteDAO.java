@@ -7,29 +7,17 @@ package g14ex1.Persistencia;
 import g14ex1.Entidades.Cliente;
 import g14ex1.Entidades.Casa;
 import g14ex1.Entidades.Estancia;
-import g14ex1.Servicio.CasaServicio;
-import g14ex1.Servicio.EstanciaServicio;
 import java.time.LocalDate;
-import java.time.Month;
-import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Collection;
 
 /**
  * Listar los datos de todos los clientes que en algún momento realizaron una
- * estancia y la descripción de la casa donde la realizaron. +
+ * estancia y la descripción de la casa donde la realizaron. ++
  *
  * @author diego
  */
 public final class ClienteDAO extends DAO {
-
-    private final CasaServicio casaServicio;
-    private final EstanciaServicio estanciaServicio;
-
-    public ClienteDAO() {
-        this.casaServicio = new CasaServicio();
-        this.estanciaServicio = new EstanciaServicio();
-    }
 
     public void insertarCliente(Cliente client) throws Exception{
 
@@ -58,8 +46,22 @@ public final class ClienteDAO extends DAO {
 
     }
 
-    public Cliente buscarCliente(Integer codigoCliente) {
-        return null;
+    public Cliente buscarCliente(Integer codigoCliente) throws Exception{
+        try {
+            Cliente client = null;
+            String sql = "CALL consultar_un_cliente(" + codigoCliente + ");";
+            callStoredProcedureR(sql);
+            
+            while(resultado.next()){
+                client = new Cliente(resultado.getInt(1), resultado.getString(2), resultado.getString(3), resultado.getInt(4), resultado.getString(5), resultado.getString(6), resultado.getString(7), resultado.getString(8));
+            }
+            
+            desconectarBD();
+            return client;
+        } catch (Exception e) {
+            desconectarBD();
+            throw e;
+        }
     }
 
     public Collection<Cliente> consultarClientes() throws Exception{

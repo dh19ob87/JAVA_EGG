@@ -16,15 +16,15 @@ import java.util.Locale;
  * @author diego
  */
 public class ClienteServicio {
-    
+
     private ClienteDAO daoCliente;
     private static final Scanner INPUT = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
     
-    public ClienteServicio(){
+    public ClienteServicio() {
         this.daoCliente = new ClienteDAO();
     }
-    
-    public void insertarCliente() throws Exception{
+
+    public void insertarCliente() throws Exception {
         try {
             System.out.println("""
                                Por favor ingrese los siguientes datos del cliente:
@@ -37,15 +37,15 @@ public class ClienteServicio {
                                6. País
                                7. Email
                                """);
-            Cliente client = new Cliente (null, INPUT.next(), INPUT.next(), INPUT.nextInt(), INPUT.next(), INPUT.next(), INPUT.next(), INPUT.next());
+            Cliente client = new Cliente(null, INPUT.next(), INPUT.next(), INPUT.nextInt(), INPUT.next(), INPUT.next(), INPUT.next(), INPUT.next());
             daoCliente.insertarCliente(client);
         } catch (Exception e) {
             e.printStackTrace();
             throw e;
         }
     }
-    
-    public void consultarTodosLosClientes() throws Exception{
+
+    public void consultarTodosLosClientes() throws Exception {
         try {
             daoCliente.consultarClientes().forEach(System.out::println);
         } catch (Exception e) {
@@ -53,20 +53,28 @@ public class ClienteServicio {
             throw e;
         }
     }
-    
-    public void listaDeClientesQueRealizaronEstancia () throws Exception{
+
+    public void listaDeClientesQueRealizaronEstancia() throws Exception {
         try {
             daoCliente.clientesQueRealizaronEstancia().stream().forEach(objeto -> {
-                if(objeto instanceof Cliente cliente){
+                if (objeto instanceof Cliente cliente) {
                     System.out.println(cliente.toString());
-                }else if(objeto instanceof Estancia estancia){
+                } else if (objeto instanceof Estancia estancia) {
                     System.out.println(estancia.toString());
-                }else if (objeto instanceof Casa casa){
+                } else if (objeto instanceof Casa casa) {
                     System.out.println(casa.toString());
                 }
             });
         } catch (Exception e) {
             e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public Boolean existeElCliente(int idCliente) throws Exception{
+        try {
+            return daoCliente.buscarCliente(idCliente) == null;
+        } catch (Exception e) {
             throw e;
         }
     }
