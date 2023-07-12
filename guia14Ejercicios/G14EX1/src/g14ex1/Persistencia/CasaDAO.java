@@ -11,20 +11,20 @@ import java.util.Collection;
 
 /**
  * Busca y listar aquellas casas del Reino Unido de las que se ha dicho de ellas
- * (comentarios) que están ‘limpias’
+ * (comentarios) que están ‘limpias’ +
  *
  * Obtener el número de casas que existen para cada uno de los países
- * diferentes.
+ * diferentes. +
  *
  * Debido a la devaluación de la libra esterlina con respecto al euro se desea
  * incrementar el precio por día en un 5% de todas las casas del Reino Unido.
- * Mostar los precios actualizados.
+ * Mostar los precios actualizados. +
  *
  * Consulta la BD para que te devuelva aquellas casas disponibles a partir de
- * una fecha dada y un número de días específico.
+ * una fecha dada y un número de días específico. +
  *
  * Buscar y listar las casas disponibles para el periodo comprendido entre el 1
- * de agosto de 2020 y el 31 de agosto de 2020 en Reino Unido.
+ * de agosto de 2020 y el 31 de agosto de 2020 en Reino Unido. +
  *
  * @author diego
  */
