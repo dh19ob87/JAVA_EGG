@@ -55,6 +55,15 @@ DELIMITER ;
 ## Estancias
 
 ````mysql
+-- Consultar estancia por id
+
+DELIMITER //
+CREATE PROCEDURE consultar_una_estancia (IN id_estancia INT)
+        BEGIN
+                SELECT * FROM estancias WHERE estancias.id_estancia = id_estancia;
+        END //
+DELIMITER ;
+
 -- Insertar estancia
 
 DELIMITER //
@@ -75,11 +84,29 @@ CREATE PROCEDURE consultar_historial_clientes_estancia ()
                         FROM clientes INNER JOIN estancias ON clientes.id_cliente = estancias.id_cliente INNER JOIN casas ON estancias.id_casa = casas.id_casa;
         END //
 DELIMITER ;
+
+-- Consultar disponobilidad de estancia entre fechas
+
+DELIMITER //
+CREATE PROCEDURE verificar_disponibilidad_estancia_fechas(IN fecha_desde DATE, IN fecha_hasta DATE)
+        BEGIN
+                SELECT * FROM estancias WHERE (fecha_desde NOT BETWEEN estancias.fecha_desde AND estancias.fecha_hasta) AND (fecha_hasta NOT BETWEEN estancias.fecha_desde AND estancias.fecha_hasta);
+        END //
+DELIMITER ;
 ````
 
 ## Casas
 
 ````mysql
+-- Consultar una casa
+
+DELIMITER //
+CREATE PROCEDURE consultar_casa(IN id_casa INT)
+        BEGIN
+                SELECT * FROM casas WHERE casas.id_casa = id_casa;
+        END //
+DELIMITER ;
+
 -- Busca y listar aquellas casas del Reino Unido de las que se ha dicho de ellas (comentarios) que están ‘limpias’
 
 DELIMITER //
