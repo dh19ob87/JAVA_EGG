@@ -44,6 +44,10 @@ public final class EstanciaDAO extends DAO {
                 throw new Exception("La casa no existe.");
             }
             
+            if(){
+            
+            }
+            
             StringBuilder sql = new StringBuilder();
             sql.append("CALL insertar_estancia(");
             sql.append(stay.getIdCliente()).append(", ");
@@ -85,7 +89,7 @@ public final class EstanciaDAO extends DAO {
             
             while(resultado.next()){
                 client = new Cliente(null, resultado.getString(1), null, null, null, resultado.getString(3), resultado.getString(2), null);
-                house = new Casa(resultado.getInt(4), resultado.getString(5), resultado.getInt(6), resultado.getString(7), resultado.getString(8), resultado.getString(9), LocalDate.of(resultado.getDate(10).getYear(), resultado.getDate(10).getMonth(), resultado.getDate(10).getDay()), LocalDate.of(resultado.getDate(11).getYear(), resultado.getDate(11).getMonth(), resultado.getDate(11).getDay()), resultado.getInt(12), resultado.getInt(13), resultado.getDouble(14), resultado.getString(15));
+                house = new Casa(resultado.getInt(4), resultado.getString(5), resultado.getInt(6), resultado.getString(7), resultado.getString(8), resultado.getString(9), resultado.getDate(10).toLocalDate(), resultado.getDate(11).toLocalDate(), resultado.getInt(12), resultado.getInt(13), resultado.getDouble(14), resultado.getString(15));
                 listaDeObjetos.add(client);
                 listaDeObjetos.add(house);
             }

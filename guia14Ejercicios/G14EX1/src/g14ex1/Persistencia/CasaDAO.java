@@ -27,7 +27,7 @@ import java.util.HashMap;
  * una fecha dada y un número de días específico. +
  *
  * Buscar y listar las casas disponibles para el periodo comprendido entre el 1
- * de agosto de 2020 y el 31 de agosto de 2020 en Reino Unido. +
+ * de agosto de 2020 y el 31 de agosto de 2020 en Reino Unido. ++ ? Ojo porque debes agregar pais al gusto pero para esto necesitas una subconsulta y pues ... pereza
  *
  * @author diego
  */
@@ -58,7 +58,7 @@ public final class CasaDAO extends DAO {
             callStoredProcedureR(sql);
             
             while(resultado.next()){
-                house = new Casa(resultado.getInt(1), resultado.getString(2), resultado.getInt(3), resultado.getString(4), resultado.getString(5), resultado.getString(6), LocalDate.of(resultado.getDate(7).getYear(), resultado.getDate(7).getMonth(), resultado.getDate(7).getDay()), LocalDate.of(resultado.getDate(8).getYear(), resultado.getDate(8).getMonth(), resultado.getDate(8).getDay()), resultado.getInt(9), resultado.getInt(10), resultado.getDouble(11), resultado.getString(12));
+                house = new Casa(resultado.getInt(1), resultado.getString(2), resultado.getInt(3), resultado.getString(4), resultado.getString(5), resultado.getString(6), resultado.getDate(7).toLocalDate(), resultado.getDate(8).toLocalDate(), resultado.getInt(9), resultado.getInt(10), resultado.getDouble(11), resultado.getString(12));
             }
             
             desconectarBD();
@@ -82,7 +82,7 @@ public final class CasaDAO extends DAO {
             callStoredProcedureR(sql);
             
             while(resultado.next()){
-                house = new Casa(resultado.getInt(1), resultado.getString(2), resultado.getInt(3), resultado.getString(4), resultado.getString(5), resultado.getString(6), LocalDate.of(resultado.getDate(7).getYear(), resultado.getDate(7).getMonth(), resultado.getDate(7).getDay()), LocalDate.of(resultado.getDate(8).getYear(), resultado.getDate(8).getMonth(), resultado.getDate(8).getDay()), resultado.getInt(9), resultado.getInt(10), resultado.getDouble(11), resultado.getString(12));
+                house = new Casa(resultado.getInt(1), resultado.getString(2), resultado.getInt(3), resultado.getString(4), resultado.getString(5), resultado.getString(6), resultado.getDate(7).toLocalDate(), resultado.getDate(8).toLocalDate(), resultado.getInt(9), resultado.getInt(10), resultado.getDouble(11), resultado.getString(12));
                 comment = new Comentario(null, null, resultado.getString(13));
                 listaDeObjetos.add(house);
                 listaDeObjetos.add(comment);
@@ -130,6 +130,43 @@ public final class CasaDAO extends DAO {
             
             desconectarBD();
             return listaPrecios;
+        } catch (Exception e) {
+            desconectarBD();
+            throw e;
+        }
+    }
+    
+    public Collection <Casa> consultarCasasDisponiblesDesdeFechaMasDias(LocalDate fecha_desde, Integer dias) throws Exception{
+        try{
+            String sql = "CALL casa_disponible_desde_fecha_mas_dias('" + fecha_desde.toString() + "', " + dias + ")";
+            
+            ArrayList <Casa> listaDeCasas = new ArrayList<>();
+            
+            callStoredProcedureR(sql);
+            
+            while(resultado.next()){
+                listaDeCasas.add(new Casa(resultado.getInt(1), resultado.getString(2), resultado.getInt(3), resultado.getString(4), resultado.getString(5), resultado.getString(6), resultado.getDate(7).toLocalDate(), resultado.getDate(8).toLocalDate(), resultado.getInt(9), resultado.getInt(10), resultado.getDouble(11), resultado.getString(12)));
+            }
+            
+            desconectarBD();
+            return listaDeCasas;
+        }catch(Exception e){
+            throw e;
+        }
+    }
+    
+    public Collection <Casa> consultarCasasEntreFechas (LocalDate fecha_desde, LocalDate fecha_hasta) throws Exception{
+        try {
+            String sql = "CALL casas_disponibles_en_intervalo_fechas('"+ fecha_desde.toString() + "', '" + fecha_hasta.toString() +"');";
+            ArrayList <Casa> listaDeCasas = new ArrayList<>();
+            callStoredProcedureR(sql);
+            
+            while(resultado.next()){
+                listaDeCasas.add(new Casa(resultado.getInt(1), resultado.getString(2), resultado.getInt(3), resultado.getString(4), resultado.getString(5), resultado.getString(6), resultado.getDate(7).toLocalDate(), resultado.getDate(8).toLocalDate(), resultado.getInt(9), resultado.getInt(10), resultado.getDouble(11), resultado.getString(12)));
+            }
+            
+            desconectarBD();
+            return listaDeCasas;
         } catch (Exception e) {
             desconectarBD();
             throw e;

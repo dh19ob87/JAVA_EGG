@@ -7,6 +7,7 @@ package g14ex1;
 import g14ex1.Servicio.CasaServicio;
 import g14ex1.Servicio.ClienteServicio;
 import g14ex1.Servicio.EstanciaServicio;
+import g14ex1.Servicio.FamilisaServicio;
 
 /**
  *
@@ -22,7 +23,7 @@ public class G14EX1 {
         ClienteServicio servicioCliente = new ClienteServicio();
         EstanciaServicio servicioEstancia = new EstanciaServicio();
         CasaServicio servicioCasa = new CasaServicio();
-
+        FamilisaServicio servicioFamilia = new FamilisaServicio();
         try {
             System.out.println("""
                                Consultas cliente
@@ -81,6 +82,38 @@ public class G14EX1 {
                                """);
             
             servicioCasa.listarPreciosActualizados();
+            
+            System.out.println("""
+                               
+                               Consulta la BD para que te devuelva aquellas casas disponibles a partir de una fecha dada y un número de días específico.
+                               
+                               """);
+            
+            servicioCasa.listarCasasDisponiblesDesdeFechaMasDias();
+            
+            System.out.println("""
+                               
+                               Buscar y listar las casas disponibles para el periodo comprendido entre el 1 de agosto de 2020 y el 31 de agosto de 2020 en Reino Unido.
+                               
+                               """);
+            
+            servicioCasa.listarCasasDisponiblesEntreFechas();
+            
+            System.out.println("""
+                               
+                               Listar aquellas familias que tienen al menos 3 hijos, y con edad máxima inferior a 10 años.
+                               
+                               """);
+            
+            servicioFamilia.listarFamiliasConMenosDeTresHijosMenoresDeDiezAnios();
+            
+            System.out.println("""
+                               
+                               Encuentra todas aquellas familias cuya dirección de mail sea de Hotmail
+                               
+                               """);
+            
+            servicioFamilia.listarFamiliasConEmailHotmail();
         } catch (Exception e) {
             e.printStackTrace();
         }

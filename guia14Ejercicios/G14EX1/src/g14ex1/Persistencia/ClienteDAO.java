@@ -95,8 +95,8 @@ public final class ClienteDAO extends DAO {
             
             while(resultado.next()){
                 client = new Cliente(resultado.getInt(1), resultado.getString(2), resultado.getString(3), resultado.getInt(4), resultado.getString(5), resultado.getString(6), resultado.getString(7), resultado.getString(8));
-                stay = new Estancia(resultado.getInt(9), resultado.getInt(10), resultado.getInt(11), resultado.getString(12), LocalDate.of(resultado.getDate(13).getYear(), resultado.getDate(13).getMonth(), resultado.getDate(13).getDay()), LocalDate.of(resultado.getDate(14).getYear(), resultado.getDate(14).getMonth(), resultado.getDate(14).getDay()));
-                house = new Casa(resultado.getInt(15), resultado.getString(16), resultado.getInt(17), resultado.getString(18), resultado.getString(19), resultado.getString(20), LocalDate.of(resultado.getDate(21).getYear(), resultado.getDate(21).getMonth(), resultado.getDate(21).getDay()), LocalDate.of(resultado.getDate(22).getYear(), resultado.getDate(22).getMonth(), resultado.getDate(22).getDay()), resultado.getInt(23), resultado.getInt(24), resultado.getDouble(25), resultado.getString(26));
+                stay = new Estancia(resultado.getInt(9), resultado.getInt(10), resultado.getInt(11), resultado.getString(12), resultado.getDate(13).toLocalDate(), resultado.getDate(14).toLocalDate());
+                house = new Casa(resultado.getInt(15), resultado.getString(16), resultado.getInt(17), resultado.getString(18), resultado.getString(19), resultado.getString(20), resultado.getDate(21).toLocalDate(), resultado.getDate(22).toLocalDate(), resultado.getInt(23), resultado.getInt(24), resultado.getDouble(25), resultado.getString(26));
                 listaClienteEstaciaCasa.add(client);
                 listaClienteEstaciaCasa.add(stay);
                 listaClienteEstaciaCasa.add(house);
