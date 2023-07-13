@@ -83,4 +83,12 @@ public class CasaServicio {
             throw e;
         }
     }
+    
+    public Boolean hayCasasDisponibles(LocalDate fecha_desde, LocalDate fecha_hasta) throws Exception{
+        try {
+            return daoCasa.consultarCasasEntreFechas(fecha_desde, fecha_hasta).isEmpty();
+        } catch (Exception e) {
+            throw e;
+        }
+    }
 }

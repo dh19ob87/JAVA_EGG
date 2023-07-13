@@ -25,6 +25,17 @@ public class G14EX1 {
         CasaServicio servicioCasa = new CasaServicio();
         FamilisaServicio servicioFamilia = new FamilisaServicio();
         try {
+            
+            System.out.println("""
+                               
+                               
+                               
+                               ¡ME DA PEREZA HACER EL MENU!
+                               PRIMERO QUE LO ESENCIAL FUNCIONE, LUEGO LA APARIENCIA
+                               
+                               
+                               """);
+            
             System.out.println("""
                                Consultas cliente
                                
@@ -57,6 +68,12 @@ public class G14EX1 {
                                """);
             
             servicioEstancia.consultarHistorialEstanciasPorCliente();
+            
+            System.out.println("""
+                               Insertar nuevos datos en la tabla estancias verificando la disponibilidad de las fechas
+                               """);
+            
+            servicioEstancia.insertarEstancia();
             
             System.out.println("""
                                 Consultas casas
@@ -100,6 +117,8 @@ public class G14EX1 {
             servicioCasa.listarCasasDisponiblesEntreFechas();
             
             System.out.println("""
+                               
+                               Consultas Familias
                                
                                Listar aquellas familias que tienen al menos 3 hijos, y con edad máxima inferior a 10 años.
                                

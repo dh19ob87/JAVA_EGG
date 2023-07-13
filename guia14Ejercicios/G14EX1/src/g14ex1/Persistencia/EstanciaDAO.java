@@ -44,8 +44,8 @@ public final class EstanciaDAO extends DAO {
                 throw new Exception("La casa no existe.");
             }
             
-            if(){
-            
+            if(casaServicio.hayCasasDisponibles(stay.getFechaDesde(), stay.getFechaHasta())){
+                throw new Exception("No hay casas disponibles en esas fechas.");
             }
             
             StringBuilder sql = new StringBuilder();
