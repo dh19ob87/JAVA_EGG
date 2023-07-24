@@ -19,7 +19,10 @@ public class Testjpa {
         // TODO code application logic here
         AutorServicio servicioAutor = new AutorServicio();
         try {
-            servicioAutor.crearAutor();
+//            servicioAutor.crearAutor();
+            servicioAutor.buscarAutorPorNombreCQ();
+            System.out.println("---------------------");
+            servicioAutor.buscarAutorPorNombre();
         } catch (Exception e) {
             throw e;
         }

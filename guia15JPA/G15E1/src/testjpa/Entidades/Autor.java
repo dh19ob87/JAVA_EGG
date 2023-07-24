@@ -21,6 +21,23 @@ import jakarta.persistence.Table;
 public class Autor implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+//    Funciona para generar un incremento en el identificador de 1 en 1. Y no de 50 en 50.
+//    @TableGenerator(
+//            name = "yourTableGenerator"
+//    allocationSize  = 1,
+//            initialValue = 1
+//    )
+//    @Id
+//    @GeneratedValue(
+//            strategy = GenerationType.TABLE,
+//            generator = "yourTableGenerator")
+//    No lo he probado
+//    @SequenceGenerator(name = "yourSequenceGenerator", allocationSize = 1)
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+//            generator = "yourSequenceGenerator")
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;

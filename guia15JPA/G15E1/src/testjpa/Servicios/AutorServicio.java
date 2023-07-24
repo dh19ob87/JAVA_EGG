@@ -38,4 +38,63 @@ public class AutorServicio {
             throw e;
         }
     }
+    
+//    public void editarAutor () throws Exception {
+//        try {
+//            
+//        } catch (Exception e) {
+//            throw e;
+//        }
+//    }
+    
+    public void listarTodosLosAutores () throws Exception{
+        try {
+            System.out.println("---------- Lista de autores ------------");
+            daoAutor.consultarTodosLosAutores().forEach(System.out::println);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+    
+    public void buscarAutorPorNombre() throws Exception {
+        try {
+            System.out.println("Por favor ingrese el nombre del autor");
+            Autor author = daoAutor.buscarAutorPorNombre(INPUT.next());
+            if(author == null){
+                System.out.println("El autor no existe.");
+            }
+            System.out.println(author);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+    
+    public void buscarAutorPorNombreCQ() throws Exception {
+        try {
+            System.out.println("Por favor ingrese el nombre del autor");
+            Autor author = daoAutor.buscarAutorPorNombreCQ(INPUT.next());
+            if(author == null){
+                System.out.println("El autor no existe.");
+            }
+            System.out.println(author);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+    
+    public void darDeBajaAutor () throws Exception{
+        try {
+            System.out.println("Por favor ingrese el id del autor que va a dar de baja");
+            Autor author = daoAutor.buscarAutorPorId(INPUT.nextInt());
+            
+            if(author == null){
+                throw new Exception("El autor no existe.");
+            }
+            
+            author.setAlta(Boolean.FALSE);
+            daoAutor.editar(author);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
 }

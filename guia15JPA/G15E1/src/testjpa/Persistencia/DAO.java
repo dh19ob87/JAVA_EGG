@@ -8,6 +8,10 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.RollbackException;
+import jakarta.persistence.Query;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Root;
 import jakarta.persistence.TransactionRequiredException;
 import jakarta.persistence.EntityExistsException;
 
@@ -20,6 +24,10 @@ public abstract class DAO <T> {
     
     protected final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("testjpaPU");
     protected EntityManager entityManager = entityManagerFactory.createEntityManager();
+    protected final CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+    protected CriteriaQuery <T> criteriaQuery;
+    protected Root <T> root;
+    protected Query query;
     
     protected void conectarBD() throws Exception{
         try {
