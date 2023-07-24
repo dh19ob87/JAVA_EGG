@@ -4,8 +4,6 @@
  */
 package testjpa;
 
-import testjpa.Servicios.AutorServicio;
-
 /**
  *
  * @author diego
@@ -17,14 +15,7 @@ public class Testjpa {
      */
     public static void main(String[] args) throws Exception{
         // TODO code application logic here
-        AutorServicio servicioAutor = new AutorServicio();
-        try {
-//            servicioAutor.crearAutor();
-            servicioAutor.buscarAutorPorNombreCQ();
-            System.out.println("---------------------");
-            servicioAutor.buscarAutorPorNombre();
-        } catch (Exception e) {
-            throw e;
-        }
+        Menu menu = new Menu();
+        menu.menuOpciones();
     }
 }

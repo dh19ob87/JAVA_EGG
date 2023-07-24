@@ -39,6 +39,15 @@ public class AutorServicio {
         }
     }
     
+    public Autor crearAutor (String nombre) throws Exception{
+        try {
+            daoAutor.guardar(new Autor(0, nombre, Boolean.TRUE));
+            return buscarAutorPorNombre(nombre);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+    
 //    public void editarAutor () throws Exception {
 //        try {
 //            
@@ -61,9 +70,18 @@ public class AutorServicio {
             System.out.println("Por favor ingrese el nombre del autor");
             Autor author = daoAutor.buscarAutorPorNombre(INPUT.next());
             if(author == null){
-                System.out.println("El autor no existe.");
+                throw new Exception("El autor no existe");
             }
             System.out.println(author);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+    
+    public Autor buscarAutorPorNombre(String nombre) throws Exception {
+        try {
+            Autor author = daoAutor.buscarAutorPorNombre(nombre);
+            return author;
         } catch (Exception e) {
             throw e;
         }
@@ -73,9 +91,6 @@ public class AutorServicio {
         try {
             System.out.println("Por favor ingrese el nombre del autor");
             Autor author = daoAutor.buscarAutorPorNombreCQ(INPUT.next());
-            if(author == null){
-                System.out.println("El autor no existe.");
-            }
             System.out.println(author);
         } catch (Exception e) {
             throw e;
@@ -86,13 +101,18 @@ public class AutorServicio {
         try {
             System.out.println("Por favor ingrese el id del autor que va a dar de baja");
             Autor author = daoAutor.buscarAutorPorId(INPUT.nextInt());
-            
-            if(author == null){
-                throw new Exception("El autor no existe.");
-            }
-            
             author.setAlta(Boolean.FALSE);
             daoAutor.editar(author);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+    
+    public Autor buscarAutorPorId () throws Exception {
+        try {
+            System.out.println("Por favor ingrese el id del autor");
+            Autor author = daoAutor.buscarAutorPorId(INPUT.nextInt());            
+            return author;
         } catch (Exception e) {
             throw e;
         }

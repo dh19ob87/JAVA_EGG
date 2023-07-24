@@ -8,6 +8,7 @@ import testjpa.Entidades.Editorial;
 import testjpa.Persistencia.EditorialDao;
 import java.util.Locale;
 import java.util.Scanner;
+import java.util.Collection;
 
 /**
  *
@@ -38,6 +39,15 @@ public class EditorialServicio {
         }
     }
     
+    public Editorial crearEditor (String nombre) throws Exception{
+        try {
+            daoEditorial.guardar(new Editorial(0, nombre, Boolean.TRUE));
+            return buscarEditorialPorNombre(nombre);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+    
     public void eliminarEditor () throws Exception {
         try {
             System.out.println("Por favor ingrese el id de la editorial");
@@ -59,13 +69,51 @@ public class EditorialServicio {
         try {
             Editorial editor = daoEditorial.buscarEditorialPorId(INPUT.nextInt());
             System.out.println("Por favor ingrese el id de la editorial.");
-            
-            if(editor == null){
-                throw new Exception("La editorial no existe");
-            }
-            
             editor.setAlta(Boolean.FALSE);
             daoEditorial.editar(editor);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+    
+    public Editorial buscarEditorialPorId () throws Exception {
+        try {
+            System.out.println("Por favor ingrese el id de la editorial");
+            Editorial editor = daoEditorial.buscarEditorialPorId(INPUT.nextInt());
+            if (editor == null){
+                throw new Exception("La editorial no existe");
+            }
+            return editor;
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+    
+    public Editorial buscarEditorialPorId (Integer id) throws Exception {
+        try {
+            Editorial editor = daoEditorial.buscarEditorialPorId(id);
+            return editor;
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+    
+    public Editorial buscarEditorialPorNombre (String nombre) throws Exception{
+        try {
+            Editorial editor = daoEditorial.buscarEditorialPorNombre(nombre);
+            return editor;
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+    
+    public void listarTodasLasEditoriales () throws Exception {
+        try {
+            Collection <Editorial> listaEditores = daoEditorial.consultarTodasLasEditorialesCQ();
+            if (listaEditores.isEmpty()){
+                throw new Exception("No hay editores registrados");
+            }
+            listaEditores.forEach(System.out::println);
         } catch (Exception e) {
             throw e;
         }

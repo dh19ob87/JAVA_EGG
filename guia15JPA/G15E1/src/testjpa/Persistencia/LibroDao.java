@@ -4,6 +4,7 @@
  */
 package testjpa.Persistencia;
 
+import jakarta.persistence.NoResultException;
 import testjpa.Entidades.Libro;
 import java.util.Collection;
 
@@ -60,7 +61,7 @@ public class LibroDao extends DAO <Libro>{
         }
     }
     
-    public Libro buscarLibroPorTituloCQ (String title) throws Exception {
+    public Libro buscarLibroPorTituloCQ (String title) throws NoResultException, Exception {
         try {
             conectarBD();
             criteriaQuery = criteriaBuilder.createQuery(Libro.class);
@@ -69,6 +70,8 @@ public class LibroDao extends DAO <Libro>{
             query = entityManager.createQuery(criteriaQuery);
             
             return (Libro) query.getSingleResult();
+        } catch (NoResultException e){
+            throw new Exception("El libro no existe");
         } catch (Exception e) {
             throw e;
         } finally {
@@ -76,10 +79,37 @@ public class LibroDao extends DAO <Libro>{
         }
     }
     
-    public Collection <Libro> buscarLibrosPorAutor (String author) throws Exception {
+    public Collection <Libro> buscarLibrosPorNombreAutor (String author) throws Exception {
         try {
             conectarBD();
             return entityManager.createQuery("SELECT l FROM Libro l WHERE l.autor.nombre = :autor").setParameter("autor", author).getResultList();
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            desconectarBD();
+        }
+    }
+    
+    public Collection <Libro> buscarLibrosPorNombreEditorial (String editorial) throws Exception {
+            try {
+                conectarBD();
+                criteriaQuery = criteriaBuilder.createQuery(Libro.class);
+                root = criteriaQuery.from(Libro.class);
+                criteriaQuery.select(root).where(criteriaBuilder.equal(root.get("editorial").get("nombre"), editorial));
+                query = entityManager.createQuery(criteriaQuery);
+                
+                return query.getResultList();
+            } catch (Exception e) {
+                throw e;
+            } finally {
+                desconectarBD();
+            }
+    }
+    
+    public Collection <Libro> consultarTodosLosLibros () throws Exception {
+        try {
+            conectarBD();
+            return entityManager.createQuery("SELECT l FROM Libro l").getResultList();
         } catch (Exception e) {
             throw e;
         } finally {

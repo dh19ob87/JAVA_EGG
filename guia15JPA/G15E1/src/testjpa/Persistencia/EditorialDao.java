@@ -61,6 +61,19 @@ public class EditorialDao extends DAO <Editorial>{
         }
     }
     
+    public Editorial buscarEditorialPorNombre (String nombre) throws IllegalArgumentException, Exception{
+        try {
+            conectarBD();
+            return (Editorial) entityManager.createQuery("SELECT e FROM Editorial e WHERE e.nombre = :nombre").setParameter("nombre", nombre).getSingleResult();
+        } catch(IllegalArgumentException e){
+            throw e;
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            desconectarBD();
+        }
+    }
+    
     public List <Editorial> consultarTodasLasEditorialesCQ () throws Exception{
         try {
             conectarBD();
