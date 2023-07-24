@@ -4,6 +4,7 @@
  */
 package testjpa.Persistencia;
 
+import jakarta.persistence.NoResultException;
 import testjpa.Entidades.Editorial;
 import java.util.List;
 /**
@@ -61,12 +62,14 @@ public class EditorialDao extends DAO <Editorial>{
         }
     }
     
-    public Editorial buscarEditorialPorNombre (String nombre) throws IllegalArgumentException, Exception{
+    public Editorial buscarEditorialPorNombre (String nombre) throws IllegalArgumentException, NoResultException, Exception{
         try {
             conectarBD();
             return (Editorial) entityManager.createQuery("SELECT e FROM Editorial e WHERE e.nombre = :nombre").setParameter("nombre", nombre).getSingleResult();
         } catch(IllegalArgumentException e){
             throw e;
+        } catch (NoResultException e){
+            throw new Exception("La editorial no existe");
         } catch (Exception e) {
             throw e;
         } finally {

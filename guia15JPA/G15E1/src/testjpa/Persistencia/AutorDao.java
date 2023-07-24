@@ -4,6 +4,7 @@
  */
 package testjpa.Persistencia;
 
+import jakarta.persistence.NoResultException;
 import java.util.List;
 import testjpa.Entidades.Autor;
 
@@ -84,7 +85,7 @@ public final class AutorDao extends DAO <Autor> {
         }
     }
 
-    public Autor buscarAutorPorNombreCQ(String nombre) throws Exception {
+    public Autor buscarAutorPorNombreCQ(String nombre) throws NoResultException, Exception {
         try {
             conectarBD();
             criteriaQuery = criteriaBuilder.createQuery(Autor.class); // importante, no olvides que este proviene del Criteria Builder
@@ -93,7 +94,9 @@ public final class AutorDao extends DAO <Autor> {
 
             query = entityManager.createQuery(criteriaQuery); // En lugar de pasar el String de la query envío la instancia CriteriaQuery
             return (Autor) query.getSingleResult();
-        } catch (Exception e) {
+        } catch (NoResultException e){
+            throw new Exception("El autor no existe");
+        }catch (Exception e) {
             throw e;
         } finally {
             desconectarBD();
