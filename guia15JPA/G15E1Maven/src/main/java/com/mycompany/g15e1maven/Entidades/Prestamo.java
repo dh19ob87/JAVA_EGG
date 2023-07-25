@@ -4,7 +4,6 @@
  */
 package com.mycompany.g15e1maven.Entidades;
 
-import jakarta.persistence.Column;
 import java.io.Serializable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,11 +11,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
+//import jakarta.persistence.Temporal;
+//import jakarta.persistence.TemporalType;
 import java.util.List;
-import java.time.LocalDate;
 import java.util.Objects;
+import java.util.UUID;
+import java.time.LocalDate;
 
 /**
  *
@@ -28,14 +28,12 @@ public class Prestamo implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private String uuid;
-    @Column(unique = true, nullable = false)
-    private Integer id;
-    @Temporal(TemporalType.DATE)
+    private UUID uuid;
+//    @Temporal(TemporalType.DATE) // Nota importante: En la nueva especificación de JPA no es necesaria la anotación @Temporal() porque es específica para el tipo de dato DATE. Entonces se puede colocar directamente LocalDate y en la BD se mapea como date, correspondientemente.
     private LocalDate fechaPrestamo;
-    @Temporal(TemporalType.DATE)
+//    @Temporal(TemporalType.DATE)
     private LocalDate fechaDevolucion;
-    @ManyToOne
+    @ManyToOne(targetEntity = Libro.class)
     private List <Libro> libro;
     @OneToOne
     private Cliente cliente;
@@ -43,29 +41,19 @@ public class Prestamo implements Serializable {
     public Prestamo() {
     }
 
-    public Prestamo(String uuid, Integer id, LocalDate fechaPrestamo, LocalDate fechaDevolucion, List<Libro> libro, Cliente cliente) {
-        this.uuid = uuid;
-        this.id = id;
+    public Prestamo(LocalDate fechaPrestamo, LocalDate fechaDevolucion, List<Libro> libro, Cliente cliente) {
         this.fechaPrestamo = fechaPrestamo;
         this.fechaDevolucion = fechaDevolucion;
         this.libro = libro;
         this.cliente = cliente;
     }
 
-    public String getUuid() {
+    public UUID getUuid() {
         return uuid;
     }
 
-    public void setUuid(String uuid) {
+    public void setUuid(UUID uuid) {
         this.uuid = uuid;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public LocalDate getFechaPrestamo() {
@@ -102,9 +90,8 @@ public class Prestamo implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 5;
+        int hash = 3;
         hash = 73 * hash + Objects.hashCode(this.uuid);
-        hash = 73 * hash + Objects.hashCode(this.id);
         hash = 73 * hash + Objects.hashCode(this.fechaPrestamo);
         hash = 73 * hash + Objects.hashCode(this.fechaDevolucion);
         hash = 73 * hash + Objects.hashCode(this.libro);
@@ -127,9 +114,6 @@ public class Prestamo implements Serializable {
         if (!Objects.equals(this.uuid, other.uuid)) {
             return false;
         }
-        if (!Objects.equals(this.id, other.id)) {
-            return false;
-        }
         if (!Objects.equals(this.fechaPrestamo, other.fechaPrestamo)) {
             return false;
         }
@@ -147,7 +131,6 @@ public class Prestamo implements Serializable {
         StringBuilder sb = new StringBuilder();
         sb.append("Prestamo{");
         sb.append("uuid=").append(uuid);
-        sb.append(", id=").append(id);
         sb.append(", fechaPrestamo=").append(fechaPrestamo);
         sb.append(", fechaDevolucion=").append(fechaDevolucion);
         sb.append(", libro=").append(libro);

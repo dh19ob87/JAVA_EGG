@@ -13,6 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
 /**
  *
@@ -24,7 +25,7 @@ public class Libro implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private String uuid;
+    private UUID uuid;
     @Column(nullable = false, unique = true)
     private Long isbn;
     @Column(unique = true)
@@ -33,16 +34,15 @@ public class Libro implements Serializable {
     private Integer ejemplares;
     private Integer ejemplaresPrestados;
     private Integer ejemplaresRestantes;
-    @ManyToOne
+    @ManyToOne(targetEntity = Autor.class)
     private List <Autor> autor;
-    @ManyToOne
+    @ManyToOne(targetEntity = Editorial.class)
     private List <Editorial> editorial;
 
     public Libro() {
     }
-    
-    public Libro(String uuid, Long isbn, String titulo, Integer anio, Integer ejemplares, Integer ejemplaresPrestados, Integer ejemplaresRestantes, List<Autor> autor, List<Editorial> editorial) {
-        this.uuid = uuid;
+
+    public Libro(Long isbn, String titulo, Integer anio, Integer ejemplares, Integer ejemplaresPrestados, Integer ejemplaresRestantes, List<Autor> autor, List<Editorial> editorial) {
         this.isbn = isbn;
         this.titulo = titulo;
         this.anio = anio;
@@ -53,11 +53,11 @@ public class Libro implements Serializable {
         this.editorial = editorial;
     }
 
-    public String getId() {
+    public UUID getUuid() {
         return uuid;
     }
 
-    public void setId(String uuid) {
+    public void setUuid(UUID uuid) {
         this.uuid = uuid;
     }
 
@@ -152,10 +152,10 @@ public class Libro implements Serializable {
             return false;
         }
         final Libro other = (Libro) obj;
-        if (!Objects.equals(this.uuid, other.uuid)) {
+        if (!Objects.equals(this.titulo, other.titulo)) {
             return false;
         }
-        if (!Objects.equals(this.titulo, other.titulo)) {
+        if (!Objects.equals(this.uuid, other.uuid)) {
             return false;
         }
         if (!Objects.equals(this.isbn, other.isbn)) {

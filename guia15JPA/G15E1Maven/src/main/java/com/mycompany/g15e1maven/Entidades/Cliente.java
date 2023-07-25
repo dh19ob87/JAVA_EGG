@@ -11,6 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import java.util.Objects;
+import java.util.UUID;
 
 /**
  *
@@ -22,7 +23,7 @@ public class Cliente implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private String uuid;
+    private UUID uuid;
     @Column(unique = true, nullable = false)
     private Integer id;
     @Column(unique = true, nullable = false)
@@ -40,6 +41,14 @@ public class Cliente implements Serializable {
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
+    }
+
+    public UUID getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(UUID uuid) {
+        this.uuid = uuid;
     }
 
     public Integer getId() {
@@ -84,12 +93,13 @@ public class Cliente implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 19 * hash + Objects.hashCode(this.id);
-        hash = 19 * hash + Objects.hashCode(this.documento);
-        hash = 19 * hash + Objects.hashCode(this.nombre);
-        hash = 19 * hash + Objects.hashCode(this.apellido);
-        hash = 19 * hash + Objects.hashCode(this.telefono);
+        int hash = 5;
+        hash = 29 * hash + Objects.hashCode(this.uuid);
+        hash = 29 * hash + Objects.hashCode(this.id);
+        hash = 29 * hash + Objects.hashCode(this.documento);
+        hash = 29 * hash + Objects.hashCode(this.nombre);
+        hash = 29 * hash + Objects.hashCode(this.apellido);
+        hash = 29 * hash + Objects.hashCode(this.telefono);
         return hash;
     }
 
@@ -114,6 +124,9 @@ public class Cliente implements Serializable {
         if (!Objects.equals(this.telefono, other.telefono)) {
             return false;
         }
+        if (!Objects.equals(this.uuid, other.uuid)) {
+            return false;
+        }
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
@@ -124,7 +137,8 @@ public class Cliente implements Serializable {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Cliente{");
-        sb.append("id=").append(id);
+        sb.append("uuid=").append(uuid);
+        sb.append(", id=").append(id);
         sb.append(", documento=").append(documento);
         sb.append(", nombre=").append(nombre);
         sb.append(", apellido=").append(apellido);

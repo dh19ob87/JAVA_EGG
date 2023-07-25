@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence xmlns="https://jakarta.ee/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.0" xsi:schemalocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
+<persistence version="3.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemalocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
   <persistence-unit name="com.mycompany_G15E1Maven_jar_1.0-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>com.mycompany.g15e1maven.Entidades.Autor</class>
@@ -13,6 +13,11 @@
       <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
       <property name="jakarta.persistence.jdbc.password" value="Clothing4_Mush_Earthly5_Unstuffed7_dilate_Swivel0_Ziti3_unhinge_Dork"/>
       <property name="jakarta.persistence.schema-generation.database.action" value="create"/>
+      <property name="eclipselink.jdbc.url" value="jdbc:mysql://localhost:3306/libreriaii?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
+      <property name="eclipselink.jdbc.user" value="dh19ob87"/>
+      <property name="eclipselink.jdbc.password" value="Clothing4_Mush_Earthly5_Unstuffed7_dilate_Swivel0_Ziti3_unhinge_Dork"/>
+      <property name="eclipselink.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
     </properties>
   </persistence-unit>
 </persistence>

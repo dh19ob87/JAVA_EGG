@@ -12,6 +12,19 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.util.UUID;
+
+
+//    Funciona para generar un incremento en el identificador de 1 en 1. Y no de 50 en 50.
+//    @TableGenerator(
+//            name = "yourTableGenerator"
+//    allocationSize  = 1,
+//            initialValue = 1
+//    )
+//    @Id
+//    @GeneratedValue(
+//            strategy = GenerationType.TABLE,
+//            generator = "yourTableGenerator")
 
 /**
  *
@@ -23,19 +36,27 @@ public class Autor implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private String uuid;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID uuid;
     @Column(unique = true, nullable = false)
     private Integer id;
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
     private String nombre;
 
     public Autor() {
     }
 
-    public Autor(Integer id, String nombre, Boolean alta) {
+    public Autor(Integer id, String nombre) {
         this.id = id;
         this.nombre = nombre;
+    }
+
+    public UUID getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(UUID uuid) {
+        this.uuid = uuid;
     }
 
     public Integer getId() {
@@ -56,10 +77,10 @@ public class Autor implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 59 * hash + Objects.hashCode(this.uuid);
-        hash = 59 * hash + Objects.hashCode(this.id);
-        hash = 59 * hash + Objects.hashCode(this.nombre);
+        int hash = 7;
+        hash = 29 * hash + Objects.hashCode(this.uuid);
+        hash = 29 * hash + Objects.hashCode(this.id);
+        hash = 29 * hash + Objects.hashCode(this.nombre);
         return hash;
     }
 
@@ -75,10 +96,10 @@ public class Autor implements Serializable {
             return false;
         }
         final Autor other = (Autor) obj;
-        if (!Objects.equals(this.uuid, other.uuid)) {
+        if (!Objects.equals(this.nombre, other.nombre)) {
             return false;
         }
-        if (!Objects.equals(this.nombre, other.nombre)) {
+        if (!Objects.equals(this.uuid, other.uuid)) {
             return false;
         }
         return Objects.equals(this.id, other.id);

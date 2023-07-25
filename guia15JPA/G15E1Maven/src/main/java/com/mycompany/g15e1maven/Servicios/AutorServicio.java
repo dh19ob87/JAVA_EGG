@@ -32,8 +32,8 @@ public class AutorServicio {
     
     public void crearAutor () throws Exception{
         try {
-            System.out.println("Por favor ingrese el nombre del autor.");
-            Autor author = new Autor
+            System.out.println("Por favor ingrese el número de identificación del autor, se  nombre del autor.");
+            Autor author = new Autor(INPUT.nextInt(), INPUT.next());
             daoAutor.guardar(author);
         } catch (Exception e) {
             throw e;

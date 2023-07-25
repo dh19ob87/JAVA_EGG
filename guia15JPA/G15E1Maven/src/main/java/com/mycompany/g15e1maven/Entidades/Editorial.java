@@ -11,6 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import java.util.Objects;
+import java.util.UUID;
 
 /**
  *
@@ -22,7 +23,7 @@ public class Editorial implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private String uuid;
+    private UUID uuid;
     @Column(unique = true, nullable = false)
     private Integer id;
     @Column(unique = true, nullable = false)
@@ -30,18 +31,17 @@ public class Editorial implements Serializable {
 
     public Editorial() {
     }
-    
-    public Editorial(String uuid, Integer id, String nombre) {
-        this.uuid = uuid;
+
+    public Editorial(Integer id, String nombre) {
         this.id = id;
         this.nombre = nombre;
     }
 
-    public String getUuid() {
+    public UUID getUuid() {
         return uuid;
     }
 
-    public void setUuid(String uuid) {
+    public void setUuid(UUID uuid) {
         this.uuid = uuid;
     }
 
@@ -63,10 +63,10 @@ public class Editorial implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 41 * hash + Objects.hashCode(this.uuid);
-        hash = 41 * hash + Objects.hashCode(this.id);
-        hash = 41 * hash + Objects.hashCode(this.nombre);
+        int hash = 5;
+        hash = 59 * hash + Objects.hashCode(this.uuid);
+        hash = 59 * hash + Objects.hashCode(this.id);
+        hash = 59 * hash + Objects.hashCode(this.nombre);
         return hash;
     }
 
@@ -82,10 +82,10 @@ public class Editorial implements Serializable {
             return false;
         }
         final Editorial other = (Editorial) obj;
-        if (!Objects.equals(this.uuid, other.uuid)) {
+        if (!Objects.equals(this.nombre, other.nombre)) {
             return false;
         }
-        if (!Objects.equals(this.nombre, other.nombre)) {
+        if (!Objects.equals(this.uuid, other.uuid)) {
             return false;
         }
         return Objects.equals(this.id, other.id);
