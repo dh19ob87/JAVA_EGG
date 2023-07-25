@@ -33,7 +33,7 @@ public class AutorServicio {
     public void crearAutor () throws Exception{
         try {
             System.out.println("Por favor ingrese el nombre del autor.");
-            Autor author = new Autor(0, INPUT.next(), true);
+            Autor author = new Autor
             daoAutor.guardar(author);
         } catch (Exception e) {
             throw e;

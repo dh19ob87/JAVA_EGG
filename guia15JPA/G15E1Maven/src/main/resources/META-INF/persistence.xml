@@ -3,6 +3,10 @@
   <persistence-unit name="com.mycompany_G15E1Maven_jar_1.0-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>com.mycompany.g15e1maven.Entidades.Autor</class>
+    <class>com.mycompany.g15e1maven.Entidades.Libro</class>
+    <class>com.mycompany.g15e1maven.Entidades.Cliente</class>
+    <class>com.mycompany.g15e1maven.Entidades.Editorial</class>
+    <class>com.mycompany.g15e1maven.Entidades.Prestamo</class>
     <properties>
       <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/libreriaii?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
       <property name="jakarta.persistence.jdbc.user" value="dh19ob87"/>

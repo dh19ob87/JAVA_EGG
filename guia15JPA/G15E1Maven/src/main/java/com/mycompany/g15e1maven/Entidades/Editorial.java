@@ -6,36 +6,43 @@ package com.mycompany.g15e1maven.Entidades;
 
 import jakarta.persistence.Column;
 import java.io.Serializable;
-import java.util.Objects;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import java.util.Objects;
 
 /**
  *
  * @author diego
  */
 @Entity
-@Table(name = "Autor")
-public class Autor implements Serializable {
+public class Editorial implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String uuid;
     @Column(unique = true, nullable = false)
     private Integer id;
     @Column(unique = true, nullable = false)
     private String nombre;
 
-    public Autor() {
+    public Editorial() {
     }
-
-    public Autor(Integer id, String nombre, Boolean alta) {
+    
+    public Editorial(String uuid, Integer id, String nombre) {
+        this.uuid = uuid;
         this.id = id;
         this.nombre = nombre;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public Integer getId() {
@@ -56,10 +63,10 @@ public class Autor implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 59 * hash + Objects.hashCode(this.uuid);
-        hash = 59 * hash + Objects.hashCode(this.id);
-        hash = 59 * hash + Objects.hashCode(this.nombre);
+        int hash = 3;
+        hash = 41 * hash + Objects.hashCode(this.uuid);
+        hash = 41 * hash + Objects.hashCode(this.id);
+        hash = 41 * hash + Objects.hashCode(this.nombre);
         return hash;
     }
 
@@ -74,7 +81,7 @@ public class Autor implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Autor other = (Autor) obj;
+        final Editorial other = (Editorial) obj;
         if (!Objects.equals(this.uuid, other.uuid)) {
             return false;
         }
@@ -87,7 +94,7 @@ public class Autor implements Serializable {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Autor{");
+        sb.append("Editorial{");
         sb.append("uuid=").append(uuid);
         sb.append(", id=").append(id);
         sb.append(", nombre=").append(nombre);
