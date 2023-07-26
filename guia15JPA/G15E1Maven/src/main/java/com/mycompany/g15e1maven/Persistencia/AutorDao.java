@@ -5,7 +5,11 @@
 package com.mycompany.g15e1maven.Persistencia;
 
 import com.mycompany.g15e1maven.Entidades.Autor;
+import jakarta.persistence.EntityExistsException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
+import org.eclipse.persistence.exceptions.DatabaseException;
+import org.eclipse.persistence.exceptions.EclipseLinkException;
 
 
 /**
@@ -16,10 +20,14 @@ public final class AutorDao extends DAO <Autor>{
     
     
     @Override
-    public void guardar (Autor author) throws Exception {
+    public void guardar (Autor author) throws EclipseLinkException, DatabaseException, Exception {
         try {
             super.guardar(author);
-        } catch (Exception e) {
+        } catch (EntityExistsException e){
+            throw new Exception("El autor ya existe en la base de datos");
+        } catch (EclipseLinkException | SQLIntegrityConstraintViolationException e){
+            throw new Exception("El registro ya existe");
+        }  catch (Exception e) {
             throw e;
         }
     }

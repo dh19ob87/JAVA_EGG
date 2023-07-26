@@ -11,9 +11,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
-import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
+//import jakarta.persistence.JoinColumn;
 
 /**
  *
@@ -35,14 +35,16 @@ public class Libro implements Serializable {
     private Integer ejemplaresPrestados;
     private Integer ejemplaresRestantes;
     @ManyToOne(targetEntity = Autor.class)
-    private List <Autor> autor;
+//    @JoinColumn(name = "uuid1") // Importantísimo señalar que esta declaración nos permite indicar el nombre que le vamos a dar a nuestra llave foranea en la BD. Si no, EclipseLink se encarga de ponerle un nombre, para este caso pone: AUTOR_UUID
+    private Autor autor;
     @ManyToOne(targetEntity = Editorial.class)
-    private List <Editorial> editorial;
+//    @JoinColumn(name = "uuid2") // Importantísimo señalar que esta declaración nos permite indicar el nombre que le vamos a dar a nuestra llave foranea en la BD. Si no, EclipseLink se encarga de ponerle un nombre, para este caso pone: AUTOR_UUID
+    private Editorial editorial;
 
     public Libro() {
     }
 
-    public Libro(Long isbn, String titulo, Integer anio, Integer ejemplares, Integer ejemplaresPrestados, Integer ejemplaresRestantes, List<Autor> autor, List<Editorial> editorial) {
+    public Libro(Long isbn, String titulo, Integer anio, Integer ejemplares, Integer ejemplaresPrestados, Integer ejemplaresRestantes, Autor autor, Editorial editorial) {
         this.isbn = isbn;
         this.titulo = titulo;
         this.anio = anio;
@@ -109,19 +111,19 @@ public class Libro implements Serializable {
         this.ejemplaresRestantes = ejemplaresRestantes;
     }
 
-    public List<Autor> getAutor() {
+    public Autor getAutor() {
         return autor;
     }
 
-    public void setAutor(List<Autor> autor) {
+    public void setAutor(Autor autor) {
         this.autor = autor;
     }
 
-    public List<Editorial> getEditorial() {
+    public Editorial getEditorial() {
         return editorial;
     }
 
-    public void setEditorial(List<Editorial> editorial) {
+    public void setEditorial(Editorial editorial) {
         this.editorial = editorial;
     }
 

@@ -10,6 +10,8 @@ import jakarta.persistence.Persistence;
 import jakarta.persistence.RollbackException;
 import jakarta.persistence.TransactionRequiredException;
 import jakarta.persistence.EntityExistsException;
+import java.sql.SQLException;
+import org.eclipse.persistence.exceptions.EclipseLinkException;
 
 /**
  *
@@ -43,17 +45,21 @@ public abstract class DAO <T> {
         }
     }
     
-    protected void guardar (T objeto) throws IllegalStateException, TransactionRequiredException, EntityExistsException, Exception{
+    protected void guardar (T objeto) throws EclipseLinkException, IllegalStateException, TransactionRequiredException, EntityExistsException, Exception{
         try {
             conectarBD();
             entityManager.getTransaction().begin();
             entityManager.persist(objeto);
             entityManager.getTransaction().commit();
+        } catch(SQLException e){
+            throw new Exception("Llave única repetida123");
+        } catch (EclipseLinkException e){
+            throw new Exception("El registro ya existe");
         } catch (IllegalStateException | TransactionRequiredException | RollbackException  e) {
-            System.out.println(e.getMessage());
+            throw new Exception("No es posible realizar la operación. El autor ya existe en la BD. \n" + e.getLocalizedMessage());
         } catch (EntityExistsException e){
-            System.out.println("Tupla existente");
-            System.out.println(e.getMessage());
+            throw e;
+        } catch (Exception e){
             throw e;
         } finally{
             desconectarBD();

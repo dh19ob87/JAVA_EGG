@@ -9,6 +9,8 @@ import com.mycompany.g15e1maven.Persistencia.AutorDao;
 
 import java.util.Locale;
 import java.util.Scanner;
+import java.sql.SQLException;
+import org.eclipse.persistence.exceptions.EclipseLinkException;
 
 /**
  *
@@ -30,13 +32,17 @@ public class AutorServicio {
         this.servicioEditorial = servicioEditorial;
     }
     
-    public void crearAutor () throws Exception{
+    public void crearAutor (){
         try {
-            System.out.println("Por favor ingrese el número de identificación del autor, se  nombre del autor.");
+            System.out.println("Por favor ingrese el número de identificación del autor, seguido del nombre del autor.");
             Autor author = new Autor(INPUT.nextInt(), INPUT.next());
             daoAutor.guardar(author);
+        } catch(SQLException e){
+            System.out.println(e.getMessage());
+        }catch(EclipseLinkException e){
+            System.out.println(e.getMessage());
         } catch (Exception e) {
-            throw e;
+            System.out.println(e.getMessage());
         }
     }
 }

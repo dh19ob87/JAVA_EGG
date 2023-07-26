@@ -10,13 +10,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
-//import jakarta.persistence.Temporal;
-//import jakarta.persistence.TemporalType;
-import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 import java.time.LocalDate;
+//import jakarta.persistence.JoinColumn;
 
 /**
  *
@@ -34,14 +31,16 @@ public class Prestamo implements Serializable {
 //    @Temporal(TemporalType.DATE)
     private LocalDate fechaDevolucion;
     @ManyToOne(targetEntity = Libro.class)
-    private List <Libro> libro;
-    @OneToOne
+//    @JoinColumn(name = "uuid3") // Importantísimo señalar que esta declaración nos permite indicar el nombre que le vamos a dar a nuestra llave foranea en la BD. Si no, EclipseLink se encarga de ponerle un nombre, para este caso pone: AUTOR_UUID
+    private Libro libro;
+    @ManyToOne(targetEntity = Cliente.class)
+//    @JoinColumn(name = "uuid4") // Importantísimo señalar que esta declaración nos permite indicar el nombre que le vamos a dar a nuestra llave foranea en la BD. Si no, EclipseLink se encarga de ponerle un nombre, para este caso pone: AUTOR_UUID
     private Cliente cliente;
 
     public Prestamo() {
     }
 
-    public Prestamo(LocalDate fechaPrestamo, LocalDate fechaDevolucion, List<Libro> libro, Cliente cliente) {
+    public Prestamo(LocalDate fechaPrestamo, LocalDate fechaDevolucion, Libro libro, Cliente cliente) {
         this.fechaPrestamo = fechaPrestamo;
         this.fechaDevolucion = fechaDevolucion;
         this.libro = libro;
@@ -72,11 +71,11 @@ public class Prestamo implements Serializable {
         this.fechaDevolucion = fechaDevolucion;
     }
 
-    public List<Libro> getLibro() {
+    public Libro getLibro() {
         return libro;
     }
 
-    public void setLibro(List<Libro> libro) {
+    public void setLibro(Libro libro) {
         this.libro = libro;
     }
 
